@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Comet</title>
+  <title>webgl光照 | Comet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Cc的个人博客">
-<meta name="keywords" content="Cc comet">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Comet">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="keywords" content="webgl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webgl光照">
+<meta property="og:url" content="http://yoursite.com/2020/01/17/webgl光照/index.html">
 <meta property="og:site_name" content="Comet">
-<meta property="og:description" content="Cc的个人博客">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-01-17T15:37:43.705Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Comet">
-<meta name="twitter:description" content="Cc的个人博客">
+<meta name="twitter:title" content="webgl光照">
   
     <link rel="alternative" href="/atom.xml" title="Comet" type="application/atom+xml">
   
@@ -159,36 +157,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-webgl光照" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/18/矩阵变换库/" class="archive-article-date">
-  	<time datetime="2019-08-18T12:31:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/18/矩阵变换库/">矩阵变换</a>
+    <h1 class="article-title" itemprop="name">
+      webgl光照
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/01/17/webgl光照/" class="archive-article-date">
+  	<time datetime="2020-01-17T15:31:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<h1 id="webgl光照"><a href="#webgl光照" class="headerlink" title="webgl光照"></a>webgl光照</h1><h3 id="光照概念"><a href="#光照概念" class="headerlink" title="光照概念"></a>光照概念</h3><p>（1）平行光：类似自然中的太阳光，光线是相互平行的，平行光具有方向性。可以用一个方向和一个颜色来定义。</p>
+<p>（2）点光源光：从一个点向周围所有方向发出的光。需要制定点光源的位置和颜色。光线的方向将根据点光源的位置和被照射之处的位置计算出来。</p>
+<p>（3）环境光：环境光（间接光）是指那些经光源（点光源或平行光源）发出后，被墙壁等物体多长反射，然后照到物体表面上的光。只需要指定颜色即可。</p>
+<p>物体向哪个方向反射光，反射的光是什么颜色，取决于以下两个因素：入射光和物体表面的类型。<br>入射光的信息包括入射光的方向和颜色，而物体表面的信息包括表面的股友颜色（也称基底色）和反射特性。</p>
+<p>（1）漫反射：针对平行光或点光源而言的。<br>在漫反射中，反射光的颜色取决于入射光的颜色、表面的基底色、入射光与表面形成的入射角。我们将入射角定义为入射光与表面的法线形成的夹角，并用θ表示，那么漫反射光的颜色可以根据下面的式子计算得到：</p>
+<p>&lt;漫反射光颜色&gt;=&lt;入射光颜色&gt;x&lt;表面基底色&gt;xcos θ</p>
+<p>式子中，&lt;入射光颜色&gt;指的是点光源或平行光的颜色，乘法操作是在颜色矢量上逐分量（R、G、B）进行的。因为漫反射光在各个方向上都是“均匀的”，所以从任何角度看上去其强度都相等</p>
+<p>（2）环境反射：</p>
+<p>环境反射是针对环境光而言的。在环境反射中，反射光的方向可以认为就是入射光的反方向。有余环境光照射物体的方式就是各方面均匀、强度相等的，所以反射光也是各向均匀的，我们可以这样描述：</p>
+<p>&lt;环境发射光颜色&gt;=&lt;入射光颜色&gt;x&lt;表面基底色&gt;</p>
+<p>这里的&lt;入射光颜色&gt;实际上也就是环境光的颜色。<br>当漫反射和环境反射同时存在时，将两者加起来，就会得到物体最终被观察到的颜色：</p>
+<p>&lt;表面的反射光颜色&gt;=&lt;漫反射光颜色&gt;+&lt;环境反射光颜色&gt;</p>
+<p>注意，两种反射光并不一定总是存在，也并不一定要完全按照上述公式来计算。渲染三维模型时，你可以修改这些公式以达到想要的效果。</p>
+<h3 id="WebGL平行光下的漫反射光的计算"><a href="#WebGL平行光下的漫反射光的计算" class="headerlink" title="WebGL平行光下的漫反射光的计算"></a>WebGL平行光下的漫反射光的计算</h3><p>&lt;漫反射光颜色&gt;=&lt;入射光颜色&gt;x&lt;表面基底色&gt;x cos θ</p>
+<p>计算出来漫反射的光的颜色需要三项数据：</p>
+<p>（1）平行入射光的颜色</p>
+<p>（2）表面的基底色</p>
+<p>（3）入射光与表面形成的入射角  θ</p>
+<p>但是，我们没有办法直接就确定 θ值是多少，我们必须根据入射光的方向和物体表面的朝向（即法线方向）来计算出入射角。这需要我们先确定每个表面的朝向，在指定光源的时候，再确定光的方向，来计算出入射角，并确定 θ的值。</p>
+<p>幸运的是，我们可以通过计算两个矢量的点积，来计算着两个矢量的夹角余弦值cos  θ。点积运算的使用非常频繁，GLSL ES内置了点积运算函数（WebGL 着色器编程语言GLSL ES的内置函数）。在公式中，我们使用点符号 · 来表示点积运算。这样，cos θ就可以通过下式计算出来：</p>
+<p>cos θ = &lt;光线方向&gt; · &lt;法线方向&gt;</p>
+<p>所以，上面计算平行光下的漫反射的颜色的式子就可以修改成：</p>
+<p>&lt;漫反射光颜色&gt; = &lt;入射光颜色&gt; x &lt;表面基底色&gt; x (&lt;光线方向&gt; · &lt;法线方向&gt;)</p>
+<p>这里有两点需要注意：</p>
+<p>（1）光线方向矢量和表面法线矢量的长度必须为1，否则反射光的颜色就会过暗或过亮。将一个矢量的长度调整为1，同时保持方向不变的过程称之为归一化。GLSL ES提供了内置的归一化函数，你可以直接使用。</p>
+<p>（2）这里所谓的“光线方向”，实际上是入射方向的反方向，即从入射点指向光源方向（因为这样，该方向与法线方向的夹角才是入射角）</p>
+<p>法线：表面的朝向</p>
+<p>物体表面的朝向，即垂直于表面的方向，又称法线或法向量。法向量有三个分量，向量（nx，ny，nz）表示从原点（0,0,0）指向点（nx，ny，nz）的方向。比如说，向量（1,0,0）表示x轴正方向，向量（0,0,1）表示z轴正方向。涉及到表面和法向量的问题时，必须考虑以下两点：</p>
+<p>（1）一个表面具有两个法向量</p>
+<p>每个表面都有两个面，“正面”和“背面”。两个面各自具有一个法向量。比如，垂直于z轴的x-y平面，其正面的法向量为z正半轴，即（0,0,1），背面的法向量为z负半轴，即（0,0，-1）。<br>在三维图形学中，表面的正面和背面取决于绘制表面时的顶点顺序。当你按照v0，v1，v2，v3的顶点顺序绘制了一个平面，那么当你从正面观察这个表面时，这4个顶点是顺时针的，而你从背面观察该表面，这四个顶点就是逆时针的。<br>（2）平面的法向量唯一</p>
+<p>由于法向量表示的是方向，与位置无关，所以一个平面只有一个法向量。换句话说，平面的任意一点都具有相同的法向量。</p>
+<p>进一步说，即使有两个不同的平面，只要朝向相同（也就是两个平面平行），法向量也相同。<br>一旦计算好每个平面的法向量，接下来的任务就是将数据传给着色器程序。以前的程序把颜色作为“逐顶点数据”存储在缓冲区中，并传给着色器。对法向量数据也可以这样做。上图所示，每个顶点对应3个法向量，就像之前每个顶点都对应3个颜色值一样。我们明白了这一点以后，就可以通过法向量获取平行光照后的颜色值了。</p>
+<p>&lt;漫反射光颜色&gt; = &lt;入射光颜色&gt; x &lt;表面基底色&gt; x (&lt;光线方向&gt; · &lt;法线方向&gt;)</p>
+<p>&lt;漫反射光颜色&gt; = &lt;入射光颜色&gt; x &lt;表面基底色&gt; x (&lt;光线方向&gt; · &lt;法线方向&gt;)</p>
+<p>计算漫反射光颜色需要：（1）入射光颜色 （2）表面基底色 （3）入射光方向 （4）表面法线方向。其中后两者都必须是归一化的（即长度为1.0）。</p>
+<p>在上面的案例代码中：</p>
+<p>a_Color 变量表示表面基底色</p>
+<p>a_Normal变量表示表面法线方向</p>
+<p>u_LightColor变量表示入射光颜色</p>
+<p>u_LightDirection变量表示入射光方向（是在世界坐标系下的，在javascript中归一化了，可以避免着色器每次执行都对它进行归一化）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> vertex_shader = `</span><br><span class="line">  ...;</span><br><span class="line">  attribute vec4 a_Normal; /* 定义表面法线方向 */</span><br><span class="line">  uniform vec3 u_LightColor;/* 定义光线颜色 */ </span><br><span class="line">  uniform vec3 u_LightDirection; /* 入射光方向，归一化的世界坐标 */</span><br><span class="line">  void <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    ...;</span><br><span class="line">    vec3 normal = normalize(vec3(a_Normal));/* 对法向量进行归一化 */</span><br><span class="line">    <span class="built_in">float</span> nDotL = max(dot(u_LightDirection,normal),0.0);/* 计算光线方向和法向量的点积 */</span><br><span class="line">    vec3 diffuse = u_LightColor * vec3(a_Color) * nDotL; /* 计算漫反射光的颜色 */</span><br><span class="line">    v_Color = vec4(diffuse,a_Color.a); /* 得到颜色赋值片元着色器 */</span><br><span class="line">  &#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<h3 id="WebGL平行光-环境光下的漫反射光的计算"><a href="#WebGL平行光-环境光下的漫反射光的计算" class="headerlink" title="WebGL平行光+环境光下的漫反射光的计算"></a>WebGL平行光+环境光下的漫反射光的计算</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> vertex_shader = `</span><br><span class="line">  ...;</span><br><span class="line">  uniform vec3 u_AmbientLight; /* 环境光颜色 */</span><br><span class="line">  void <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    ...;</span><br><span class="line">    vec3 ambient = u_AmbientLight * a_Color.rgb; /* 计算环境光产生的反射光颜色 */</span><br><span class="line">    /* 将以上两者相加得到物体最终的颜色 */</span><br><span class="line">    v_Color = vec4(diffuse+ambient,a_Color.a); /* 得到颜色赋值片元着色器 */</span><br><span class="line">&#125;`</span><br></pre></td></tr></table></figure>
+<h3 id="运动中物体光照效果"><a href="#运动中物体光照效果" class="headerlink" title="运动中物体光照效果"></a>运动中物体光照效果</h3><p>平移变换不会改变法向量，因为平移不会改变物体的方向。<br>旋转变换会改变法向量，因为旋转改变了物体的方向。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> vertex_shader = `</span><br><span class="line">  ...;</span><br><span class="line">  uniform mat4 u_NormalMatrix; /* 用来变换法向量的矩阵 */</span><br><span class="line">  void <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    ...;</span><br><span class="line">    vec3 normal = normalize(vec3(u_NormalMatrix * a_Normal));  /* 动态的法向量会被处理后并归一化 */</span><br><span class="line">    <span class="built_in">float</span> nDotL = max(dot(u_LightDirection,normal),0.0);/* 计算光线方向和法向量的点积 */</span><br><span class="line">    vec3 diffuse = u_LightColor * vec3(a_Color) * nDotL; /* 计算漫反射光的颜色 */</span><br><span class="line">    vec3 ambient = u_AmbientLight * a_Color.rgb; /* 计算环境光产生的反射光颜色 */</span><br><span class="line">    v_Color = vec4(diffuse+ambient,a_Color.a); /* 得到颜色赋值片元着色器 */</span><br><span class="line">  &#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,95 +241,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/17/webgl光照/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/16/webgl/" class="archive-article-date">
-  	<time datetime="2019-08-16T08:28:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/01/17/ie9浏览器css兼容问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ie9浏览器css兼容问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/16/webgl/">webgl函数</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">webgl</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/17/防抖节流/" class="archive-article-date">
-  	<time datetime="2019-06-17T02:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/17/防抖节流/">防抖节流</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -311,8 +363,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
