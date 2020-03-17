@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>防抖节流 | Comet</title>
+  <title>ie9兼容2 | Comet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="JS">
+  <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="防抖节流">
-<meta property="og:url" content="http://yoursite.com/2019/06/17/防抖节流/index.html">
+<meta property="og:title" content="ie9兼容2">
+<meta property="og:url" content="http://yoursite.com/2020/03/16/ie9兼容2/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-17T10:28:42.474Z">
+<meta property="og:image" content="http://yoursite.com/images/ie9.png">
+<meta property="og:updated_time" content="2020-03-17T02:43:02.303Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="防抖节流">
+<meta name="twitter:title" content="ie9兼容2">
+<meta name="twitter:image" content="http://yoursite.com/images/ie9.png">
   
     <link rel="alternative" href="/atom.xml" title="Comet" type="application/atom+xml">
   
@@ -157,20 +159,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-防抖节流" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ie9兼容2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      防抖节流
+      ie9兼容2
     </h1>
   
 
         
-        <a href="/2019/06/17/防抖节流/" class="archive-article-date">
-  	<time datetime="2019-06-17T02:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-17</time>
+        <a href="/2020/03/16/ie9兼容2/" class="archive-article-date">
+  	<time datetime="2020-03-16T09:02:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
 </a>
         
       </header>
@@ -179,9 +181,9 @@
       
         <hr>
 <a id="more"></a>
-<h1 id="防抖节流函数"><a href="#防抖节流函数" class="headerlink" title="防抖节流函数"></a>防抖节流函数</h1><p>浏览器中，我们经常触发一些持续事件，如 resiz  e、scroll、mousemove 等等，但有些时候我们并不希望在事件持续触发的过程中那么频繁地去执行函数。<br>因此通过一些方法去减少触发的频率优化性能</p>
-<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">防抖(debounce)：当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时</span><br><span class="line"><span class="keyword">function</span> debounce(fn, <span class="built_in">wait</span>) &#123;    </span><br><span class="line">    var timeout = null;    </span><br><span class="line">    <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;        </span><br><span class="line">        <span class="keyword">if</span>(timeout !== null)   clearTimeout(timeout);        </span><br><span class="line">        timeout = setTimeout(fn, <span class="built_in">wait</span>);    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">节流(throttle)：当持续触发事件时，保证一定时间段内只调用一次事件处理函数</span><br><span class="line">var throttle = <span class="keyword">function</span>(fn, delay) &#123;            </span><br><span class="line">    var timer = null;            </span><br><span class="line">    <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;                </span><br><span class="line">        var context = this;               </span><br><span class="line">        var args = arguments;                </span><br><span class="line">        <span class="keyword">if</span> (!timer) &#123;                    </span><br><span class="line">            timer = setTimeout(<span class="function"><span class="title">function</span></span>() &#123;                        </span><br><span class="line">        fn.apply(context, args);                        </span><br><span class="line">                timer = null;                    </span><br><span class="line">            &#125;, delay);                </span><br><span class="line">        &#125;            </span><br><span class="line">  &#125;        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="ie9兼容2"><a href="#ie9兼容2" class="headerlink" title="ie9兼容2"></a>ie9兼容2</h1><h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><p>在项目中兼容ie9附件上传时，所采用的的库为webupload，在使用时，需注意webupload下父元素的<br>宽高问题，否则无法点击。当使用webupload上传除图片格式的文件时，在ie9上传不成功，原因是i<br>e9上返回头content-type不支持content-type: application/json;charset=UTF-8;因此后端返回<br>头需变为content-type：text/html;charset=UTF-8；</p>
+<h3 id="vue项目在ie9白屏-卡死"><a href="#vue项目在ie9白屏-卡死" class="headerlink" title="vue项目在ie9白屏,卡死"></a>vue项目在ie9白屏,卡死</h3><p>在IE9浏览器中，Vue项目页面打不开，即出现白屏现象，在打开控制台情况下，再刷新就会出现页面，<br>这个问题是由于IE的控制台脚本保护机制，我们需要重新定义console.log，在项目index.html中加<br>上如下代码，重新定义下console块可以问题。npm install –save @yanhaijing/console_js 进行安装，在<br>main.js文件里引用重启项目可以解决问题。<br><img src="/images/ie9.png" alt=""></p>
+
       
 
       
@@ -194,7 +196,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -250,7 +252,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/17/防抖节流/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/16/ie9兼容2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -264,18 +266,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/16/webgl/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          webgl函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/02/图文测试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">图文测试</div>
+    <a href="/2020/01/21/ie9兼容/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ie9兼容</div>
       <i class="icon-circle-right"></i>
     </a>
   
