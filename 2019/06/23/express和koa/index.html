@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>防抖节流 | Comet</title>
+  <title>express和koa | Comet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="JS">
+  <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="防抖节流">
-<meta property="og:url" content="http://yoursite.com/2019/06/17/防抖节流/index.html">
+<meta property="og:title" content="express和koa">
+<meta property="og:url" content="http://yoursite.com/2019/06/23/express和koa/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-17T10:28:42.474Z">
+<meta property="og:updated_time" content="2020-07-10T09:58:03.629Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="防抖节流">
+<meta name="twitter:title" content="express和koa">
   
     <link rel="alternative" href="/atom.xml" title="Comet" type="application/atom+xml">
   
@@ -157,20 +157,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-防抖节流" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-express和koa" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      防抖节流
+      express和koa
     </h1>
   
 
         
-        <a href="/2019/06/17/防抖节流/" class="archive-article-date">
-  	<time datetime="2019-06-17T02:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-17</time>
+        <a href="/2019/06/23/express和koa/" class="archive-article-date">
+  	<time datetime="2019-06-23T09:56:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-23</time>
 </a>
         
       </header>
@@ -179,9 +179,14 @@
       
         <hr>
 <a id="more"></a>
-<h1 id="防抖节流函数"><a href="#防抖节流函数" class="headerlink" title="防抖节流函数"></a>防抖节流函数</h1><p>浏览器中，我们经常触发一些持续事件，如 resiz  e、scroll、mousemove 等等，但有些时候我们并不希望在事件持续触发的过程中那么频繁地去执行函数。<br>因此通过一些方法去减少触发的频率优化性能</p>
-<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">防抖(debounce)：当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时</span><br><span class="line"><span class="keyword">function</span> debounce(fn, <span class="built_in">wait</span>) &#123;    </span><br><span class="line">    var timeout = null;    </span><br><span class="line">    <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;        </span><br><span class="line">        <span class="keyword">if</span>(timeout !== null)   clearTimeout(timeout);        </span><br><span class="line">        timeout = setTimeout(fn, <span class="built_in">wait</span>);    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">节流(throttle)：当持续触发事件时，保证一定时间段内只调用一次事件处理函数</span><br><span class="line">var throttle = <span class="keyword">function</span>(fn, delay) &#123;            </span><br><span class="line">    var timer = null;            </span><br><span class="line">    <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;                </span><br><span class="line">        var context = this;               </span><br><span class="line">        var args = arguments;                </span><br><span class="line">        <span class="keyword">if</span> (!timer) &#123;                    </span><br><span class="line">            timer = setTimeout(<span class="function"><span class="title">function</span></span>() &#123;                        </span><br><span class="line">        fn.apply(context, args);                        </span><br><span class="line">                timer = null;                    </span><br><span class="line">            &#125;, delay);                </span><br><span class="line">        &#125;            </span><br><span class="line">  &#125;        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="express-和-koa"><a href="#express-和-koa" class="headerlink" title="express 和 koa"></a>express 和 koa</h1><h3 id="express介绍"><a href="#express介绍" class="headerlink" title="express介绍"></a>express介绍</h3><p>Express是基于Node.js的Web开发框架<br>下载运行:npm install …..</p>
+<h3 id="Express简单运行"><a href="#Express简单运行" class="headerlink" title="Express简单运行"></a>Express简单运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var express = require(<span class="string">'express'</span>);</span><br><span class="line">var app = express();</span><br><span class="line">app.use(xxxx)  // 注册调用中间件</span><br><span class="line">app.get(<span class="string">'/'</span>, (res,req)=&gt;&#123;xxxx&#125;); // 路由处理</span><br><span class="line">app.listen(port);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="中间件介绍"><a href="#中间件介绍" class="headerlink" title="中间件介绍"></a>中间件介绍</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">个人理解：在express 中，中间件就是对http请求回来的数据进行处理，经过app.use 调用,而且按顺序执行传递.</span><br><span class="line">express实例在运行过程中，会调用一系列的中间件。</span><br><span class="line">每个中间件可以从App实例，接收三个参数，依次为request对象（代表HTTP请求）、response对象（代表HTTP回应），next回调函数（代表下一个中间件）。每个中间件都可以对HTTP请求（request对象）进行加工，并且决定是否调用next方法，将request对象再传给下一个中间件</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="Express常用api"><a href="#Express常用api" class="headerlink" title="Express常用api"></a>Express常用api</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">可以使用express-generator 脚手架工具快速生成express 项目.</span><br><span class="line">执行命令 express xxxx(项目名称) 可快速生成express项目</span><br><span class="line">目录结构:</span><br><span class="line">app.js应用的初始化文件，包括引入应用程序的基础依赖项、设置视图即view的引擎目录以及模板、设置静态资源路径、配置通用的中间件、引入路由和一些错误处理中间件等。</span><br><span class="line">package.json应用的配置文件，文件内包含程序的基础信息、启动脚本和依赖包等。</span><br><span class="line">bin/www应用的启动文件，文件内包含引用要启动的应用、设置应用监听的端口和启动http服务等。</span><br><span class="line">public/**应用的静态资源文件目录，该目录下的文件资源不需要经过文件映射就可以直接访问。</span><br><span class="line">routes/**应用的路由文件，这些路由文件中设置的接口最终会以指定的HTTP请求方式暴露给用户，并在用户请求之后将结果返回。</span><br><span class="line">views应用的视图文件，在app.js中设置好视图引擎和模板之后，该目录即为应用视图的根目录，然后路由文件就会根据app.js中的设置加载并渲染该目录下的视图文件。</span><br><span class="line"></span><br><span class="line">在调用中间件过程中,使用 req 获取请求对象, req.query 获取 get带过来的参数,req.body 获取 post带过来的参数.</span><br><span class="line">req.app：当callback为外部文件时，用req.app访问express的实例</span><br><span class="line">req.baseUrl：获取路由当前安装的URL路径</span><br><span class="line">req.body / req.cookies：获得「请求主体」/ Cookies</span><br><span class="line">req.fresh / req.stale：判断请求是否还「新鲜」</span><br><span class="line">req.hostname / req.ip：获取主机名和IP地址</span><br><span class="line">req.originalUrl：获取原始请求URL</span><br><span class="line">req.params：获取路由的parameters</span><br><span class="line">req.path：获取请求路径</span><br><span class="line">req.protocol：获取协议类型</span><br><span class="line">req.query：获取URL的查询参数串</span><br><span class="line">req.route：获取当前匹配的路由</span><br><span class="line">req.subdomains：获取子域名</span><br><span class="line">req.accepts()：检查可接受的请求的文档类型</span><br><span class="line">req.acceptsCharsets / req.acceptsEncodings / req.acceptsLanguages：返回指定字符集的第一个可接受字符编码</span><br><span class="line">req.get()：获取指定的HTTP请求头</span><br><span class="line">req.is()：判断请求头Content-Type的MIME类型</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">res处理响应对象.</span><br><span class="line">res.app：同req.app一样</span><br><span class="line">res.append()：追加指定HTTP头</span><br><span class="line">res.set()在res.append()后将重置之前设置的头</span><br><span class="line">res.cookie(name，value [，option])：设置Cookie</span><br><span class="line">opition: domain / expires / httpOnly / maxAge / path / secure / signed</span><br><span class="line">res.clearCookie()：清除Cookie</span><br><span class="line">res.download()：传送指定路径的文件</span><br><span class="line">res.get()：返回指定的HTTP头</span><br><span class="line">res.json()：传送JSON响应</span><br><span class="line">res.jsonp()：传送JSONP响应</span><br><span class="line">res.location()：只设置响应的Location HTTP头，不设置状态码或者close response</span><br><span class="line">res.redirect()：设置响应的Location HTTP头，并且设置状态码302</span><br><span class="line">res.send()：传送HTTP响应</span><br><span class="line">res.sendFile(path [，options] [，fn])：传送指定路径的文件 -会自动根据文件extension设定Content-Type</span><br><span class="line">res.set()：设置HTTP头，传入object可以一次设置多个头</span><br><span class="line">res.status()：设置HTTP状态码</span><br><span class="line">res.type()：设置Content-Type的MIME类型</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="koa介绍"><a href="#koa介绍" class="headerlink" title="koa介绍"></a>koa介绍</h3><p>koa和Express一样，也是基于Node.js的Web开发框架,作者是同一个人。<br>区别：<br>Express主要基于Connect中间件框架，功能丰富，随取随用，并且框架自身封装了大量便利的功能，Express基于Es5语法，通过回调组合逻辑（类比如同jQuery中的ajax方法），回调的硬伤在于不可组合，难以捕获，在复杂逻辑中会包含大量回调嵌套，也就是常说的回调地狱，以及调试问题。但在Es语法更细下，可以通过相关三方库完善支持Promise或Async/Await来弥补。<br>koa基于ES6新特性重新开发的敏捷开发框架，主要基于co中间件框架，框架自身并没集成太多功能，相比Express更加小巧，几乎所有功能都通过中间件来完成，相应的Router模块从核心模块中去除，需通过中间件的形式集成。</p>
+<h3 id="koa运行"><a href="#koa运行" class="headerlink" title="koa运行"></a>koa运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">npm install ...</span><br><span class="line">const Koa = require(<span class="string">'koa'</span>);</span><br><span class="line">// 实例化koa</span><br><span class="line">const app = new Koa();</span><br><span class="line">// 创建接受Context对象的函数，Context由koa提供，表示一次对话的上下文</span><br><span class="line">const main = ctx =&gt; &#123;</span><br><span class="line">  // ctx包含请求及响应对象，通过响应对象的body设置返回的内容</span><br><span class="line">  ctx.response.body = <span class="string">'Hello World'</span>;</span><br><span class="line">&#125;</span><br><span class="line">// 使用加载main函数，注册到koa</span><br><span class="line">app.use(main);</span><br><span class="line">// 监听并启动服务</span><br><span class="line">app.listen(3000);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">和express一样，koa也有自己的脚手架工具: koa-generator</span><br><span class="line">执行命令 koa2 -e xxxx(项目名称) 可快速生成express项目</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在koa中间件中，接收两个参数，一个是ctx,一个是next. </span><br><span class="line">ctx是context的缩写中文一般叫成上下文，这个在所有语言里都有的名词，可以理解为上(request)下(response)沟通的环境，koa把 req和res都封装到ctx对象中。</span><br><span class="line"></span><br><span class="line">body是http协议中的响应体，header是指响应头</span><br><span class="line">ctx.body = ctx.res.body = ctx.response.body</span><br><span class="line"></span><br><span class="line">ctx.req</span><br><span class="line">Node的请求对象。</span><br><span class="line"></span><br><span class="line">ctx.res</span><br><span class="line">Node的相应对象。</span><br><span class="line"></span><br><span class="line">Koa的响应处理是不能被传递的。请避免使用以下的Node属性/方法：</span><br><span class="line">res.statusCode</span><br><span class="line">res.writeHead()</span><br><span class="line">res.write()</span><br><span class="line">res.end()</span><br><span class="line">ctx.request</span><br><span class="line">Koa请求对象</span><br><span class="line">ctx.response</span><br><span class="line">Koa响应对象</span><br><span class="line">ctx.state</span><br><span class="line">这是适合你给中间件或者前端页面传递信息的命名空间。</span><br><span class="line">ctx.state.user = await User.find(id);</span><br><span class="line">ctx.app</span><br><span class="line">应用实例引用</span><br><span class="line">ctx.cookies.get(name, [options])</span><br><span class="line">ctx.cookies.set(name, value, [options])</span><br><span class="line">maxAge</span><br><span class="line">signed</span><br><span class="line">expires</span><br><span class="line">path 默认是 <span class="string">'/'</span></span><br><span class="line">domain</span><br><span class="line">secure</span><br><span class="line">httpOnly 默认是 <span class="literal">true</span></span><br><span class="line">overwrite，一个布尔值，指示是否覆盖以前设置的同名cookie（默认为<span class="literal">false</span>）。如果是这样，则在设置此cookie时，将在Set-Cookie标头中过滤掉在相同请求期间设置的具有相同名称（无论路径或域）的所有cookie。</span><br><span class="line">ctx.throw([status], [msg], [properties])</span><br><span class="line">Helper方法抛出一个错误，其中.status属性默认为500，这将允许Koa做出适当的响应。允许以下组合：</span><br><span class="line">ctx.throw(400);</span><br><span class="line">ctx.throw(400, <span class="string">'name required'</span>);</span><br><span class="line">ctx.throw(400, <span class="string">'name required'</span>, &#123; user: user &#125;);</span><br><span class="line">例如ctx.throw(400, <span class="string">'name required'</span>)与下面相等：</span><br><span class="line">const err = new Error(<span class="string">'name required'</span>);</span><br><span class="line">err.status = 400;</span><br><span class="line">err.expose = <span class="literal">true</span>;</span><br><span class="line">throw err;</span><br><span class="line">请注意，这些是用户级错误，并使用err.expose标记，这意味着消息适用于客户端响应，这通常不是错误消息的情况，因为您不希望泄漏故障详细信息。</span><br><span class="line">您可以选择传递一个属性对象，该对象按原样合并到错误中，对于装饰向上游请求者报告的机器友好错误很有用。</span><br><span class="line">Koa使用http-errors创建错误。</span><br><span class="line">ctx.assert(value, [status], [msg], [properties])</span><br><span class="line">当value不存在的时候抛出一个错误，与.throw()类似。与Node的assert()方法类似。</span><br><span class="line">ctx.assert(ctx.state.user, 401, <span class="string">'User not found. Please login!'</span>);</span><br><span class="line">Koa使用http-assert进行断言。</span><br></pre></td></tr></table></figure>
+<h3 id="express中间件和koa中间件不同"><a href="#express中间件和koa中间件不同" class="headerlink" title="express中间件和koa中间件不同"></a>express中间件和koa中间件不同</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">koa2的中间件是通过 async await 实现的，中间件执行顺序是“洋葱圈”模型。</span><br><span class="line">中间件之间通过next函数联系,当一个中间件调用 next() 后，会将控制权交给下一个中间件, 直到下一个中间件不再执行 next() 后, 将会沿路折返,将控制权依次交换给前一个中间件。</span><br><span class="line">与 koa2 中间件不同的是，express中间件一个接一个的顺序执行, 通常会将 response 响应写在最后一个中间件中。</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -194,7 +199,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -250,7 +255,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/17/防抖节流/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/23/express和koa/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -264,18 +269,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/19/nodejs基本语法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/16/webgl/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          nodejs基本语法
+          webgl函数
         
       </div>
     </a>
   
   
-    <a href="/2018/08/02/图文测试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">图文测试</div>
+    <a href="/2019/06/19/nodejs基本语法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nodejs基本语法</div>
       <i class="icon-circle-right"></i>
     </a>
   
