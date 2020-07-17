@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Comet</title>
+  <title>mysql和sequelize使用 | Comet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Cc的个人博客">
-<meta name="keywords" content="Cc comet">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Comet">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql和sequelize使用">
+<meta property="og:url" content="http://yoursite.com/2019/06/29/mysql和sequelize使用/index.html">
 <meta property="og:site_name" content="Comet">
-<meta property="og:description" content="Cc的个人博客">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-07-17T17:00:23.169Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Comet">
-<meta name="twitter:description" content="Cc的个人博客">
+<meta name="twitter:title" content="mysql和sequelize使用">
   
     <link rel="alternative" href="/atom.xml" title="Comet" type="application/atom+xml">
   
@@ -159,111 +157,157 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mysql和sequelize使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/17/防抖节流/" class="archive-article-date">
-  	<time datetime="2019-06-17T02:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/17/防抖节流/">防抖节流</a>
+    <h1 class="article-title" itemprop="name">
+      mysql和sequelize使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/06/29/mysql和sequelize使用/" class="archive-article-date">
+  	<time datetime="2019-06-29T13:36:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<h1 id="mysql和sequelize使用"><a href="#mysql和sequelize使用" class="headerlink" title="mysql和sequelize使用"></a>mysql和sequelize使用</h1><h3 id="nodejs中操作Mysql"><a href="#nodejs中操作Mysql" class="headerlink" title="nodejs中操作Mysql"></a>nodejs中操作Mysql</h3><p>在学习node中，所用到的数据库为Mysql，在nodejs中操作mysql数据库，首先下载对应依赖，<br>npm install mysql, 创建链接对象与相关配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">const mysql = require(<span class="string">'mysql'</span>)</span><br><span class="line">const MYSQL_CONF = &#123;</span><br><span class="line">  host: <span class="string">'localhost'</span>, //域名</span><br><span class="line">  user: <span class="string">'root'</span>, //mysql 账户名</span><br><span class="line">  password: <span class="string">'Mysql_2018'</span>, //mysql 密码</span><br><span class="line">  port: <span class="string">'3306'</span>, //mysql 端口</span><br><span class="line">  database: <span class="string">'myblog'</span> // 数据库名字</span><br><span class="line">&#125;</span><br><span class="line">// 创建链接对象</span><br><span class="line">const con = mysql.createConnection(MYSQL_CONF)</span><br><span class="line"></span><br><span class="line">// 开始链接</span><br><span class="line">con.connect()</span><br><span class="line"></span><br><span class="line">// 统一执行 sql 的函数</span><br><span class="line"><span class="keyword">function</span> <span class="built_in">exec</span>(sql) &#123;</span><br><span class="line">    const promise = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        con.query(sql, (err, result) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                reject(err)</span><br><span class="line">                <span class="built_in">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            resolve(result)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">return</span> promise</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">对应controller执行数据库操作</span><br><span class="line"></span><br><span class="line">// mysql简单查询语句</span><br><span class="line"><span class="built_in">let</span> sql = `select *(可以筛选属性 select xx,xx from...) from xxx(表名) <span class="built_in">where</span> 1=1 and xx=xx(对应字段) order by xxx(排序)`</span><br><span class="line"></span><br><span class="line">// mysql 新增语句</span><br><span class="line"><span class="built_in">let</span> sql = `insert into xxx(表名) (title, content, xxx, xxx)  //字段</span><br><span class="line">        values (<span class="string">'$&#123;title&#125;'</span>, <span class="string">'$&#123;content&#125;'</span>, <span class="variable">$&#123;xxx&#125;</span>, <span class="string">'$&#123;xxx&#125;'</span>);` //对应的值</span><br><span class="line"></span><br><span class="line">// mysql 更新语句</span><br><span class="line"><span class="built_in">let</span> sql = `update xxx(表名) <span class="built_in">set</span> xxx(字段)=<span class="string">'$&#123;xxx(对应的值)&#125;'</span>，xxx(字段)=<span class="string">'$&#123;xxx(对应的值)&#125;'</span> <span class="built_in">where</span> xx=<span class="variable">$&#123;xx&#125;</span> 条件刷选` </span><br><span class="line"></span><br><span class="line">// mysql 删除语句</span><br><span class="line"><span class="built_in">let</span> sql = `delete from xx(表名) <span class="built_in">where</span> id=<span class="string">'$&#123;id&#125;'</span> and xx=<span class="string">'$&#123;xx&#125;'</span>条件筛选;`</span><br><span class="line"></span><br><span class="line">在nodejs操作mysql 防止 sql注入可以使用 mysql.escape </span><br><span class="line">在对应的值之前调用 mysql.escape函数 如 </span><br><span class="line"><span class="built_in">let</span> aa = mysql.escape(aa)</span><br><span class="line">//此时sql语句中 aa不用 <span class="string">''</span> 包起来了</span><br><span class="line"><span class="built_in">let</span> sql =  `update xxx(表名) <span class="built_in">set</span> xxx(字段)=<span class="variable">$&#123;aa&#125;</span> <span class="built_in">where</span> xx=<span class="variable">$&#123;xx&#125;</span> 条件刷选` </span><br><span class="line"></span><br><span class="line">执行对应sql语句 </span><br><span class="line"><span class="built_in">exec</span>(sql)</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<h3 id="nodejs中使用sequelize操作Mysql"><a href="#nodejs中使用sequelize操作Mysql" class="headerlink" title="nodejs中使用sequelize操作Mysql"></a>nodejs中使用sequelize操作Mysql</h3><p>在上述方法中，操作数据库使用大量的sql语句，为了简化这个流程，使用orm框架来快速操作mysql。<br>orm框架是对SQL查询语句的封装，让我们可以用OOP的方式操作数据库，优雅的生成安全、可维护的SQL代码。直观上，是一种Model和SQL的映射关系。在orm框架中，选择使用sequelize来对mysql进行操作，Sequelize是一款基于Nodejs功能强大的异步ORM框架。<br>同时支持PostgreSQL, MySQL, SQLite and MSSQL多种数据库，很适合作为Nodejs后端数据库的存储接口，为快速开发Nodejs应用奠定扎实、安全的基础。<br>首先下载sequelize 依赖包和所对应的数据库依赖包， mysql对应的包为mysql2<br>npm i sequelize mysql2<br>这次学习的sequelize版本为5.0版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">const Sequelize = &#123;Model&#125; = require(<span class="string">'sequelize'</span>)</span><br><span class="line">const MYSQL_CONF = &#123;</span><br><span class="line">  host: <span class="string">'localhost'</span>, //域名</span><br><span class="line">  user: <span class="string">'root'</span>, //mysql 账户名</span><br><span class="line">  password: <span class="string">'Mysql_2018'</span>, //mysql 密码</span><br><span class="line">  port: <span class="string">'3306'</span>, //mysql 端口</span><br><span class="line">  database: <span class="string">'myblog'</span> // 数据库名字</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const sequelize = new Sequelize(MYSQL_CONF.database,MYSQL_CONF.user,MYSQL_CONF.password,&#123;</span><br><span class="line">  host:MYSQL_CONF.host,</span><br><span class="line">  dialect:<span class="string">'mysql'</span>, //数据库类型</span><br><span class="line">  dialectOptions: &#123;  // 时间选项</span><br><span class="line">    useUTC: <span class="literal">false</span>, //<span class="keyword">for</span> reading from database</span><br><span class="line">    dateStrings: <span class="literal">true</span>,</span><br><span class="line">    typeCast: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  pool:&#123;   //连接池选项</span><br><span class="line">    max:10,</span><br><span class="line">    min:0,</span><br><span class="line">    idle:10000</span><br><span class="line">  &#125;,</span><br><span class="line">  timezone: <span class="string">'+08:00'</span>  // 中国时区</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 定义对象与数据库表对应</span><br><span class="line">module.exports = <span class="keyword">function</span>(sequelize, DataTypes)&#123;</span><br><span class="line">  class xxx extends Model &#123;&#125;</span><br><span class="line">  xxx.init(&#123;</span><br><span class="line">    xxxx(驼峰命名): &#123;</span><br><span class="line">      <span class="built_in">type</span>: DataTypes.INTEGER, //表字段类型</span><br><span class="line">      // 常用有 INTEGER 整数型 STRING 字符串型 DECIMAL 浮点型 DATE日期时间 DATEONLY 仅日期      后面括号表示长度  如STRING(10)  长度为10  DECIMAL(10,4)长度为10 小数点保留4个 DECIMAL(6).ZEROFILL(长度6，不足充0)</span><br><span class="line">      primaryKey: <span class="literal">true</span>,  // 是否主键</span><br><span class="line">      allowNull: <span class="literal">false</span>,  // 是否为空</span><br><span class="line">      autoIncrement: <span class="literal">true</span>,  // 是否自增</span><br><span class="line">      field: <span class="string">'xxx'</span> //数据库表字段</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    timestamps: <span class="literal">false</span>, // 是否创建时间戳字段(sequelize自带3个)</span><br><span class="line">    underscored: <span class="literal">true</span>, </span><br><span class="line">    freezeTableName:<span class="literal">true</span>,  // 是否不更改表名</span><br><span class="line">    sequelize, // sequelize实例</span><br><span class="line">    tableName:<span class="string">'user_fund_lists'</span> //数据库表名</span><br><span class="line">&#125;);</span><br><span class="line">  <span class="built_in">return</span> xxx</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 数据库表关联 如有 A B C D E 5个表  </span><br><span class="line">A B 一对一关系 A C 一对多关系 A D 多对多关系 此时需要将他们关联起来</span><br><span class="line"></span><br><span class="line">// 一对一</span><br><span class="line">A.hasOne(B)  //A主键 B含字段外键A</span><br><span class="line">或 B.belongsTo(A)</span><br><span class="line"></span><br><span class="line">//一对多</span><br><span class="line">A.hasMany(C)  //A主键  C含字段外键A  </span><br><span class="line"></span><br><span class="line">// 多对多 </span><br><span class="line">A.belongsToMany(D,&#123;through:E&#125;) </span><br><span class="line">D.belongsToMany(A,&#123;through:E&#125;) //E是中间表 A D通过E进行多对多关联</span><br><span class="line">在多对多关系关联后 A D 身上含有关联对方的实例，当两个要关联时,通过操作实例方法关联,如：  const a = A.findOne(&#123;<span class="built_in">where</span>:&#123;id:xx&#125;&#125;)  const d = D.findAll()</span><br><span class="line">两者关联 a.setDs(d) 或 d.setAs(a)  //设置a,d数据相关实例</span><br><span class="line">         a.addDs(d) 或 d.addAs(a)  //添加a,d数据相关实例</span><br><span class="line">         a.getDs(d) 或 d.getAs(a)  //获取a,d数据相关实例</span><br><span class="line"></span><br><span class="line">sequelize操作数据库</span><br><span class="line">// 简单查询</span><br><span class="line">xxx.findOne(config)  xxx.findAll()  xxx.findAndCountAll(config) xxx.findOrCreate(config)</span><br><span class="line">config对象为查询配置 &#123;<span class="built_in">where</span>:&#123;xx(字段):x(值)&#125;(查找筛选符合条件的数据),includes:[&#123;model:xx&#125;](有关联表时可关联查询),attributes:[xxx](筛选所要的字段，不是全部字段出来),<span class="built_in">limit</span>:x,offset:x (分页参数，<span class="built_in">limit</span>:要多少条,  offset:跳过多少条),order:[<span class="string">'xx'</span>](排序)&#125;  </span><br><span class="line"></span><br><span class="line">// 简单创建</span><br><span class="line">xxx.create() xxx.bulkCreate() </span><br><span class="line">xxx.create(data,config) data为创建的数据 当关联表时，可通过config配置关联添加数据</span><br><span class="line">如 data : &#123; name:<span class="string">'xxx'</span>, team(另一个表的数据)  &#125;, config:&#123;include:[&#123;model: Team&#125;]&#125; (此时 xx表创建一条数据 Team表也创建一条数据 为team 对象里面的数据,当 xx 和team 为一对多关系时 ,team为多条数据时， 此时 team 为 teams )</span><br><span class="line">xxx.bulkCreate(data,config) //批量添加 data为批量添加的数据 config :&#123;updateOnDuplicate:[<span class="string">"age"</span>,<span class="string">"sex"</span>]&#125;  config存在是检测config updateOnDuplicate数据，存在这些字段数据时则更新这些字段而不是创建</span><br><span class="line"></span><br><span class="line">// 简单更新</span><br><span class="line">xxx.update(data,config) data为要更新的数据 config为所要更新哪条数据筛选条件 &#123;<span class="built_in">where</span>:&#123;xxx:xx&#125;&#125;等等</span><br><span class="line"></span><br><span class="line">// 简单删除</span><br><span class="line">xxx.destroy(config) config为所要删除哪条数据筛选条件 &#123;<span class="built_in">where</span>:&#123;xxx:xx&#125;&#125;等等</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/29/mysql和sequelize使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+<nav id="article-nav">
+  
+    <a href="/2019/08/16/webgl/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          webgl函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/23/express和koa/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">express和koa</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/02/图文测试/" class="archive-article-date">
-  	<time datetime="2018-08-02T13:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
-</a>
-        </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/图文测试/">图文测试</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -287,8 +331,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
