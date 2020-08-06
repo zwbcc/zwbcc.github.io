@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/3 | Comet</title>
+  <title>redis、日志 | Comet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Cc的个人博客">
-<meta name="keywords" content="Cc comet">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Comet">
-<meta property="og:url" content="http://yoursite.com/archives/2020/03/index.html">
+  <meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis、日志">
+<meta property="og:url" content="http://yoursite.com/2019/07/08/redis、日志/index.html">
 <meta property="og:site_name" content="Comet">
-<meta property="og:description" content="Cc的个人博客">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-08-06T13:01:03.008Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Comet">
-<meta name="twitter:description" content="Cc的个人博客">
+<meta name="twitter:title" content="redis、日志">
   
     <link rel="alternative" href="/atom.xml" title="Comet" type="application/atom+xml">
   
@@ -159,36 +157,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-redis、日志" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/27/ie9兼容3/" class="archive-article-date">
-  	<time datetime="2020-03-27T09:21:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/27/ie9兼容3/">ie9兼容3</a>
+    <h1 class="article-title" itemprop="name">
+      redis、日志
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/08/redis、日志/" class="archive-article-date">
+  	<time datetime="2019-07-08T15:05:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<h1 id="redis、日志"><a href="#redis、日志" class="headerlink" title="redis、日志"></a>redis、日志</h1><h3 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h3><p>redis是一款内存高速缓存数据库,一个高性能的key-value数据库，Redis把数据存在内存中，Redis交换数据快，在服务器中常用来存储一些需要”频繁调取”的数据，节省内存开销，也极大的提升了速度。<br>Redis一共支持五种数据类型：String（字符串）、hash（哈希）、list（列表）、set（集合）和zset（sorted  set有序集合）<br>1,String（字符串）：Redis最基本的数据类型，一个键对应一个值，一个键值最大存储512MB<br>2,Hash（哈希）：hash是一个键值对的集合，是一个String类型的field和value的映射表，适合用于存储对象<br>3,List（列表）：是redis的简单的字符串列表，按插入顺序排序<br>4,Set（集合）：是String字符串类型的无序集合，也不可重复<br>5,ZSet（sorted  set  有序集合）是String类型的有序集合，也不可重复。有序集合中的每个元素都需要指定一个分数，根据分数对元素进行升序排序。<br>redis下载安装：<a href="https://www.runoob.com/redis/redis-install.html" target="_blank" rel="noopener">https://www.runoob.com/redis/redis-install.html</a><br>安装下载完成后进入redis安装目录输入 redis-server.exe redis.windows.conf 启动命令，添加系统环境变量更方便启动,redis.windows.conf是redis相关配置文件,不设置默认启动redis默认配置</p>
+<p>nodejs中使用redis，在本地安装好redis启动前提下，nodejs下载redis npm install redis<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">const redis = require(<span class="string">'redis'</span>)</span><br><span class="line">const REDIS_CONF = &#123;</span><br><span class="line">    port: 6379,</span><br><span class="line">    host: <span class="string">'127.0.0.1'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 创建客户端</span><br><span class="line">const redisClient = redis.createClient(REDIS_CONF.port, REDIS_CONF.host)</span><br><span class="line">redisClient.on(<span class="string">'error'</span>, err =&gt; &#123;</span><br><span class="line">    console.error(err)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">keys * 得到所有key</span><br><span class="line"></span><br><span class="line">// 字符串</span><br><span class="line"><span class="built_in">set</span> key value 设置key的value</span><br><span class="line">get key 得到key的value</span><br><span class="line">incr key key如果是整型自增1</span><br><span class="line">redisClient.set(<span class="string">'name'</span>, <span class="string">'zyc'</span>,  (err, res) =&gt; &#123; // todo.. &#125;);</span><br><span class="line">redisClient.get(<span class="string">'name'</span>, (err, res) =&gt; &#123; // todo... &#125;);</span><br><span class="line"></span><br><span class="line">//哈希</span><br><span class="line">hset key filed value 设置key对象的field属性的value</span><br><span class="line">hget key filed 得到key对象的field属性的value</span><br><span class="line">hgetall key 得到key对象的所有的属性和值</span><br><span class="line">hdel key field 删除</span><br><span class="line">hexists key field 判断对象是否存在这个field</span><br><span class="line">redisClient.hset(<span class="string">"hosts"</span>, <span class="string">"mjr"</span>, <span class="string">"1"</span>, <span class="string">"another"</span>, <span class="string">"23"</span>, <span class="string">"home"</span>, <span class="string">"1234"</span>);</span><br><span class="line">redisClient.hgetall(<span class="string">"hosts"</span>,  (err, obj)=&gt; &#123;//todo&#125;);</span><br><span class="line">redisClient.hset(key2, &#123;</span><br><span class="line">    <span class="string">"0123456789"</span>: <span class="string">"abcdefghij"</span>, // NOTE: key and value will be coerced to strings </span><br><span class="line">    <span class="string">"some manner of key"</span>: <span class="string">"a type of value"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//列表</span><br><span class="line">lpush key value [value ...] 向链表key左边添加元素</span><br><span class="line">rpush key value [value...] 向链表key右边添加元素</span><br><span class="line">lpop key 移除key链表左边第一个元素</span><br><span class="line">rpop key 移除key链表右边第一元素</span><br><span class="line">lrange key start stop 获取链表中某一段，包含最大值，-1表示最后一个元素</span><br><span class="line">redisClient.rpush(<span class="string">'arr'</span>,3,4,(err,obj)=&gt;&#123; // todo.. &#125;)  //[3,4]</span><br><span class="line">redisClient.lpush(<span class="string">'arr'</span>,2,1,(err,obj)=&gt;&#123; // todo.. &#125;)   //[1,2,3,4]</span><br><span class="line">redisClient.rpop(<span class="string">'arr'</span>,(err,obj)=&gt;&#123; // todo.. &#125;)   //[1,2,3]</span><br><span class="line">redisClient.lrange(<span class="string">'arr'</span>,0,-1,(err,obj)=&gt;&#123; // todo.. &#125;)   //[1,2,3]</span><br><span class="line"></span><br><span class="line">//集合</span><br><span class="line">sadd key member [member ...] 向集合key中添加元素，如果元素已经存在则忽略</span><br><span class="line">srem key member [member ...] 从集合key中删除元素</span><br><span class="line">smembers key 返回集合key中所有的元素</span><br><span class="line">sinter key [key ...] 多个集合执行交集运算</span><br><span class="line">sdiff key [key ...] 多个集合执行差集运算</span><br><span class="line">sunion key [key ...] 多个集合执行并集运算</span><br><span class="line">sismember key member 是否在集合内</span><br><span class="line">redisClient.sadd(<span class="string">'muster'</span>,1,2,(err,obj)=&gt;&#123; // todo.. &#125;)  //[1，2]</span><br><span class="line">redisClient.smembers(<span class="string">'muster'</span>,(err,obj)=&gt;&#123; // todo.. &#125;)   //[1，2]</span><br><span class="line">redisClient.srem(<span class="string">'muster'</span>,1,(err,obj)=&gt;&#123; // todo.. &#125;)   // 2</span><br><span class="line">redisClient.sismember(<span class="string">'muster'</span>,2,(err,obj)=&gt;&#123; // todo...&#125;) 返回1或0，在或不在</span><br><span class="line"></span><br><span class="line">//有序集合</span><br><span class="line">zadd key score member [score member ...] 向有序集合key中加入一个或多个元素和分数，如果元素已经存在，则替换分数</span><br><span class="line">zrem key member [member ...] 删除集合中一个或多个元素</span><br><span class="line">zrange key start stop [withscores] 按元素分数从小到大顺序返回元素，如需获得对应元素的分数，在尾部加上withscores</span><br><span class="line">zrevrange key start stop [withscores] 按元素分数从大到小顺序返回元素</span><br></pre></td></tr></table></figure></p>
+<h3 id="express中简单使用redis配合session"><a href="#express中简单使用redis配合session" class="headerlink" title="express中简单使用redis配合session"></a>express中简单使用redis配合session</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">const redis = require(<span class="string">'redis'</span>)</span><br><span class="line">const session = require(<span class="string">'express-session'</span>)</span><br><span class="line">const RedisStore = require(<span class="string">'connect-redis'</span>)(session)</span><br><span class="line">const REDIS_CONF = &#123;</span><br><span class="line">    port: 6379,</span><br><span class="line">    host: <span class="string">'127.0.0.1'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 创建客户端</span><br><span class="line">const redisClient = redis.createClient(REDIS_CONF.port, REDIS_CONF.host)</span><br><span class="line">redisClient.on(<span class="string">'error'</span>, err =&gt; &#123;</span><br><span class="line">    console.error(err)</span><br><span class="line">&#125;)</span><br><span class="line">const sessionStore = new RedisStore(&#123;</span><br><span class="line">  client: redisClient</span><br><span class="line">&#125;)</span><br><span class="line">app.use(session(&#123;</span><br><span class="line">  secret: <span class="string">'xxxxxx'</span>,</span><br><span class="line">  cookie: &#123;</span><br><span class="line">    maxAge: 24 * 60 * 60 * 1000</span><br><span class="line">  &#125;,</span><br><span class="line">  store: sessionStore</span><br><span class="line">&#125;))</span><br><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>(key, val) &#123;</span><br><span class="line">    <span class="keyword">if</span> (typeof val === <span class="string">'object'</span>) &#123;</span><br><span class="line">        val = JSON.stringify(val)</span><br><span class="line">    &#125;</span><br><span class="line">    redisClient.set(key, val, redis.print)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> get(key) &#123;</span><br><span class="line">    const promise = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        redisClient.get(key, (err, val) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                reject(err)</span><br><span class="line">                <span class="built_in">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (val == null) &#123;</span><br><span class="line">                resolve(null)</span><br><span class="line">                <span class="built_in">return</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            try &#123;</span><br><span class="line">                resolve(</span><br><span class="line">                    JSON.parse(val)</span><br><span class="line">                )</span><br><span class="line">            &#125; catch (ex) &#123;</span><br><span class="line">                resolve(val)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">return</span> promise</span><br><span class="line">&#125;</span><br><span class="line">// 设置 session</span><br><span class="line">req.session.username = data.username</span><br><span class="line">req.session.realname = data.realname</span><br><span class="line">// 同步到 redis</span><br><span class="line"><span class="built_in">set</span>(req.sessionId, req.session)</span><br></pre></td></tr></table></figure>
+<h3 id="node使用文件留读写日志"><a href="#node使用文件留读写日志" class="headerlink" title="node使用文件留读写日志"></a>node使用文件留读写日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(<span class="string">'fs'</span>)</span><br><span class="line">const path = require(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line">// 写日志</span><br><span class="line"><span class="keyword">function</span> writeLog(writeStream, <span class="built_in">log</span>) &#123;</span><br><span class="line">    writeStream.write(<span class="built_in">log</span> + <span class="string">'\n'</span>)  // 关键代码</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 生成 write Stream</span><br><span class="line"><span class="keyword">function</span> createWriteStream(fileName) &#123;</span><br><span class="line">    const fullFileName = path.join(__dirname, <span class="string">'../'</span>, <span class="string">'../'</span>, <span class="string">'logs'</span>, fileName)</span><br><span class="line">    const writeStream = fs.createWriteStream(fullFileName, &#123;</span><br><span class="line">        flags: <span class="string">'a'</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">return</span> writeStream</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 写访问日志</span><br><span class="line">const accessWriteStream = createWriteStream(<span class="string">'access.log'</span>)</span><br><span class="line"><span class="keyword">function</span> access(<span class="built_in">log</span>) &#123;</span><br><span class="line">    writeLog(accessWriteStream, <span class="built_in">log</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">在 app.js 中 使用httpServer使用 access方法</span><br><span class="line"> access(`<span class="variable">$&#123;req.method&#125;</span> -- <span class="variable">$&#123;req.url&#125;</span> -- <span class="variable">$&#123;req.headers['user-agent']&#125;</span> -- <span class="variable">$&#123;Date.now()&#125;</span>`)</span><br></pre></td></tr></table></figure>
+<h3 id="使用log4js读写日志"><a href="#使用log4js读写日志" class="headerlink" title="使用log4js读写日志"></a>使用log4js读写日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">const log4js = require(<span class="string">'log4js'</span>)</span><br><span class="line">// log4js的输出级别6个: trace, debug, info, warn, error, fatal</span><br><span class="line"></span><br><span class="line">log4js.configure(&#123;</span><br><span class="line">    //输出位置的基本信息设置</span><br><span class="line">    appenders: &#123;</span><br><span class="line">        //设置控制台输出 （默认日志级别是关闭的（即不会输出日志））</span><br><span class="line">        out: &#123; <span class="built_in">type</span>: <span class="string">'console'</span> &#125;,</span><br><span class="line">        //设置每天：以日期为单位,数据文件类型，dataFiel   注意设置pattern，alwaysIncludePattern属性</span><br><span class="line">        //allLog: &#123; <span class="built_in">type</span>: <span class="string">'dateFile'</span>, filename: <span class="string">'./log/all'</span>, pattern: <span class="string">'-yyyy-MM-dd.log'</span>, alwaysIncludePattern: <span class="literal">true</span> &#125;,</span><br><span class="line"></span><br><span class="line">        //所有日志记录，文件类型file   文件最大值maxLogSize 单位byte (B-&gt;KB-&gt;M) backups:备份的文件个数最大值,最新数据覆盖旧数据</span><br><span class="line">        allLog: &#123; <span class="built_in">type</span>: <span class="string">'file'</span>, filename: <span class="string">'./log/all.log'</span>, keepFileExt: <span class="literal">true</span>, maxLogSize: 10485760, backups: 3 &#125;,</span><br><span class="line"></span><br><span class="line">        //http请求日志  http请求日志需要app.use引用一下， 这样才会自动记录每次的请求信息 </span><br><span class="line">        httpLog: &#123; <span class="built_in">type</span>: <span class="string">"dateFile"</span>, filename: <span class="string">"log/httpAccess.log"</span>, pattern: <span class="string">".yyyy-MM-dd"</span>, keepFileExt: <span class="literal">true</span> &#125;,</span><br><span class="line"></span><br><span class="line">        //错误日志 <span class="built_in">type</span>:过滤类型logLevelFilter,将过滤error日志写进指定文件</span><br><span class="line">        errorLog: &#123; <span class="built_in">type</span>: <span class="string">'file'</span>, filename: <span class="string">'./log/error.log'</span> &#125;,</span><br><span class="line">        error: &#123; <span class="built_in">type</span>: <span class="string">"logLevelFilter"</span>, level: <span class="string">"error"</span>, appender: <span class="string">'errorLog'</span> &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    //不同等级的日志追加到不同的输出位置：appenders: [<span class="string">'out'</span>, <span class="string">'allLog'</span>]  categories 作为getLogger方法的键名对应</span><br><span class="line">    categories: &#123;</span><br><span class="line">        //appenders:采用的appender,取上面appenders项,level:设置级别</span><br><span class="line">        http: &#123; appenders: [<span class="string">'out'</span>, <span class="string">'httpLog'</span>], level: <span class="string">"debug"</span> &#125;,</span><br><span class="line">        default: &#123; appenders: [<span class="string">'out'</span>, <span class="string">'allLog'</span>, <span class="string">'error'</span>], level: <span class="string">'debug'</span> &#125;, //error写入时是经过筛选后留下的</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//getLogger参数取categories项,为空或者其他值取default默认项</span><br><span class="line">// exports.getLogger = <span class="keyword">function</span> (name) &#123;</span><br><span class="line">//     <span class="built_in">return</span> log4js.getLogger(name || <span class="string">'default'</span>)</span><br><span class="line">// &#125;</span><br><span class="line">const logger = log4js.getLogger(<span class="string">"liveMeeting"</span>);</span><br><span class="line"></span><br><span class="line">const httpLog = log4js.getLogger(<span class="string">'http'</span>);</span><br><span class="line">const httpLogger = log4js.connectLogger(httpLog, &#123; level: <span class="string">'WARN'</span> &#125;);</span><br><span class="line"></span><br><span class="line">exports = module.exports = &#123; logger, httpLogger &#125;;</span><br><span class="line"></span><br><span class="line">// http请求日志</span><br><span class="line">global.logger = require(<span class="string">'./config/log4js'</span>).logger;</span><br><span class="line">httpLogger = require(<span class="string">'./config/log4js'</span>).httpLogger;</span><br><span class="line"></span><br><span class="line">//这样会自动记录每次请求信息，放在其他use上面</span><br><span class="line">app.use(httpLogger);</span><br><span class="line"></span><br><span class="line">// 手写日志</span><br><span class="line">logger.info(<span class="string">'test info'</span>);</span><br><span class="line">logger.error(<span class="string">'test error info '</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">参考地址:https://blog.csdn.net/xiaoyangerbani/article/details/82319876</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,57 +203,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/08/redis、日志/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/16/ie9兼容2/" class="archive-article-date">
-  	<time datetime="2020-03-16T09:02:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/08/16/webgl/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          webgl函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/29/mysql和sequelize使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql和sequelize使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/16/ie9兼容2/">ie9兼容2</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -273,8 +334,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
