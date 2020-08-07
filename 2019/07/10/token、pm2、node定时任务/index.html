@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 测试 | Comet</title>
+  <title>token、pm2、node定时任务 | Comet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Cc的个人博客">
-<meta name="keywords" content="Cc comet">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Comet">
-<meta property="og:url" content="http://yoursite.com/tags/测试/index.html">
+  <meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="token、pm2、node定时任务">
+<meta property="og:url" content="http://yoursite.com/2019/07/10/token、pm2、node定时任务/index.html">
 <meta property="og:site_name" content="Comet">
-<meta property="og:description" content="Cc的个人博客">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-08-07T08:41:23.246Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Comet">
-<meta name="twitter:description" content="Cc的个人博客">
+<meta name="twitter:title" content="token、pm2、node定时任务">
   
     <link rel="alternative" href="/atom.xml" title="Comet" type="application/atom+xml">
   
@@ -159,60 +157,162 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-token、pm2、node定时任务" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/02/图文测试/" class="archive-article-date">
-  	<time datetime="2018-08-02T13:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/图文测试/">图文测试</a>
+    <h1 class="article-title" itemprop="name">
+      token、pm2、node定时任务
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/10/token、pm2、node定时任务/" class="archive-article-date">
+  	<time datetime="2019-07-10T15:05:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<a id="more"></a>
+<h1 id="token、pm2、node定时任务"><a href="#token、pm2、node定时任务" class="headerlink" title="token、pm2、node定时任务"></a>token、pm2、node定时任务</h1><h3 id="token鉴权"><a href="#token鉴权" class="headerlink" title="token鉴权"></a>token鉴权</h3><p>token是服务端生成的一串字符串，以作客户端进行请求的一个令牌，当第一次登录后，服务器生成一个Token便将此Token返回给客户端，以后客户端只需带上这个Token前来请求数据即可，无需再次带上用户名和密码。<br>token和session其实都是为了身份验证，session一般翻译为会话，而token更多的时候是翻译为令牌；<br>session服务器会保存一份，可能保存到缓存，文件，数据库；同样，session和token都是有过期时间一说，都需要去管理过期时间；<br>其实token与session的问题是一种时间与空间的博弈问题，session是空间换时间，而token是时间换空间。两者的选择要看具体情况而定。</p>
+<p>nodejs 中使用 JsonWebToken,JSON Web Token（缩写JWT）是当前最流行的跨域认证解决方案<br>npm install jsonwebtoken<br>JWT由三部分组成: header(头)、payload(载体)、signature(签名)<br>header值有:HS384 HS512 RS256 RS384 RS512 ES256 ES384 ES512 PS256 PS384有这几种<br>载体：iss：Issuer，发行者<br>      sub：Subject，主题<br>      aud：Audience，观众<br>      exp：Expiration time，过期时间<br>      nbf：Not before<br>      iat：Issued at，发行时间<br>      jti：JWT ID<br>签名：是对前两部分的签名，防止数据篡改。<br>首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用 Header 里面指定的签名算法（默认是 HMAC SHA256），按照下面的公式产生签名。<br>HMACSHA256(<br>  base64UrlEncode(header) + “.” +<br>  base64UrlEncode(payload),<br>  secret)<br>算出签名以后，把 Header、Payload、Signature 三个部分拼成一个字符串，每个部分之间用”点”（.）分隔，就可以返回给用户</p>
+<p>jsonwebtoken主要用到方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1。jwt.sign(payload, secretOrPrivateKey, [options, callback])</span><br><span class="line">payload 是一个json对象或者是一个可以json化的buffer或字符串 这个对象可以存储用户id,会话信息等,这里的信息都是可以使用jwt.verify()方法拿到的. </span><br><span class="line">secretOrPrivateKey是加密的key或者叫做密匙,不知道密匙是无法解析payload参数的.</span><br><span class="line">options 参数 是一个json对象</span><br><span class="line">expiresIn : 表示有效期  不带单位默认为秒  如带单位如: <span class="string">"2 days"</span>, <span class="string">"10h"</span>, <span class="string">"7d"</span></span><br><span class="line"></span><br><span class="line">2。jwt.verify(token, secretOrPublicKey, [options, callback])</span><br><span class="line">token: 就是token字符串 由jwt.sign()方法生成的</span><br><span class="line">secretOrPublicKey:是加密的key,用于解析生成token时的payload参数</span><br><span class="line">options:设置一些解密的方法....</span><br></pre></td></tr></table></figure></p>
+<h3 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h3><p>PM2是nodejs应用程序的运行管理工具，提供了进程管理、性能监控、负载均衡等功能</p>
+<p>npm install -g pm2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">1。常用命令</span><br><span class="line">启动：pm2 start xxx --参数...</span><br><span class="line">参数说明:</span><br><span class="line">--watch：监听应用目录的变化，一旦发生变化，自动重启。如果要精确监听、不监听的目录，最好通过配置文件。</span><br><span class="line">-i --instances：启用多少个实例，可用于负载均衡。如果-i 0或者-i max，则根据当前机器核数确定实例数目。</span><br><span class="line">--ignore-watch：排除监听的目录/文件，可以是特定的文件名，也可以是正则。比如--ignore-watch=<span class="string">"test node_modules "</span>some scripts<span class="string">""</span></span><br><span class="line">-n --name：应用的名称。查看应用信息的时候可以用到。</span><br><span class="line">-o --output &lt;path&gt;：标准输出日志文件的路径。</span><br><span class="line">-e --error &lt;path&gt;：错误输出日志文件的路径。</span><br><span class="line">--interpreter &lt;interpreter&gt;：the interpreter pm2 should use <span class="keyword">for</span> executing app (bash, python...)。比如你用的coffee script来编写应用。</span><br><span class="line">--max-memory-restart xxxM 超过使用内存上限后自动重启</span><br><span class="line"></span><br><span class="line">重启：pm2 restart xxx           </span><br><span class="line">停止：pm2 stop xxx           </span><br><span class="line">删除：pm2 delete xxx           </span><br><span class="line">查看：pm2 list</span><br><span class="line">监控：pm2 monit</span><br><span class="line">日志：pm2 logs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2。使用配置文件（使用json文件或者yaml文件格式）,简化命令</span><br><span class="line">启动.执行pm2 start 配置文件</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"apps"</span>: &#123;</span><br><span class="line">      <span class="string">"name"</span>: <span class="string">"wuwu"</span>,                             // 项目名          </span><br><span class="line">      <span class="string">"script"</span>: <span class="string">"./bin/www"</span>,                      // 执行文件</span><br><span class="line">      <span class="string">"cwd"</span>: <span class="string">"./"</span>,                                // 根目录</span><br><span class="line">      <span class="string">"args"</span>: <span class="string">""</span>,                                 // 传递给脚本的参数</span><br><span class="line">      <span class="string">"interpreter"</span>: <span class="string">""</span>,                          // 指定的脚本解释器</span><br><span class="line">      <span class="string">"interpreter_args"</span>: <span class="string">""</span>,                     // 传递给解释器的参数</span><br><span class="line">      <span class="string">"watch"</span>: <span class="literal">true</span>,                              // 是否监听文件变动然后重启</span><br><span class="line">      <span class="string">"ignore_watch"</span>: [                           // 不用监听的文件</span><br><span class="line">          <span class="string">"node_modules"</span>,</span><br><span class="line">          <span class="string">"logs"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="string">"exec_mode"</span>: <span class="string">"cluster_mode"</span>,                // 应用启动模式，支持fork和cluster模式</span><br><span class="line">      <span class="string">"instances"</span>: 4,                             // 应用启动实例个数，仅在cluster模式有效 默认为fork；或者 max</span><br><span class="line">      <span class="string">"max_memory_restart"</span>: 8,                    // 最大内存限制数，超出自动重启</span><br><span class="line">      <span class="string">"error_file"</span>: <span class="string">"./logs/app-err.log"</span>,         // 错误日志文件</span><br><span class="line">      <span class="string">"out_file"</span>: <span class="string">"./logs/app-out.log"</span>,           // 正常日志文件</span><br><span class="line">      <span class="string">"merge_logs"</span>: <span class="literal">true</span>,                         // 设置追加日志而不是新建日志</span><br><span class="line">      <span class="string">"log_date_format"</span>: <span class="string">"YYYY-MM-DD HH:mm:ss"</span>,   // 指定日志文件的时间格式</span><br><span class="line">      <span class="string">"min_uptime"</span>: <span class="string">"60s"</span>,                        // 应用运行少于时间被认为是异常启动</span><br><span class="line">      <span class="string">"max_restarts"</span>: 30,                         // 最大异常重启次数，即小于min_uptime运行时间重启次数；</span><br><span class="line">      <span class="string">"autorestart"</span>: <span class="literal">true</span>,                        // 默认为<span class="literal">true</span>, 发生异常的情况下自动重启</span><br><span class="line">      <span class="string">"cron_restart"</span>: <span class="string">""</span>,                         // crontab时间格式重启应用，目前只支持cluster模式;</span><br><span class="line">      <span class="string">"restart_delay"</span>: <span class="string">"60s"</span>                      // 异常重启情况下，延时重启时间</span><br><span class="line">      <span class="string">"env"</span>: &#123;</span><br><span class="line">          <span class="string">"NODE_ENV"</span>: <span class="string">"production"</span>,                // 环境参数，当前指定为生产环境 process.env.NODE_ENV</span><br><span class="line">          <span class="string">"REMOTE_ADDR"</span>: <span class="string">"爱上大声地"</span>               // process.env.REMOTE_ADDR</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"env_dev"</span>: &#123;</span><br><span class="line">          <span class="string">"NODE_ENV"</span>: <span class="string">"development"</span>,              // 环境参数，当前指定为开发环境 pm2 start app.js --env_dev</span><br><span class="line">          <span class="string">"REMOTE_ADDR"</span>: <span class="string">""</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"env_test"</span>: &#123;                               // 环境参数，当前指定为测试环境 pm2 start app.js --env_test</span><br><span class="line">          <span class="string">"NODE_ENV"</span>: <span class="string">"test"</span>,</span><br><span class="line">          <span class="string">"REMOTE_ADDR"</span>: <span class="string">""</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="node定时任务"><a href="#node定时任务" class="headerlink" title="node定时任务"></a>node定时任务</h3><p>安装<br>npm install node-schedule<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">const schedule = require(<span class="string">'node-schedule'</span>);//定时器</span><br><span class="line">const nodeTimer = &#123;&#125;;</span><br><span class="line"><span class="built_in">let</span> cancelTimer = <span class="string">''</span></span><br><span class="line">Cron风格定时器</span><br><span class="line">//   参数：</span><br><span class="line">// * 第一位，表示秒，取值0-59</span><br><span class="line">// * 第二位，表示分，取值0-59</span><br><span class="line">// * 第三位，表示小时，取值0-23</span><br><span class="line">// * 第四位，日期天/日，取值1-31</span><br><span class="line">// * 第五位，日期月份，取值1-12</span><br><span class="line">// * 第六位，星期，取值1-7，星期一，星期二...，注：不是第1周，第二周的意思，另外：1表示星期天，2表示星期一。</span><br><span class="line">// * 第7为，年份，可以留空，取值1970-2099</span><br><span class="line">// (*)星号：可以理解为每的意思，每秒，每分，每天，每月，每年...</span><br><span class="line">// (?)问号：问号只能出现在日期和星期这两个位置，表示这个位置的值不确定，每天3点执行，所以第六位星期的位置，我们是不需要关注的，就是不确定的值。同时：日期和星期是两个相互排斥的元素，通过问号来表明不指定值。比如，1月10日，比如是星期1，如果在星期的位置是另指定星期二，就前后冲突矛盾了。</span><br><span class="line">// (-)减号：表达一个范围，如在小时字段中使用“10-12”，则表示从10到12点，即10,11,12</span><br><span class="line">// (,)逗号：表达一个列表值，如在星期字段中使用“1,2,4”，则表示星期一，星期二，星期四</span><br><span class="line">// (/)斜杠：如：x/y，x是开始值，y是步长，比如在第一位（秒） 0/15就是，从0秒开始，每15秒，最后就是0，15，30，45，60    另：*/y，等同于0/y</span><br><span class="line">// 示例：</span><br><span class="line">// 0 3 * * ?     每天3点执行</span><br><span class="line">// 5 3 * * ?     每天3点5分执行</span><br><span class="line">// 5 3 ? * *     每天3点5分执行，与上面作用相同</span><br><span class="line">// 5/10 3 * * ?  每天3点的 5分，15分，25分，35分，45分，55分这几个时间点执行</span><br><span class="line">// 10 3 ? * 1    每周星期天，3点10分 执行，注：1表示星期天    </span><br><span class="line">// 10 3 ? * 1<span class="comment">#3  每个月的第三个星期，星期天 执行，#号只能出现在星期的位置</span></span><br><span class="line">nodeTimer.scheduleTimer = (executionTime = <span class="string">'30 * * * * *'</span>, callback) =&gt; &#123;</span><br><span class="line">    // 每分钟的第30秒触发： <span class="string">'30 * * * * *'</span></span><br><span class="line">    // 每小时的1分30秒触发 ：<span class="string">'30 1 * * * *'</span></span><br><span class="line">    // 每天的凌晨1点1分30秒触发 ：<span class="string">'30 1 1 * * *'</span></span><br><span class="line">    // 每月的1日1点1分30秒触发 ：<span class="string">'30 1 1 1 * *'</span></span><br><span class="line">    // 2016年的1月1日1点1分30秒触发 ：<span class="string">'30 1 1 1 2016 *'</span></span><br><span class="line">    // 每周1的1点1分30秒触发 ：<span class="string">'30 1 1 * * 1'</span></span><br><span class="line">    cancelTimer = schedule.scheduleJob(executionTime, () =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (typeof callback === <span class="string">'function'</span>) &#123;</span><br><span class="line">            callback()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    cancelTimer.cancel() //取消定时器任务</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">递归规则定时器</span><br><span class="line">var schedule = require(<span class="string">'node-schedule'</span>);</span><br><span class="line"><span class="keyword">function</span> scheduleRecurrenceRule(callback)&#123;</span><br><span class="line">    var rule = new schedule.RecurrenceRule();</span><br><span class="line">    // rule.dayOfWeek = 2;</span><br><span class="line">    // rule.month = 3;</span><br><span class="line">    // rule.dayOfMonth = 1;</span><br><span class="line">    // rule.hour = 1;</span><br><span class="line">    // rule.minute = 42;</span><br><span class="line">    rule.second = 0;</span><br><span class="line">    schedule.scheduleJob(rule, <span class="keyword">function</span>(callback)&#123;</span><br><span class="line">        console.log(<span class="string">'scheduleRecurrenceRule:'</span> + new Date());</span><br><span class="line">        callback()</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">scheduleRecurrenceRule(()=&gt;&#123; //todo &#125;);</span><br><span class="line"></span><br><span class="line">对象文本语法定时器</span><br><span class="line">var schedule = require(<span class="string">'node-schedule'</span>);</span><br><span class="line"><span class="keyword">function</span> scheduleObjectLiteralSyntax(callback)&#123;</span><br><span class="line">    //dayOfWeek</span><br><span class="line">    //month</span><br><span class="line">    //dayOfMonth</span><br><span class="line">    //hour</span><br><span class="line">    //minute</span><br><span class="line">    //second</span><br><span class="line">    schedule.scheduleJob(&#123;hour: 16, minute: 11, dayOfWeek: 1&#125;, <span class="keyword">function</span>(callback)&#123;</span><br><span class="line">        console.log(<span class="string">'scheduleObjectLiteralSyntax:'</span> + new Date());</span><br><span class="line">        callback()</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">scheduleObjectLiteralSyntax(()=&gt;&#123; //todo &#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/10/token、pm2、node定时任务/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/08/16/webgl/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          webgl函数
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/07/08/redis、日志/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis、日志</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -235,9 +335,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
