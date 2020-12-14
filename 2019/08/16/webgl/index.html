@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/08/16/webgl/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-17T08:12:51.771Z">
+<meta property="og:updated_time" content="2020-12-14T14:58:57.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webgl函数">
   
@@ -34,64 +34,59 @@
 
   
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d">
-</div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
-  <header id="header" class="inner">
-    <a href="/" class="profilepic">
-      <img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
-    </a>
-    <hgroup>
-      <h1 class="header-author"><a href="/">Comet_cc</a></h1>
-    </hgroup>
-    
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Comet_cc</a></h1>
+		</hgroup>
+		
 
 		<nav class="header-menu">
-    <ul>
-      
-    <li><a href="/">主页</a></li>
-    
-    <li><a href="/archives/index.html">归档</a></li>
-    
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
-    
-    <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    
-    
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-    <a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i
-        class="icon-github"></i></a>
-    
-    <a class="weibo" target="_blank" href="#" title="weibo"><i
-        class="icon-weibo"></i></a>
-    
-    <a class="qq" target="_blank" href="#" title="qq"><i
-        class="icon-qq"></i></a>
-    
-    <a class="weixin" target="_blank" href="#" title="weixin"><i
-        class="icon-weixin"></i></a>
-    
+					<a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="qq" target="_blank" href="#" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -179,12 +174,368 @@
       
         <hr>
 <a id="more"></a>
-<h1 id="webgl函数"><a href="#webgl函数" class="headerlink" title="webgl函数"></a>webgl函数</h1><h3 id="创建webgl"><a href="#创建webgl" class="headerlink" title="创建webgl"></a>创建webgl</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> canvas = document.createElement(<span class="string">'canvas'</span>)</span><br><span class="line"><span class="built_in">let</span> gl = canvas.getContext(<span class="string">'webgl'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="初始化着色器"><a href="#初始化着色器" class="headerlink" title="初始化着色器"></a>初始化着色器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">/* 顶点着色器 */</span><br><span class="line"><span class="built_in">let</span> vertexShaderSource = <span class="string">""</span> +</span><br><span class="line">  <span class="string">"attribute vec4 a_Position;\n"</span> + //attribute + 数据类型 + a_变量名（定义顶点相关信息）</span><br><span class="line">  <span class="string">"attribute vec4 a_Color;\n"</span> +</span><br><span class="line">  <span class="string">"uniform mat4 u_MvpMatrix;\n"</span> + //uniform + 数据类型 + u_变量名（定义与顶点无关信息）</span><br><span class="line">  <span class="string">"varying vec4 v_Color;\n"</span> + //varying +  数据类型 + v_变量名（定义变量传递给片元着色器）</span><br><span class="line">  <span class="string">"void main()&#123;\n"</span> +</span><br><span class="line">  <span class="string">"   gl_Position = u_MvpMatrix * a_Position;\n"</span> + //计算并设置顶点的位置</span><br><span class="line">  <span class="string">"   v_Color = a_Color;\n"</span> + //赋值varying 变量</span><br><span class="line">  <span class="string">"&#125;\n"</span>;</span><br><span class="line"></span><br><span class="line">/* 片元着色器 */</span><br><span class="line"><span class="built_in">let</span> fragmentShaderSource = <span class="string">""</span> +</span><br><span class="line">  <span class="string">"#ifdef GL_ES;\n"</span> + //判断语句</span><br><span class="line">  <span class="string">"precision mediump float;\n"</span> + //指定变量的范围和精度</span><br><span class="line">  <span class="string">"#endif;\n"</span> +</span><br><span class="line">  <span class="string">"uniform mat4 u_MvpMatrix;\n"</span> + //uniform + 数据类型 + u_变量名（定义与顶点无关信息）</span><br><span class="line">  <span class="string">"varying vec4 v_Color;\n"</span> + //varying +  数据类型 + v_变量名（定义变量接收）</span><br><span class="line">  <span class="string">"void main()&#123;\n"</span> +</span><br><span class="line">  <span class="string">"   gl_FragColor = v_Color;\n"</span> + //计算并设置顶点的颜色</span><br><span class="line">  <span class="string">"&#125;\n"</span>;</span><br><span class="line"></span><br><span class="line">/* gl_FragColor使用着色器定义纹理 </span><br><span class="line">  gl_FragColor = texture2D(u_Sampler,v_TexCoord);</span><br><span class="line">  u_Sampler 参数为 所定义的纹理变量</span><br><span class="line">  v_TexCoord 为纹理坐标</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">/* 创建着色器 */</span><br><span class="line"><span class="keyword">function</span> loadShader(<span class="built_in">type</span>, <span class="built_in">source</span>) &#123;</span><br><span class="line">  /* gl.createShader(<span class="built_in">type</span>) 创建着色器  </span><br><span class="line">  参数为 gl.VERTEX_SHADER 或 gl.FRAGMENT_SHADER  */</span><br><span class="line">  <span class="built_in">let</span> shader = gl.createShader(<span class="built_in">type</span>);</span><br><span class="line"></span><br><span class="line">  /* gl.deleteShader(shader); 删除着色器 */</span><br><span class="line"></span><br><span class="line">  /* 绑定着色器数据</span><br><span class="line">    gl.shaderSource(shader, <span class="built_in">source</span>)</span><br><span class="line">    shader 为 所创建的着色器</span><br><span class="line">    <span class="built_in">source</span> 着色器数据</span><br><span class="line">  */</span><br><span class="line">  gl.shaderSource(shader, <span class="built_in">source</span>);</span><br><span class="line"></span><br><span class="line">  /* 编译着色器 gl.compileShader(shader)  shader 为 所创建的着色器 */</span><br><span class="line">  gl.compileShader(shader);</span><br><span class="line"></span><br><span class="line">  /* 查看着色器编译结果</span><br><span class="line">    gl.getShaderParameter(shader, <span class="built_in">type</span>);</span><br><span class="line">    shader 为 所创建的着色器，</span><br><span class="line">    <span class="built_in">type</span> 为 gl.SHADER_TYPE,gl.DELETE_STATUS,gl_COMPILE_STATUS</span><br><span class="line">  */</span><br><span class="line">  <span class="built_in">let</span> compiled = gl.getShaderParameter(shader, gl.COMPILE_STATUS);</span><br><span class="line">  /* 编译失败，gl.getShaderParameter(shader)获取编译错误信息 */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> shader;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 通过方法创建顶点着色器和片元着色器 */</span><br><span class="line"><span class="built_in">let</span> vertexShader = loadShader(gl.VERTEX_SHADER, vertexShaderSource)</span><br><span class="line"><span class="built_in">let</span> fragmentShader = loadShader(gl.FRAGMENT_SHADER, fragmentShaderSource)</span><br><span class="line"></span><br><span class="line">/*  gl.createProgram() 创建程序对象 */</span><br><span class="line"><span class="built_in">let</span> program = gl.createProgram();</span><br><span class="line"></span><br><span class="line">/* 为程序对象分配着色器对象（gl.attachShader(program,shader)）</span><br><span class="line">  program 为所使用的程序对象</span><br><span class="line">  shader 为顶点着色器和片元着色器</span><br><span class="line"> */</span><br><span class="line">gl.attachShader(program, vertexShader);</span><br><span class="line">gl.attachShader(program, fragmentShader);</span><br><span class="line"></span><br><span class="line">/* 解除程序对象的着色器 */</span><br><span class="line">gl.detachShader(program, vertexShader)</span><br><span class="line"></span><br><span class="line">/* 将程序对象绑定到webgl  </span><br><span class="line">   gl.linkProgram(program) </span><br><span class="line">*/</span><br><span class="line">gl.linkProgram(program);</span><br><span class="line"></span><br><span class="line">/* 查看程序对象绑定状态 </span><br><span class="line">  gl.getProgramParameter(program, <span class="built_in">type</span>)</span><br><span class="line">  <span class="built_in">type</span> 参数为 gl.DELETE_STATUS 程序是否被删除</span><br><span class="line">              gl.LINK_STATUS 程序是否成功连接</span><br><span class="line">              gl.VALIDATE_STATUS 程序是否通过验证</span><br><span class="line">              gl.ATTACHED_SHADERS 已分配给程序着色器的数量</span><br><span class="line">              gl.ACTIVE_ATTRIBUTES 顶点着色器中attribute变量的数量</span><br><span class="line">              gl.ACTIVE_UNIFORMS 程序中uniform变量的数量</span><br><span class="line">*/</span><br><span class="line"><span class="built_in">let</span> link = gl.getProgramParameter(program, gl.LINK_STATUS);</span><br><span class="line"></span><br><span class="line">/* link失败可从 gl.getProgramInfoLog()从信息日志中获取连接出错信息。 */</span><br><span class="line"></span><br><span class="line">/* 调用gl.useProgram 告知WebGL系统绘制时使用哪个程序对象 */</span><br><span class="line">gl.useProgram(program)</span><br></pre></td></tr></table></figure>
-<h3 id="设置变量信息"><a href="#设置变量信息" class="headerlink" title="设置变量信息"></a>设置变量信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">/* gl.getAttribLocation(program,<span class="string">'a_xxxxxx'</span>)</span><br><span class="line">/* gl.getUniformLocation(program,<span class="string">'u_xxxxxx'</span>)</span><br><span class="line">   获取着色器中变量的存储位置</span><br><span class="line">*/</span><br><span class="line">program.a_Position = gl.getAttribLocation(program, <span class="string">'a_Position'</span>)</span><br><span class="line">program.u_MvpMatrix = gl.getUniformLocation(program, <span class="string">'u_MvpMatrix'</span>)</span><br><span class="line"></span><br><span class="line">/* 设置顶点(颜色)等信息 */</span><br><span class="line"><span class="built_in">let</span> vertices /* colors */ = new Float32Array([11, 11, 11, 11])</span><br><span class="line"></span><br><span class="line">/* 不创建缓存区 设置a_xxx  变量信息 */</span><br><span class="line">/* gl.vertexAttrib1f() gl.vertexAttrib2f() gl.vertexAttrib3f() gl.vertexAttrib4f()*/</span><br><span class="line">gl.vertexAttrib3f(<span class="string">'a_attribute'</span>, <span class="string">'xxx'</span>, <span class="string">'xxx'</span>, <span class="string">'xxx'</span>, <span class="string">'xxx'</span>) /* 2 3 4 参数 点信息 */ ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/* 创建缓存区 设置a_xxx 变量信息</span><br><span class="line">(缓冲区对象，它可以一次性向着色器传入多个顶点的数据) */</span><br><span class="line"><span class="keyword">function</span> initArrayBufferForLaterUse(data, num, <span class="built_in">type</span>) &#123;</span><br><span class="line">  <span class="built_in">let</span> buffer = gl.createBuffer(); // 创建一个缓冲区对象</span><br><span class="line"></span><br><span class="line">  //将数据写入缓冲区对象</span><br><span class="line">  /* gl.bindBuffer(<span class="built_in">type</span>, buffer) </span><br><span class="line">  <span class="built_in">type</span> 参数为 gl.ARRAY_BUFFER 顶点的数据 (点组成面)</span><br><span class="line">              gl.ELEMENT_ARRAY_BUFFER 顶点的索引(面组成体)</span><br><span class="line">  */</span><br><span class="line">  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);</span><br><span class="line">  /* 向缓存区对象中写入数据</span><br><span class="line">  gl.bufferData(<span class="built_in">type</span>, data,draw) </span><br><span class="line">  <span class="built_in">type</span> 参数为 gl.ARRAY_BUFFER 顶点的数据 (点组成面)</span><br><span class="line">              gl.ELEMENT_ARRAY_BUFFER 顶点的索引(面组成体)</span><br><span class="line">  data 参数为 顶点相关数据信息</span><br><span class="line">  draw 参数为 gl.STATIC_DRAW 只写入一次，但绘制很多次</span><br><span class="line">              gl.STREAM_DRAW 只写入一次，绘制若干次</span><br><span class="line">              gl.DYNAMIC_DRAW 写入多次，并绘制很多次</span><br><span class="line">  */</span><br><span class="line">  gl.bufferData(gl.ARRAY_BUFFER, data, this.webgl.STATIC_DRAW);</span><br><span class="line"></span><br><span class="line">  //保留必要的信息，以便后面使用</span><br><span class="line">  buffer.num = num;</span><br><span class="line">  buffer.type = <span class="built_in">type</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> buffer;</span><br><span class="line">&#125;</span><br><span class="line">/* 绑定缓存区数据 */</span><br><span class="line"><span class="keyword">function</span> initAttributeVariable(a_attribute, buffer) &#123;</span><br><span class="line">  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);</span><br><span class="line">  /* 将缓冲区对象分配给attribute变量</span><br><span class="line">  gl.vertexAttribPointer(attribute,num,<span class="built_in">type</span>,normalize,stride,offset)</span><br><span class="line">  attribute 参数为着色器attribute变量</span><br><span class="line">  num 参数为 顶点(颜色)等数据信息中 几个单位为一顶点单一信息(1-x),小于4 则按照x,0,0,1规则补全</span><br><span class="line">  <span class="built_in">type</span> 参数为数据格式 gl.UNSIGNED_BYTE 无符号字节 Uint8Array</span><br><span class="line">                      gl.SHORT 短整型 Int16Array</span><br><span class="line">                      gl.UNSIGNED_SHORT 无符号短整型 Uint16Array</span><br><span class="line">                      gl.INT 整型 Int32Array</span><br><span class="line">                      gl.FLOAT 浮点型 Float32Array</span><br><span class="line">  normalize 参数为<span class="literal">true</span>,<span class="literal">false</span> 表明是否将非浮点型归一化到[0,1]或[-1,1]之间</span><br><span class="line">  stride 参数为 几个单位为一顶点全部信息(0-x) 相当于两顶点单一信息间单位数</span><br><span class="line">  offset 参数为 一顶点全部信息(0-x)中该变量的偏移量</span><br><span class="line">  */</span><br><span class="line">  gl.vertexAttribPointer(a_attribute, buffer.num, buffer.type, <span class="literal">false</span>, 0, 0);</span><br><span class="line">  /* gl.enableVertexAttribArray(a_attribute); 开启该变量 */</span><br><span class="line">  gl.enableVertexAttribArray(a_attribute);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* uniform 变量传递信息 */</span><br><span class="line">/* 点变换 gl.uniform1f() gl.uniform2f() gl.uniform3f()*/</span><br><span class="line">gl.uniform4f(<span class="string">'u_uniform'</span>, <span class="string">'xxx'</span>, <span class="string">'xxx'</span>, <span class="string">'xxx'</span>, <span class="string">'xxx'</span>) /* 2 3 4 5参数 单数点信息 */ ;</span><br><span class="line">/* 矩阵变换</span><br><span class="line">  gl.uniformMatrix4fv(<span class="string">'u_uniform'</span>,<span class="literal">false</span>,data)</span><br><span class="line">  u_uniform 参数为 要传递uniform 变量</span><br><span class="line">  第二个参数固定值为<span class="literal">false</span> </span><br><span class="line">  data 为所需要的matrix数据</span><br><span class="line">*/</span><br><span class="line">gl.uniformMatrix4fv(<span class="string">'u_uniform'</span>, <span class="literal">false</span>, modelMatrix.elements);</span><br></pre></td></tr></table></figure>
-<h3 id="配置纹理"><a href="#配置纹理" class="headerlink" title="配置纹理"></a>配置纹理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">/* 配置纹理 */</span><br><span class="line"><span class="built_in">let</span> texture = gl.createTexture() /* 创建纹理对象 */</span><br><span class="line">/* 获取纹理变量的位置 */</span><br><span class="line"><span class="built_in">let</span> u_Sampler = gl.getUniformLocation(gl.program, <span class="string">"u_Sampler"</span>)</span><br><span class="line"></span><br><span class="line">/* 加载图片绑定纹理 */</span><br><span class="line"><span class="built_in">let</span> image = new Image();</span><br><span class="line">image.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  loadTexture(texture, u_Sampler, image);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">image.src = <span class="string">"xxxx"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">loadTexture</span></span>() &#123;</span><br><span class="line">  /* 对纹理图像进行y轴反转</span><br><span class="line">    gl.pixelStorei(xxx,xx)</span><br><span class="line">    xxx参数为 gl.UNPACK_FLIP_Y_WEBGL 对图像y轴反转</span><br><span class="line">              gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL  将图像rgb颜色值每一个分量乘以A</span><br><span class="line">    xx 参数为 非0(<span class="literal">true</span>) 或者 0(<span class="literal">false</span>)</span><br><span class="line">  */</span><br><span class="line">  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);</span><br><span class="line">  /* 开启0号纹理单元 多个纹理时还需要开启更多纹理单元 gl.TEXTURE1 gl.TEXTURE2..... */</span><br><span class="line">  gl.activeTexture(gl.TEXTURE0);</span><br><span class="line">  /*  向target绑定纹理对象 可以绑定 gl.TEXTURE_CUBE_MAP 立方体纹理，gl.TEXTURE_2D 二维纹理 */</span><br><span class="line">  gl.bindTexture(gl.TEXTURE_2D, texture);</span><br><span class="line">  /*  配置纹理参数</span><br><span class="line">    gl.texParameteri(target, pname, param)</span><br><span class="line">    target参数为 gl.TEXTURE_2D,gl.TEXTURE_CUBE_MAP</span><br><span class="line">    pname 纹理参数为 gl.TEXTURE_MAG_FILTER 纹理放大 默认值 gl.LINEAR</span><br><span class="line">                     gl.TEXTURE_MIN_FILTER 纹理缩小 默认值 gl.NEAREST_MIPMAP_LINEAR</span><br><span class="line">                     gl.TEXTURE_WRAP_S 纹理水平填充 默认值 gl.REPEAT</span><br><span class="line">                     gl.TEXTURE_WRAP_T 纹理垂直填充 默认值 gl.REPEAT</span><br><span class="line">    param 纹理参数的值为 gl.NEAREST gl.LINEAR gl.REPEAT gl.MIRRORED_REPEAT gl_CLAMP_TO_EDGE</span><br><span class="line">  */</span><br><span class="line">  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);</span><br><span class="line">  /* 将纹理图像分配给纹理对象</span><br><span class="line">    gl.texImage2D(target,level,internalformat,format,<span class="built_in">type</span>,image)</span><br><span class="line">    target 参数为 gl.TEXTURE_2D,gl.TEXTURE_CUBE_MAP</span><br><span class="line">    level 参数为 0 (该参数为金字塔纹理准备的)</span><br><span class="line">    internalformat 参数为 图像内部格式 gl.RGB  gl.RGBA  gl.ALPHA(0.0,0.0,0.0,透明度) gl.LUMINANCE gl.LUMINANCE_ALPHA</span><br><span class="line">    format 参数必须为和 internalformat参数一样的值</span><br><span class="line">    <span class="built_in">type</span> 参数为 gl.UNSIGNED_BYTE 无符号整型 每个颜色占1字节</span><br><span class="line">                gl.UNSIGNED_SHORT_5_6_5 RGB 每个分量分别占据5.6.5比特</span><br><span class="line">                gl.UNSIGNED_SHORT_4_4_4_4 RGBA 每个分量分别占据4.4.4.4比特</span><br><span class="line">                gl.UNSIGNED_SHORT_5_5_5_1 RGBA 每个分量分别占据5比特,A分量占1比特</span><br><span class="line">  */</span><br><span class="line">  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, image);</span><br><span class="line">  //将0号纹理传递给着色器</span><br><span class="line">  gl.uniform1i(u_Sampler, 0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="开启帧缓冲区进行离屏绘制"><a href="#开启帧缓冲区进行离屏绘制" class="headerlink" title="开启帧缓冲区进行离屏绘制"></a>开启帧缓冲区进行离屏绘制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">initFramebufferObject</span></span>() &#123;</span><br><span class="line">  <span class="built_in">let</span> framebuffer, texture, depthBuffer</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">error</span></span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (framebuffer) gl.deleteFramebuffer(framebuffer)</span><br><span class="line">    <span class="keyword">if</span> (texture) gl.deleteFramebuffer(texture)</span><br><span class="line">    <span class="keyword">if</span> (depthBuffer) gl.deleteFramebuffer(depthBuffer)</span><br><span class="line">    <span class="built_in">return</span> null</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //创建帧缓冲区对象 进行离屏渲染</span><br><span class="line">  framebuffer = gl.createFramebuffer()</span><br><span class="line">  <span class="keyword">if</span> (!framebuffer) &#123;</span><br><span class="line">    console.log(<span class="string">'无法创建帧缓冲区对象'</span>);</span><br><span class="line">    <span class="built_in">return</span> error()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //创建纹理对象并设置其尺寸和参数</span><br><span class="line">  texture = gl.createTexture()</span><br><span class="line">  <span class="keyword">if</span> (!texture) &#123;</span><br><span class="line">    console.log(<span class="string">'无法创建纹理对象'</span>)</span><br><span class="line">    <span class="built_in">return</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  gl.bindTexture(gl.TEXTURE_2D, texture)</span><br><span class="line">  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, this.offset_width, this.offset_height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null)</span><br><span class="line">  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)</span><br><span class="line">  framebuffer.texture = texture</span><br><span class="line"></span><br><span class="line">  //创建渲染缓冲区对象并设置其尺寸和参数</span><br><span class="line">  depthBuffer = gl.createRenderbuffer()</span><br><span class="line">  <span class="keyword">if</span> (!depthBuffer) &#123;</span><br><span class="line">    console.log(<span class="string">"无法创建渲染缓冲区对象"</span>);</span><br><span class="line">    <span class="built_in">return</span> error();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /* 绑定渲染缓存区 </span><br><span class="line">  gl.bindRenderbuffer(gl.RENDERBUFFER, depthBuffer) </span><br><span class="line">  第一个参数必须为 gl.RENDERBUFFER</span><br><span class="line">  depthBuffer 为要被绑定的渲染缓冲区</span><br><span class="line">  */</span><br><span class="line">  gl.bindRenderbuffer(gl.RENDERBUFFER, depthBuffer)</span><br><span class="line">  /* gl.renderbufferStorage(target,internalformat,width,height) 设置渲染缓冲区的格式、宽度、高度等。</span><br><span class="line">  注意，作为深度关联对象的渲染缓冲区，其宽度和高度必须与作为颜色关联对象的纹理缓冲区一致</span><br><span class="line">  target 参数必须为 gl.RENDERBUFFER</span><br><span class="line">  internalformat 参数为 gl.DEPTH_COMPONENT16 表示渲染缓冲区将替代深度缓冲区</span><br><span class="line">                        gl.STENCIL_INDEX8 表示渲染缓冲区将替代模板缓冲区</span><br><span class="line">                        gl.RGBA4 表示渲染缓冲区将替代颜色缓冲区</span><br><span class="line">                        gl.RGBA5_AL </span><br><span class="line">                        gl.RGBA565 </span><br><span class="line">  width,height 参数表示渲染缓冲区的宽高</span><br><span class="line">  */</span><br><span class="line">  gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH_COMPONENT16, offset_width, offset_height)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  /* 绑定帧缓冲区对象函数</span><br><span class="line">    gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer)</span><br><span class="line">    第一个参数必须为 gl.FRAMEBUFFER</span><br><span class="line">    framebuffer 参数为要被绑定的帧缓冲区</span><br><span class="line">  */</span><br><span class="line">  gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer)</span><br><span class="line"></span><br><span class="line">  /* gl.framebufferTexture2D(target,attachment,textarget,texture,level) 绑定纹理对象关联到target的帧缓冲区</span><br><span class="line">    target 参数必须为 gl.FRAMEBUFFER </span><br><span class="line">    attachment 参数为 gl.COLOR_ATTACHMENT0  表示texture 是颜色关联对象</span><br><span class="line">                      gl.COLOR_ATTACHMENT  表示texture 是深度关联对象</span><br><span class="line">    textarget 参数为 textureImage2D()的第一个参数 gl.TEXTURE_2D 或 gl.TEXTURE_CUBE  </span><br><span class="line">    texture 参数为 指定关联的纹理对象</span><br><span class="line">    level  为 0</span><br><span class="line">    注意，attachment参数的取值之一gl.COLOR_ATTACHMENT0，其名称中出现了一个0.</span><br><span class="line">    这是因为在OpenGL中，帧缓冲区可以具有多个颜色关联对象（gl.COLOR_ATTACHMENT0，gl.COLOR_ATTACHMENT1等等），但是WebGL中只可以有1个。</span><br><span class="line">  */</span><br><span class="line">  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0)</span><br><span class="line"></span><br><span class="line">  /* 使用gl.framebufferRenderbuffer(target,attachment,renderbufferTarget,renderbuffer)来把渲染缓冲区对象关联到帧缓冲区对象上。</span><br><span class="line">  这里，渲染缓冲区对象的作用是帮助进行隐藏面消除，所以我们将其指定为深度关联对象</span><br><span class="line">  target 参数必须为 gl.FRAMEBUFFER</span><br><span class="line">  attachment 参数为 gl.COLOR_ATTACHMENT0  表示renderbuffer 是颜色关联对象</span><br><span class="line">                    gl.DEPTH_ATTACHMENT  表示renderbuffer 是深度关联对象</span><br><span class="line">                    gl.STENCIL_ATTACHMENT  表示renderbuffer 是模板关联对象</span><br><span class="line">  renderbufferTarget 参数必须为 gl.RENDERBUFFER</span><br><span class="line">  renderbuffer 参数为被关联的渲染缓冲区对象</span><br><span class="line">  */</span><br><span class="line">  gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.RENDERBUFFER, depthBuffer)</span><br><span class="line"></span><br><span class="line">  //检查帧缓冲区对象是否被正确设置</span><br><span class="line">  <span class="built_in">let</span> e = gl.checkFramebufferStatus(gl.FRAMEBUFFER)</span><br><span class="line">  <span class="keyword">if</span> (gl.FRAMEBUFFER_COMPLETE != e) &#123;</span><br><span class="line">    console.log(<span class="string">'渲染缓冲区设置错误'</span>)</span><br><span class="line">    <span class="built_in">return</span> error()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> framebuffer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 需要使用离屏渲染时操作 */</span><br><span class="line">/* 设置帧缓冲区 */</span><br><span class="line"><span class="built_in">let</span> framebuffer = initFramebufferObject()</span><br><span class="line">gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer)</span><br><span class="line">/* 设置绘制范围</span><br><span class="line">gl.viewport 是 drawElements 和 drawArrays 函数绘图区域</span><br><span class="line">gl.viewport(x, y, width, height)</span><br><span class="line">x, y 为绘制区域左上角什么位置 以像素为单位</span><br><span class="line">width, height 为绘制区域宽高</span><br><span class="line"> */</span><br><span class="line">gl.viewport(x, y, width, height)</span><br><span class="line"></span><br><span class="line">/*  gl.useProgram() 使用相关程序对象 进行绘制操作</span><br><span class="line"> gl.enable() gl.clear()  &amp;&amp; gl.drawArrays或gl. drawElements </span><br><span class="line"> 绘制完成后取消帧缓冲区 再继续绘制 */</span><br><span class="line">gl.bindFramebuffer(gl.FRAMEBUFFER, null)</span><br></pre></td></tr></table></figure>
-<h3 id="绘制"><a href="#绘制" class="headerlink" title="绘制"></a>绘制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/* gl.useProgram() 使用相关程序对象 */</span><br><span class="line">gl.useProgram(program)</span><br><span class="line">/* 开启隐藏面消除 */</span><br><span class="line">gl.enable(gl.DEPTH_TEST)</span><br><span class="line">/* 清除webgl颜色缓存及深度缓存区 */</span><br><span class="line">gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/* webgl 绘制</span><br><span class="line">  gl.drawArrays(mode, first, count)</span><br><span class="line">  mode 参数为 gl.POINTS,gl.LINES,gl.LINE_STRIP,gl.LINE_LOOP,gl.TRIANGLES,gl.TRIANGLE_STRIP,gl.TRIANGLE_FAN</span><br><span class="line">  first 参数为从哪个顶点开始绘制,整数型</span><br><span class="line">  count 绘制用到几个顶点</span><br><span class="line">  gl.drawElements(mode, count,<span class="built_in">type</span>, offset)</span><br><span class="line">  mode 参数为 gl.POINTS,gl.LINES,gl.LINE_STRIP,gl.LINE_LOOP,gl.TRIANGLES,gl.TRIANGLE_STRIP,gl.TRIANGLE_FAN</span><br><span class="line">  count 参数为绘制顶点的个数</span><br><span class="line">  <span class="built_in">type</span> 参数为索引数据类型 gl.UNSIGNED_BYTE,gl_UNSIGNED_SHORT</span><br><span class="line">  offset 参数为指定索引中开始绘制的位置</span><br><span class="line">  </span><br><span class="line">*/</span><br><span class="line">gl.drawArrays(gl.TRIANGLES, 0, n)</span><br><span class="line">gl.drawElements(gl.TRIANGLES, n, gl.UNSIGNED_BYTE, 0)</span><br></pre></td></tr></table></figure>
+<h1 id="webgl函数"><a href="#webgl函数" class="headerlink" title="webgl函数"></a>webgl函数</h1><h3 id="创建webgl"><a href="#创建webgl" class="headerlink" title="创建webgl"></a>创建webgl</h3><pre class=" language-js"><code class="language-js">    <span class="token keyword">let</span> canvas <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'canvas'</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> gl <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">'webgl'</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="初始化着色器"><a href="#初始化着色器" class="headerlink" title="初始化着色器"></a>初始化着色器</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/* 顶点着色器 */</span>
+<span class="token keyword">let</span> vertexShaderSource <span class="token operator">=</span> <span class="token string">""</span> <span class="token operator">+</span>
+  <span class="token string">"attribute vec4 a_Position;\n"</span> <span class="token operator">+</span> <span class="token comment" spellcheck="true">//attribute + 数据类型 + a_变量名（定义顶点相关信息）</span>
+  <span class="token string">"attribute vec4 a_Color;\n"</span> <span class="token operator">+</span>
+  <span class="token string">"uniform mat4 u_MvpMatrix;\n"</span> <span class="token operator">+</span> <span class="token comment" spellcheck="true">//uniform + 数据类型 + u_变量名（定义与顶点无关信息）</span>
+  <span class="token string">"varying vec4 v_Color;\n"</span> <span class="token operator">+</span> <span class="token comment" spellcheck="true">//varying +  数据类型 + v_变量名（定义变量传递给片元着色器）</span>
+  <span class="token string">"void main(){\n"</span> <span class="token operator">+</span>
+  <span class="token string">"   gl_Position = u_MvpMatrix * a_Position;\n"</span> <span class="token operator">+</span> <span class="token comment" spellcheck="true">//计算并设置顶点的位置</span>
+  <span class="token string">"   v_Color = a_Color;\n"</span> <span class="token operator">+</span> <span class="token comment" spellcheck="true">//赋值varying 变量</span>
+  <span class="token string">"}\n"</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* 片元着色器 */</span>
+<span class="token keyword">let</span> fragmentShaderSource <span class="token operator">=</span> <span class="token string">""</span> <span class="token operator">+</span>
+  <span class="token string">"#ifdef GL_ES;\n"</span> <span class="token operator">+</span> <span class="token comment" spellcheck="true">//判断语句</span>
+  <span class="token string">"precision mediump float;\n"</span> <span class="token operator">+</span> <span class="token comment" spellcheck="true">//指定变量的范围和精度</span>
+  <span class="token string">"#endif;\n"</span> <span class="token operator">+</span>
+  <span class="token string">"uniform mat4 u_MvpMatrix;\n"</span> <span class="token operator">+</span> <span class="token comment" spellcheck="true">//uniform + 数据类型 + u_变量名（定义与顶点无关信息）</span>
+  <span class="token string">"varying vec4 v_Color;\n"</span> <span class="token operator">+</span> <span class="token comment" spellcheck="true">//varying +  数据类型 + v_变量名（定义变量接收）</span>
+  <span class="token string">"void main(){\n"</span> <span class="token operator">+</span>
+  <span class="token string">"   gl_FragColor = v_Color;\n"</span> <span class="token operator">+</span> <span class="token comment" spellcheck="true">//计算并设置顶点的颜色</span>
+  <span class="token string">"}\n"</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* gl_FragColor使用着色器定义纹理 
+  gl_FragColor = texture2D(u_Sampler,v_TexCoord);
+  u_Sampler 参数为 所定义的纹理变量
+  v_TexCoord 为纹理坐标
+*/</span>
+
+<span class="token comment" spellcheck="true">/* 创建着色器 */</span>
+<span class="token keyword">function</span> <span class="token function">loadShader</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> source<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* gl.createShader(type) 创建着色器  
+  参数为 gl.VERTEX_SHADER 或 gl.FRAGMENT_SHADER  */</span>
+  <span class="token keyword">let</span> shader <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createShader</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">/* gl.deleteShader(shader); 删除着色器 */</span>
+
+  <span class="token comment" spellcheck="true">/* 绑定着色器数据
+    gl.shaderSource(shader, source)
+    shader 为 所创建的着色器
+    source 着色器数据
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">shaderSource</span><span class="token punctuation">(</span>shader<span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">/* 编译着色器 gl.compileShader(shader)  shader 为 所创建的着色器 */</span>
+  gl<span class="token punctuation">.</span><span class="token function">compileShader</span><span class="token punctuation">(</span>shader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">/* 查看着色器编译结果
+    gl.getShaderParameter(shader, type);
+    shader 为 所创建的着色器，
+    type 为 gl.SHADER_TYPE,gl.DELETE_STATUS,gl_COMPILE_STATUS
+  */</span>
+  <span class="token keyword">let</span> compiled <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">getShaderParameter</span><span class="token punctuation">(</span>shader<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>COMPILE_STATUS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* 编译失败，gl.getShaderParameter(shader)获取编译错误信息 */</span>
+
+
+  <span class="token keyword">return</span> shader<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* 通过方法创建顶点着色器和片元着色器 */</span>
+<span class="token keyword">let</span> vertexShader <span class="token operator">=</span> <span class="token function">loadShader</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>VERTEX_SHADER<span class="token punctuation">,</span> vertexShaderSource<span class="token punctuation">)</span>
+<span class="token keyword">let</span> fragmentShader <span class="token operator">=</span> <span class="token function">loadShader</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>FRAGMENT_SHADER<span class="token punctuation">,</span> fragmentShaderSource<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">/*  gl.createProgram() 创建程序对象 */</span>
+<span class="token keyword">let</span> program <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createProgram</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* 为程序对象分配着色器对象（gl.attachShader(program,shader)）
+  program 为所使用的程序对象
+  shader 为顶点着色器和片元着色器
+ */</span>
+gl<span class="token punctuation">.</span><span class="token function">attachShader</span><span class="token punctuation">(</span>program<span class="token punctuation">,</span> vertexShader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+gl<span class="token punctuation">.</span><span class="token function">attachShader</span><span class="token punctuation">(</span>program<span class="token punctuation">,</span> fragmentShader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* 解除程序对象的着色器 */</span>
+gl<span class="token punctuation">.</span><span class="token function">detachShader</span><span class="token punctuation">(</span>program<span class="token punctuation">,</span> vertexShader<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">/* 将程序对象绑定到webgl  
+   gl.linkProgram(program) 
+*/</span>
+gl<span class="token punctuation">.</span><span class="token function">linkProgram</span><span class="token punctuation">(</span>program<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* 查看程序对象绑定状态 
+  gl.getProgramParameter(program, type)
+  type 参数为 gl.DELETE_STATUS 程序是否被删除
+              gl.LINK_STATUS 程序是否成功连接
+              gl.VALIDATE_STATUS 程序是否通过验证
+              gl.ATTACHED_SHADERS 已分配给程序着色器的数量
+              gl.ACTIVE_ATTRIBUTES 顶点着色器中attribute变量的数量
+              gl.ACTIVE_UNIFORMS 程序中uniform变量的数量
+*/</span>
+<span class="token keyword">let</span> link <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">getProgramParameter</span><span class="token punctuation">(</span>program<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>LINK_STATUS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* link失败可从 gl.getProgramInfoLog()从信息日志中获取连接出错信息。 */</span>
+
+<span class="token comment" spellcheck="true">/* 调用gl.useProgram 告知WebGL系统绘制时使用哪个程序对象 */</span>
+gl<span class="token punctuation">.</span><span class="token function">useProgram</span><span class="token punctuation">(</span>program<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="设置变量信息"><a href="#设置变量信息" class="headerlink" title="设置变量信息"></a>设置变量信息</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/* gl.getAttribLocation(program,'a_xxxxxx')
+/* gl.getUniformLocation(program,'u_xxxxxx')
+   获取着色器中变量的存储位置
+*/</span>
+program<span class="token punctuation">.</span>a_Position <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">getAttribLocation</span><span class="token punctuation">(</span>program<span class="token punctuation">,</span> <span class="token string">'a_Position'</span><span class="token punctuation">)</span>
+program<span class="token punctuation">.</span>u_MvpMatrix <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">getUniformLocation</span><span class="token punctuation">(</span>program<span class="token punctuation">,</span> <span class="token string">'u_MvpMatrix'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">/* 设置顶点(颜色)等信息 */</span>
+<span class="token keyword">let</span> vertices <span class="token comment" spellcheck="true">/* colors */</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Float32Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">/* 不创建缓存区 设置a_xxx  变量信息 */</span>
+<span class="token comment" spellcheck="true">/* gl.vertexAttrib1f() gl.vertexAttrib2f() gl.vertexAttrib3f() gl.vertexAttrib4f()*/</span>
+gl<span class="token punctuation">.</span><span class="token function">vertexAttrib3f</span><span class="token punctuation">(</span><span class="token string">'a_attribute'</span><span class="token punctuation">,</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span> <span class="token string">'xxx'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 2 3 4 参数 点信息 */</span> <span class="token punctuation">;</span>
+
+
+<span class="token comment" spellcheck="true">/* 创建缓存区 设置a_xxx 变量信息
+(缓冲区对象，它可以一次性向着色器传入多个顶点的数据) */</span>
+<span class="token keyword">function</span> <span class="token function">initArrayBufferForLaterUse</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> num<span class="token punctuation">,</span> type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> buffer <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 创建一个缓冲区对象</span>
+
+  <span class="token comment" spellcheck="true">//将数据写入缓冲区对象</span>
+  <span class="token comment" spellcheck="true">/* gl.bindBuffer(type, buffer) 
+  type 参数为 gl.ARRAY_BUFFER 顶点的数据 (点组成面)
+              gl.ELEMENT_ARRAY_BUFFER 顶点的索引(面组成体)
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>ARRAY_BUFFER<span class="token punctuation">,</span> buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* 向缓存区对象中写入数据
+  gl.bufferData(type, data,draw) 
+  type 参数为 gl.ARRAY_BUFFER 顶点的数据 (点组成面)
+              gl.ELEMENT_ARRAY_BUFFER 顶点的索引(面组成体)
+  data 参数为 顶点相关数据信息
+  draw 参数为 gl.STATIC_DRAW 只写入一次，但绘制很多次
+              gl.STREAM_DRAW 只写入一次，绘制若干次
+              gl.DYNAMIC_DRAW 写入多次，并绘制很多次
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">bufferData</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>ARRAY_BUFFER<span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>webgl<span class="token punctuation">.</span>STATIC_DRAW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">//保留必要的信息，以便后面使用</span>
+  buffer<span class="token punctuation">.</span>num <span class="token operator">=</span> num<span class="token punctuation">;</span>
+  buffer<span class="token punctuation">.</span>type <span class="token operator">=</span> type<span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> buffer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/* 绑定缓存区数据 */</span>
+<span class="token keyword">function</span> <span class="token function">initAttributeVariable</span><span class="token punctuation">(</span>a_attribute<span class="token punctuation">,</span> buffer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>ARRAY_BUFFER<span class="token punctuation">,</span> buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* 将缓冲区对象分配给attribute变量
+  gl.vertexAttribPointer(attribute,num,type,normalize,stride,offset)
+  attribute 参数为着色器attribute变量
+  num 参数为 顶点(颜色)等数据信息中 几个单位为一顶点单一信息(1-x),小于4 则按照x,0,0,1规则补全
+  type 参数为数据格式 gl.UNSIGNED_BYTE 无符号字节 Uint8Array
+                      gl.SHORT 短整型 Int16Array
+                      gl.UNSIGNED_SHORT 无符号短整型 Uint16Array
+                      gl.INT 整型 Int32Array
+                      gl.FLOAT 浮点型 Float32Array
+  normalize 参数为true,false 表明是否将非浮点型归一化到[0,1]或[-1,1]之间
+  stride 参数为 几个单位为一顶点全部信息(0-x) 相当于两顶点单一信息间单位数
+  offset 参数为 一顶点全部信息(0-x)中该变量的偏移量
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">vertexAttribPointer</span><span class="token punctuation">(</span>a_attribute<span class="token punctuation">,</span> buffer<span class="token punctuation">.</span>num<span class="token punctuation">,</span> buffer<span class="token punctuation">.</span>type<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* gl.enableVertexAttribArray(a_attribute); 开启该变量 */</span>
+  gl<span class="token punctuation">.</span><span class="token function">enableVertexAttribArray</span><span class="token punctuation">(</span>a_attribute<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* uniform 变量传递信息 */</span>
+<span class="token comment" spellcheck="true">/* 点变换 gl.uniform1f() gl.uniform2f() gl.uniform3f()*/</span>
+gl<span class="token punctuation">.</span><span class="token function">uniform4f</span><span class="token punctuation">(</span><span class="token string">'u_uniform'</span><span class="token punctuation">,</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span> <span class="token string">'xxx'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 2 3 4 5参数 单数点信息 */</span> <span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/* 矩阵变换
+  gl.uniformMatrix4fv('u_uniform',false,data)
+  u_uniform 参数为 要传递uniform 变量
+  第二个参数固定值为false 
+  data 为所需要的matrix数据
+*/</span>
+gl<span class="token punctuation">.</span><span class="token function">uniformMatrix4fv</span><span class="token punctuation">(</span><span class="token string">'u_uniform'</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> modelMatrix<span class="token punctuation">.</span>elements<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="配置纹理"><a href="#配置纹理" class="headerlink" title="配置纹理"></a>配置纹理</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/* 配置纹理 */</span>
+<span class="token keyword">let</span> texture <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createTexture</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 创建纹理对象 */</span>
+<span class="token comment" spellcheck="true">/* 获取纹理变量的位置 */</span>
+<span class="token keyword">let</span> u_Sampler <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">getUniformLocation</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>program<span class="token punctuation">,</span> <span class="token string">"u_Sampler"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">/* 加载图片绑定纹理 */</span>
+<span class="token keyword">let</span> image <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+image<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">loadTexture</span><span class="token punctuation">(</span>texture<span class="token punctuation">,</span> u_Sampler<span class="token punctuation">,</span> image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+image<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">"xxxx"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">loadTexture</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* 对纹理图像进行y轴反转
+    gl.pixelStorei(xxx,xx)
+    xxx参数为 gl.UNPACK_FLIP_Y_WEBGL 对图像y轴反转
+              gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL  将图像rgb颜色值每一个分量乘以A
+    xx 参数为 非0(true) 或者 0(false)
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">pixelStorei</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>UNPACK_FLIP_Y_WEBGL<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* 开启0号纹理单元 多个纹理时还需要开启更多纹理单元 gl.TEXTURE1 gl.TEXTURE2..... */</span>
+  gl<span class="token punctuation">.</span><span class="token function">activeTexture</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>TEXTURE0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/*  向target绑定纹理对象 可以绑定 gl.TEXTURE_CUBE_MAP 立方体纹理，gl.TEXTURE_2D 二维纹理 */</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindTexture</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>TEXTURE_2D<span class="token punctuation">,</span> texture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/*  配置纹理参数
+    gl.texParameteri(target, pname, param)
+    target参数为 gl.TEXTURE_2D,gl.TEXTURE_CUBE_MAP
+    pname 纹理参数为 gl.TEXTURE_MAG_FILTER 纹理放大 默认值 gl.LINEAR
+                     gl.TEXTURE_MIN_FILTER 纹理缩小 默认值 gl.NEAREST_MIPMAP_LINEAR
+                     gl.TEXTURE_WRAP_S 纹理水平填充 默认值 gl.REPEAT
+                     gl.TEXTURE_WRAP_T 纹理垂直填充 默认值 gl.REPEAT
+    param 纹理参数的值为 gl.NEAREST gl.LINEAR gl.REPEAT gl.MIRRORED_REPEAT gl_CLAMP_TO_EDGE
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">texParameteri</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>TEXTURE_2D<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>TEXTURE_MIN_FILTER<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>LINEAR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* 将纹理图像分配给纹理对象
+    gl.texImage2D(target,level,internalformat,format,type,image)
+    target 参数为 gl.TEXTURE_2D,gl.TEXTURE_CUBE_MAP
+    level 参数为 0 (该参数为金字塔纹理准备的)
+    internalformat 参数为 图像内部格式 gl.RGB  gl.RGBA  gl.ALPHA(0.0,0.0,0.0,透明度) gl.LUMINANCE gl.LUMINANCE_ALPHA
+    format 参数必须为和 internalformat参数一样的值
+    type 参数为 gl.UNSIGNED_BYTE 无符号整型 每个颜色占1字节
+                gl.UNSIGNED_SHORT_5_6_5 RGB 每个分量分别占据5.6.5比特
+                gl.UNSIGNED_SHORT_4_4_4_4 RGBA 每个分量分别占据4.4.4.4比特
+                gl.UNSIGNED_SHORT_5_5_5_1 RGBA 每个分量分别占据5比特,A分量占1比特
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">texImage2D</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>TEXTURE_2D<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span>RGB<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>RGB<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>UNSIGNED_BYTE<span class="token punctuation">,</span> image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//将0号纹理传递给着色器</span>
+  gl<span class="token punctuation">.</span><span class="token function">uniform1i</span><span class="token punctuation">(</span>u_Sampler<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="开启帧缓冲区进行离屏绘制"><a href="#开启帧缓冲区进行离屏绘制" class="headerlink" title="开启帧缓冲区进行离屏绘制"></a>开启帧缓冲区进行离屏绘制</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">initFramebufferObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> framebuffer<span class="token punctuation">,</span> texture<span class="token punctuation">,</span> depthBuffer
+
+  <span class="token keyword">function</span> <span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>framebuffer<span class="token punctuation">)</span> gl<span class="token punctuation">.</span><span class="token function">deleteFramebuffer</span><span class="token punctuation">(</span>framebuffer<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>texture<span class="token punctuation">)</span> gl<span class="token punctuation">.</span><span class="token function">deleteFramebuffer</span><span class="token punctuation">(</span>texture<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>depthBuffer<span class="token punctuation">)</span> gl<span class="token punctuation">.</span><span class="token function">deleteFramebuffer</span><span class="token punctuation">(</span>depthBuffer<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">//创建帧缓冲区对象 进行离屏渲染</span>
+  framebuffer <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createFramebuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>framebuffer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'无法创建帧缓冲区对象'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">//创建纹理对象并设置其尺寸和参数</span>
+  texture <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createTexture</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>texture<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'无法创建纹理对象'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+
+  gl<span class="token punctuation">.</span><span class="token function">bindTexture</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>TEXTURE_2D<span class="token punctuation">,</span> texture<span class="token punctuation">)</span>
+  gl<span class="token punctuation">.</span><span class="token function">texImage2D</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>TEXTURE_2D<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span>RGBA<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>offset_width<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>offset_height<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span>RGBA<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>UNSIGNED_BYTE<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+  gl<span class="token punctuation">.</span><span class="token function">texParameteri</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>TEXTURE_2D<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>TEXTURE_MIN_FILTER<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>LINEAR<span class="token punctuation">)</span>
+  framebuffer<span class="token punctuation">.</span>texture <span class="token operator">=</span> texture
+
+  <span class="token comment" spellcheck="true">//创建渲染缓冲区对象并设置其尺寸和参数</span>
+  depthBuffer <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createRenderbuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>depthBuffer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"无法创建渲染缓冲区对象"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">/* 绑定渲染缓存区 
+  gl.bindRenderbuffer(gl.RENDERBUFFER, depthBuffer) 
+  第一个参数必须为 gl.RENDERBUFFER
+  depthBuffer 为要被绑定的渲染缓冲区
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindRenderbuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>RENDERBUFFER<span class="token punctuation">,</span> depthBuffer<span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">/* gl.renderbufferStorage(target,internalformat,width,height) 设置渲染缓冲区的格式、宽度、高度等。
+  注意，作为深度关联对象的渲染缓冲区，其宽度和高度必须与作为颜色关联对象的纹理缓冲区一致
+  target 参数必须为 gl.RENDERBUFFER
+  internalformat 参数为 gl.DEPTH_COMPONENT16 表示渲染缓冲区将替代深度缓冲区
+                        gl.STENCIL_INDEX8 表示渲染缓冲区将替代模板缓冲区
+                        gl.RGBA4 表示渲染缓冲区将替代颜色缓冲区
+                        gl.RGBA5_AL 
+                        gl.RGBA565 
+  width,height 参数表示渲染缓冲区的宽高
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">renderbufferStorage</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>RENDERBUFFER<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>DEPTH_COMPONENT16<span class="token punctuation">,</span> offset_width<span class="token punctuation">,</span> offset_height<span class="token punctuation">)</span>
+
+
+  <span class="token comment" spellcheck="true">/* 绑定帧缓冲区对象函数
+    gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer)
+    第一个参数必须为 gl.FRAMEBUFFER
+    framebuffer 参数为要被绑定的帧缓冲区
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindFramebuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>FRAMEBUFFER<span class="token punctuation">,</span> framebuffer<span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">/* gl.framebufferTexture2D(target,attachment,textarget,texture,level) 绑定纹理对象关联到target的帧缓冲区
+    target 参数必须为 gl.FRAMEBUFFER 
+    attachment 参数为 gl.COLOR_ATTACHMENT0  表示texture 是颜色关联对象
+                      gl.COLOR_ATTACHMENT  表示texture 是深度关联对象
+    textarget 参数为 textureImage2D()的第一个参数 gl.TEXTURE_2D 或 gl.TEXTURE_CUBE  
+    texture 参数为 指定关联的纹理对象
+    level  为 0
+    注意，attachment参数的取值之一gl.COLOR_ATTACHMENT0，其名称中出现了一个0.
+    这是因为在OpenGL中，帧缓冲区可以具有多个颜色关联对象（gl.COLOR_ATTACHMENT0，gl.COLOR_ATTACHMENT1等等），但是WebGL中只可以有1个。
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">framebufferTexture2D</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>FRAMEBUFFER<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>COLOR_ATTACHMENT0<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>TEXTURE_2D<span class="token punctuation">,</span> texture<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">/* 使用gl.framebufferRenderbuffer(target,attachment,renderbufferTarget,renderbuffer)来把渲染缓冲区对象关联到帧缓冲区对象上。
+  这里，渲染缓冲区对象的作用是帮助进行隐藏面消除，所以我们将其指定为深度关联对象
+  target 参数必须为 gl.FRAMEBUFFER
+  attachment 参数为 gl.COLOR_ATTACHMENT0  表示renderbuffer 是颜色关联对象
+                    gl.DEPTH_ATTACHMENT  表示renderbuffer 是深度关联对象
+                    gl.STENCIL_ATTACHMENT  表示renderbuffer 是模板关联对象
+  renderbufferTarget 参数必须为 gl.RENDERBUFFER
+  renderbuffer 参数为被关联的渲染缓冲区对象
+  */</span>
+  gl<span class="token punctuation">.</span><span class="token function">framebufferRenderbuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>FRAMEBUFFER<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>DEPTH_ATTACHMENT<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>RENDERBUFFER<span class="token punctuation">,</span> depthBuffer<span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">//检查帧缓冲区对象是否被正确设置</span>
+  <span class="token keyword">let</span> e <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">checkFramebufferStatus</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>FRAMEBUFFER<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>gl<span class="token punctuation">.</span>FRAMEBUFFER_COMPLETE <span class="token operator">!=</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'渲染缓冲区设置错误'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+
+  <span class="token keyword">return</span> framebuffer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* 需要使用离屏渲染时操作 */</span>
+<span class="token comment" spellcheck="true">/* 设置帧缓冲区 */</span>
+<span class="token keyword">let</span> framebuffer <span class="token operator">=</span> <span class="token function">initFramebufferObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+gl<span class="token punctuation">.</span><span class="token function">bindFramebuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>FRAMEBUFFER<span class="token punctuation">,</span> framebuffer<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">/* 设置绘制范围
+gl.viewport 是 drawElements 和 drawArrays 函数绘图区域
+gl.viewport(x, y, width, height)
+x, y 为绘制区域左上角什么位置 以像素为单位
+width, height 为绘制区域宽高
+ */</span>
+gl<span class="token punctuation">.</span><span class="token function">viewport</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">/*  gl.useProgram() 使用相关程序对象 进行绘制操作
+ gl.enable() gl.clear()  &amp;&amp; gl.drawArrays或gl. drawElements 
+ 绘制完成后取消帧缓冲区 再继续绘制 */</span>
+gl<span class="token punctuation">.</span><span class="token function">bindFramebuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>FRAMEBUFFER<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+
+</code></pre>
+<h3 id="绘制"><a href="#绘制" class="headerlink" title="绘制"></a>绘制</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/* gl.useProgram() 使用相关程序对象 */</span>
+gl<span class="token punctuation">.</span><span class="token function">useProgram</span><span class="token punctuation">(</span>program<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">/* 开启隐藏面消除 */</span>
+gl<span class="token punctuation">.</span><span class="token function">enable</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>DEPTH_TEST<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">/* 清除webgl颜色缓存及深度缓存区 */</span>
+gl<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>COLOR_BUFFER_BIT <span class="token operator">|</span> gl<span class="token punctuation">.</span>DEPTH_BUFFER_BIT<span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true">/* webgl 绘制
+  gl.drawArrays(mode, first, count)
+  mode 参数为 gl.POINTS,gl.LINES,gl.LINE_STRIP,gl.LINE_LOOP,gl.TRIANGLES,gl.TRIANGLE_STRIP,gl.TRIANGLE_FAN
+  first 参数为从哪个顶点开始绘制,整数型
+  count 绘制用到几个顶点
+  gl.drawElements(mode, count,type, offset)
+  mode 参数为 gl.POINTS,gl.LINES,gl.LINE_STRIP,gl.LINE_LOOP,gl.TRIANGLES,gl.TRIANGLE_STRIP,gl.TRIANGLE_FAN
+  count 参数为绘制顶点的个数
+  type 参数为索引数据类型 gl.UNSIGNED_BYTE,gl_UNSIGNED_SHORT
+  offset 参数为指定索引中开始绘制的位置
+
+*/</span>
+gl<span class="token punctuation">.</span><span class="token function">drawArrays</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>TRIANGLES<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+gl<span class="token punctuation">.</span><span class="token function">drawElements</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span>TRIANGLES<span class="token punctuation">,</span> n<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>UNSIGNED_BYTE<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
 
       
 

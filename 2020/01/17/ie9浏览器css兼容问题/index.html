@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2020/01/17/ie9浏览器css兼容问题/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-17T08:11:55.185Z">
+<meta property="og:updated_time" content="2020-12-14T14:58:57.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ie9浏览器css兼容问题">
   
@@ -34,64 +34,59 @@
 
   
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d">
-</div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
-  <header id="header" class="inner">
-    <a href="/" class="profilepic">
-      <img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
-    </a>
-    <hgroup>
-      <h1 class="header-author"><a href="/">Comet_cc</a></h1>
-    </hgroup>
-    
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Comet_cc</a></h1>
+		</hgroup>
+		
 
 		<nav class="header-menu">
-    <ul>
-      
-    <li><a href="/">主页</a></li>
-    
-    <li><a href="/archives/index.html">归档</a></li>
-    
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
-    
-    <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    
-    
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-    <a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i
-        class="icon-github"></i></a>
-    
-    <a class="weibo" target="_blank" href="#" title="weibo"><i
-        class="icon-weibo"></i></a>
-    
-    <a class="qq" target="_blank" href="#" title="qq"><i
-        class="icon-qq"></i></a>
-    
-    <a class="weixin" target="_blank" href="#" title="weixin"><i
-        class="icon-weixin"></i></a>
-    
+					<a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="qq" target="_blank" href="#" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -179,8 +174,24 @@
       
         <hr>
 <a id="more"></a>
-<h1 id="ie9浏览器css兼容问题"><a href="#ie9浏览器css兼容问题" class="headerlink" title="ie9浏览器css兼容问题"></a>ie9浏览器css兼容问题</h1><p>最近遇到一个兼容问题，vue-cli 3.0和element-ui做的一个项目，在谷歌、火狐和ie10以上正常显示，但是在win7系统的ie9上页面样式乱掉，查看控制台发现打包的app.css没加载进来。<br>原来ie9对单个的css文件有大小限制，不能超过250kb，超过的话会自动截取掉。这样的话截取的样式就出现问题，ie9页面样式加载不了。<br>解决办法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev  css-split-webpack-plugin</span><br></pre></td></tr></table></figure></p>
-<p>在vue-clI 3.x vue.config.js 中加入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  ...,</span><br><span class="line">  configureWebpack:&#123;</span><br><span class="line">    ...,</span><br><span class="line">    plugins:[</span><br><span class="line">      ...,</span><br><span class="line">      new CSSSplitWebpackPlugin(&#123;</span><br><span class="line">        size: 4000,</span><br><span class="line">        filename: <span class="string">'static/css/[name]-[part].[ext]'</span></span><br><span class="line">      &#125;)</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="ie9浏览器css兼容问题"><a href="#ie9浏览器css兼容问题" class="headerlink" title="ie9浏览器css兼容问题"></a>ie9浏览器css兼容问题</h1><p>最近遇到一个兼容问题，vue-cli 3.0和element-ui做的一个项目，在谷歌、火狐和ie10以上正常显示，但是在win7系统的ie9上页面样式乱掉，查看控制台发现打包的app.css没加载进来。<br>原来ie9对单个的css文件有大小限制，不能超过250kb，超过的话会自动截取掉。这样的话截取的样式就出现问题，ie9页面样式加载不了。<br>解决办法：</p>
+<pre class=" language-js"><code class="language-js">npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev  css<span class="token operator">-</span>split<span class="token operator">-</span>webpack<span class="token operator">-</span>plugin
+</code></pre>
+<p>在vue-clI 3.x vue.config.js 中加入</p>
+<pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span><span class="token punctuation">,</span>
+  configureWebpack<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token punctuation">,</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">[</span>
+      <span class="token operator">...</span><span class="token punctuation">,</span>
+      <span class="token keyword">new</span> <span class="token class-name">CSSSplitWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        size<span class="token punctuation">:</span> <span class="token number">4000</span><span class="token punctuation">,</span>
+        filename<span class="token punctuation">:</span> <span class="token string">'static/css/[name]-[part].[ext]'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>这样就分割成多个css文件了</p>
 
       

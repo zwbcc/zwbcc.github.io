@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2020/01/21/ie9兼容/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-22T06:29:24.489Z">
+<meta property="og:updated_time" content="2020-12-14T14:58:57.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ie9兼容">
   
@@ -34,64 +34,59 @@
 
   
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d">
-</div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
-  <header id="header" class="inner">
-    <a href="/" class="profilepic">
-      <img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
-    </a>
-    <hgroup>
-      <h1 class="header-author"><a href="/">Comet_cc</a></h1>
-    </hgroup>
-    
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Comet_cc</a></h1>
+		</hgroup>
+		
 
 		<nav class="header-menu">
-    <ul>
-      
-    <li><a href="/">主页</a></li>
-    
-    <li><a href="/archives/index.html">归档</a></li>
-    
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
-    
-    <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    
-    
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-    <a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i
-        class="icon-github"></i></a>
-    
-    <a class="weibo" target="_blank" href="#" title="weibo"><i
-        class="icon-weibo"></i></a>
-    
-    <a class="qq" target="_blank" href="#" title="qq"><i
-        class="icon-qq"></i></a>
-    
-    <a class="weixin" target="_blank" href="#" title="weixin"><i
-        class="icon-weixin"></i></a>
-    
+					<a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="qq" target="_blank" href="#" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -179,14 +174,61 @@
       
         <hr>
 <a id="more"></a>
-<h1 id="ie9兼容"><a href="#ie9兼容" class="headerlink" title="ie9兼容"></a>ie9兼容</h1><h3 id="elementui在ie9浏览器下的兼容性问题"><a href="#elementui在ie9浏览器下的兼容性问题" class="headerlink" title="elementui在ie9浏览器下的兼容性问题"></a>elementui在ie9浏览器下的兼容性问题</h3><p>1、el-select组件内在IE9中会出现下图样式错乱：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// select框固定下拉箭头兼容ie9</span><br><span class="line">.el-select .el-input .el-input__suffix .el-icon-arrow-up&#123;</span><br><span class="line">  -ms-transform: rotate(180deg)\0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2、IE9中elementui的message提示框会出现样式错乱<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 兼容ie9，使提示框显示正常， \0是让这条代码只在IE9中生效；</span><br><span class="line">.el-message .el-message__content&#123;</span><br><span class="line">  display: inline-block\0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3、IE9中el-cascader组件下拉没有水平对齐：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 兼容ie9，使提示框显示正常， \0是让这条代码只在IE9中生效；</span><br><span class="line">// ie9 el-cascader兼容性问题</span><br><span class="line">.el-cascader-menu__list .el-cascader-node .el-cascader-node__postfix,</span><br><span class="line">.el-cascader-menu__list .is-active .el-cascader-node__prefix&#123;</span><br><span class="line">    top: 10px\0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>4、IE9日期组件样式问题：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/* 解决IE9 日期组件样式问题 */</span><br><span class="line">.demonstration, .el-date-editor--datetimerange &#123;</span><br><span class="line">    display: inline-block !important;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">    line-height: 24px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="ie9兼容"><a href="#ie9兼容" class="headerlink" title="ie9兼容"></a>ie9兼容</h1><h3 id="elementui在ie9浏览器下的兼容性问题"><a href="#elementui在ie9浏览器下的兼容性问题" class="headerlink" title="elementui在ie9浏览器下的兼容性问题"></a>elementui在ie9浏览器下的兼容性问题</h3><p>1、el-select组件内在IE9中会出现下图样式错乱：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// select框固定下拉箭头兼容ie9</span>
+<span class="token punctuation">.</span>el<span class="token operator">-</span>select <span class="token punctuation">.</span>el<span class="token operator">-</span>input <span class="token punctuation">.</span>el<span class="token operator">-</span>input__suffix <span class="token punctuation">.</span>el<span class="token operator">-</span>icon<span class="token operator">-</span>arrow<span class="token operator">-</span>up<span class="token punctuation">{</span>
+  <span class="token operator">-</span>ms<span class="token operator">-</span>transform<span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>180deg<span class="token punctuation">)</span>\<span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2、IE9中elementui的message提示框会出现样式错乱</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 兼容ie9，使提示框显示正常， \0是让这条代码只在IE9中生效；</span>
+<span class="token punctuation">.</span>el<span class="token operator">-</span>message <span class="token punctuation">.</span>el<span class="token operator">-</span>message__content<span class="token punctuation">{</span>
+  display<span class="token punctuation">:</span> inline<span class="token operator">-</span>block\<span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>3、IE9中el-cascader组件下拉没有水平对齐：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 兼容ie9，使提示框显示正常， \0是让这条代码只在IE9中生效；</span>
+<span class="token comment" spellcheck="true">// ie9 el-cascader兼容性问题</span>
+<span class="token punctuation">.</span>el<span class="token operator">-</span>cascader<span class="token operator">-</span>menu__list <span class="token punctuation">.</span>el<span class="token operator">-</span>cascader<span class="token operator">-</span>node <span class="token punctuation">.</span>el<span class="token operator">-</span>cascader<span class="token operator">-</span>node__postfix<span class="token punctuation">,</span>
+<span class="token punctuation">.</span>el<span class="token operator">-</span>cascader<span class="token operator">-</span>menu__list <span class="token punctuation">.</span>is<span class="token operator">-</span>active <span class="token punctuation">.</span>el<span class="token operator">-</span>cascader<span class="token operator">-</span>node__prefix<span class="token punctuation">{</span>
+    top<span class="token punctuation">:</span> 10px\<span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>4、IE9日期组件样式问题：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/* 解决IE9 日期组件样式问题 */</span>
+<span class="token punctuation">.</span>demonstration<span class="token punctuation">,</span> <span class="token punctuation">.</span>el<span class="token operator">-</span>date<span class="token operator">-</span>editor<span class="token operator">--</span>datetimerange <span class="token punctuation">{</span>
+    display<span class="token punctuation">:</span> inline<span class="token operator">-</span>block <span class="token operator">!</span>important<span class="token punctuation">;</span>
+    vertical<span class="token operator">-</span>align<span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+    line<span class="token operator">-</span>height<span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>IE9的弹性布局flex都会失效，凡是在IE9中使用flex的都需要改成float浮动布局或者使用display: inline-block；属性来纠正。</p>
-<h3 id="css属性hack"><a href="#css属性hack" class="headerlink" title="css属性hack"></a>css属性hack</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_：/* 选择IE6及以下。连接线（中划线）（-）亦可使用，为了避免与某些带中划线的属性混淆，所以使用下划线（_）更为合适。*/</span><br><span class="line">*：/* 选择IE7及以下。诸如：（+）与（<span class="comment">#）之类的均可使用，不过业界对（*）的认知度更高*/</span></span><br><span class="line">\9     //IE6/IE7/IE8/IE9/IE10都生效 </span><br><span class="line">\0     //IE8/IE9/IE10都生效，是IE8/9/10的hack </span><br><span class="line">\9\0   //只对IE9/IE10生效，是IE9/10的hack</span><br></pre></td></tr></table></figure>
-<h3 id="选择器器hack"><a href="#选择器器hack" class="headerlink" title="选择器器hack"></a>选择器器hack</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*html Selector &#123;&#125; /* 针对IE6的css hack Selector 表示 css选择器 下同 */</span><br><span class="line">Selector &#123; _property: value; &#125; /* 针对IE6的css hack  property: value 表示 css 的属性名: 属性值 下同 */</span><br><span class="line">*+html Selector &#123;&#125; /*针对IE7的css hack  selector 表示css选择器*/</span><br><span class="line">@media \0screen &#123;body &#123; background: red; &#125;&#125;  /*针对IE8的css hack */ </span><br><span class="line">@media \0screen\,screen\9&#123;selector &#123; background: blue; &#125;&#125;  /* 只对IE6/7/8有效*/ </span><br><span class="line">@media screen\0 &#123;selector &#123; background: green; &#125;&#125;  /*只对IE8/9/10有效*/</span><br><span class="line">@media screen and (min-width:0\0) &#123;selector &#123; background: gray; &#125;&#125; /*只对IE9/10有效*/</span><br><span class="line">@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) &#123;selector &#123; background: orange; &#125;&#125;  /*只对IE10有效等等*/</span><br></pre></td></tr></table></figure>
-<h3 id="条件注释-仅在ie浏览器生效"><a href="#条件注释-仅在ie浏览器生效" class="headerlink" title="条件注释(仅在ie浏览器生效)"></a>条件注释(仅在ie浏览器生效)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[<span class="keyword">if</span> !IE]&gt;&lt;!--&gt; 除IE外都可识别 &lt;!--&lt;![endif]--&gt;</span><br><span class="line">&lt;!--[<span class="keyword">if</span> IE]&gt; 所有的IE可识别 &lt;![endif]--&gt;</span><br><span class="line">&lt;!--[<span class="keyword">if</span> IE 6]&gt; 仅IE6可识别 &lt;![endif]--&gt;</span><br><span class="line">&lt;!--[<span class="keyword">if</span> lt IE 6]&gt; IE6以下版本可识别 &lt;![endif]--&gt;</span><br><span class="line">&lt;!--[<span class="keyword">if</span> gte IE 6]&gt; IE6以及IE6以上版本可识别 &lt;![endif]--&gt;</span><br><span class="line">&lt;!--[<span class="keyword">if</span> IE 7]&gt; 仅IE7可识别 &lt;![endif]--&gt;</span><br><span class="line">&lt;!--[<span class="keyword">if</span> lt IE 7]&gt; IE7以下版本可识别 &lt;![endif]--&gt;</span><br><span class="line">&lt;!--[<span class="keyword">if</span> gte IE 7]&gt; IE7以及IE7以上版本可识别 &lt;![endif]--&gt;</span><br><span class="line">&lt;!--[<span class="keyword">if</span> IE 8]&gt; 仅IE8可识别 &lt;![endif]--&gt;</span><br><span class="line">&lt;!--[<span class="keyword">if</span> IE 9]&gt; 仅IE9可识别 &lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="css属性hack"><a href="#css属性hack" class="headerlink" title="css属性hack"></a>css属性hack</h3><pre class=" language-js"><code class="language-js">_：<span class="token comment" spellcheck="true">/* 选择IE6及以下。连接线（中划线）（-）亦可使用，为了避免与某些带中划线的属性混淆，所以使用下划线（_）更为合适。*/</span>
+<span class="token operator">*</span>：<span class="token comment" spellcheck="true">/* 选择IE7及以下。诸如：（+）与（#）之类的均可使用，不过业界对（*）的认知度更高*/</span>
+\<span class="token number">9</span>     <span class="token comment" spellcheck="true">//IE6/IE7/IE8/IE9/IE10都生效 </span>
+\<span class="token number">0</span>     <span class="token comment" spellcheck="true">//IE8/IE9/IE10都生效，是IE8/9/10的hack </span>
+\<span class="token number">9</span>\<span class="token number">0</span>   <span class="token comment" spellcheck="true">//只对IE9/IE10生效，是IE9/10的hack </span>
+</code></pre>
+<h3 id="选择器器hack"><a href="#选择器器hack" class="headerlink" title="选择器器hack"></a>选择器器hack</h3><pre class=" language-js"><code class="language-js"><span class="token operator">*</span>html Selector <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">/* 针对IE6的css hack Selector 表示 css选择器 下同 */</span>
+Selector <span class="token punctuation">{</span> _property<span class="token punctuation">:</span> value<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">/* 针对IE6的css hack  property: value 表示 css 的属性名: 属性值 下同 */</span>
+<span class="token operator">*</span><span class="token operator">+</span>html Selector <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">/*针对IE7的css hack  selector 表示css选择器*/</span>
+@media \0screen <span class="token punctuation">{</span>body <span class="token punctuation">{</span> background<span class="token punctuation">:</span> red<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>  <span class="token comment" spellcheck="true">/*针对IE8的css hack */</span> 
+@media \0screen\<span class="token punctuation">,</span>screen\<span class="token number">9</span><span class="token punctuation">{</span>selector <span class="token punctuation">{</span> background<span class="token punctuation">:</span> blue<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>  <span class="token comment" spellcheck="true">/* 只对IE6/7/8有效*/</span> 
+@media screen\<span class="token number">0</span> <span class="token punctuation">{</span>selector <span class="token punctuation">{</span> background<span class="token punctuation">:</span> green<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>  <span class="token comment" spellcheck="true">/*只对IE8/9/10有效*/</span>
+@media screen and <span class="token punctuation">(</span>min<span class="token operator">-</span>width<span class="token punctuation">:</span><span class="token number">0</span>\<span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>selector <span class="token punctuation">{</span> background<span class="token punctuation">:</span> gray<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">/*只对IE9/10有效*/</span>
+@media screen and <span class="token punctuation">(</span><span class="token operator">-</span>ms<span class="token operator">-</span>high<span class="token operator">-</span>contrast<span class="token punctuation">:</span> active<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">-</span>ms<span class="token operator">-</span>high<span class="token operator">-</span>contrast<span class="token punctuation">:</span> none<span class="token punctuation">)</span> <span class="token punctuation">{</span>selector <span class="token punctuation">{</span> background<span class="token punctuation">:</span> orange<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>  <span class="token comment" spellcheck="true">/*只对IE10有效等等*/</span>
+</code></pre>
+<h3 id="条件注释-仅在ie浏览器生效"><a href="#条件注释-仅在ie浏览器生效" class="headerlink" title="条件注释(仅在ie浏览器生效)"></a>条件注释(仅在ie浏览器生效)</h3><pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token punctuation">[</span><span class="token keyword">if</span> <span class="token operator">!</span>IE<span class="token punctuation">]</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token operator">></span> 除IE外都可识别 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span>endif<span class="token punctuation">]</span><span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token punctuation">[</span><span class="token keyword">if</span> IE<span class="token punctuation">]</span><span class="token operator">></span> 所有的IE可识别 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span>endif<span class="token punctuation">]</span><span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token punctuation">[</span><span class="token keyword">if</span> IE <span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">></span> 仅IE6可识别 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span>endif<span class="token punctuation">]</span><span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token punctuation">[</span><span class="token keyword">if</span> lt IE <span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">></span> IE6以下版本可识别 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span>endif<span class="token punctuation">]</span><span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token punctuation">[</span><span class="token keyword">if</span> gte IE <span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">></span> IE6以及IE6以上版本可识别 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span>endif<span class="token punctuation">]</span><span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token punctuation">[</span><span class="token keyword">if</span> IE <span class="token number">7</span><span class="token punctuation">]</span><span class="token operator">></span> 仅IE7可识别 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span>endif<span class="token punctuation">]</span><span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token punctuation">[</span><span class="token keyword">if</span> lt IE <span class="token number">7</span><span class="token punctuation">]</span><span class="token operator">></span> IE7以下版本可识别 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span>endif<span class="token punctuation">]</span><span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token punctuation">[</span><span class="token keyword">if</span> gte IE <span class="token number">7</span><span class="token punctuation">]</span><span class="token operator">></span> IE7以及IE7以上版本可识别 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span>endif<span class="token punctuation">]</span><span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token punctuation">[</span><span class="token keyword">if</span> IE <span class="token number">8</span><span class="token punctuation">]</span><span class="token operator">></span> 仅IE8可识别 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span>endif<span class="token punctuation">]</span><span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token punctuation">[</span><span class="token keyword">if</span> IE <span class="token number">9</span><span class="token punctuation">]</span><span class="token operator">></span> 仅IE9可识别 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span>endif<span class="token punctuation">]</span><span class="token operator">--</span><span class="token operator">></span>
+</code></pre>
 
       
 

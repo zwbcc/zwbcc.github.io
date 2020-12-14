@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/06/23/express和koa/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-10T09:58:03.629Z">
+<meta property="og:updated_time" content="2020-12-14T14:58:57.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="express和koa">
   
@@ -34,64 +34,59 @@
 
   
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d">
-</div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
-  <header id="header" class="inner">
-    <a href="/" class="profilepic">
-      <img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
-    </a>
-    <hgroup>
-      <h1 class="header-author"><a href="/">Comet_cc</a></h1>
-    </hgroup>
-    
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Comet_cc</a></h1>
+		</hgroup>
+		
 
 		<nav class="header-menu">
-    <ul>
-      
-    <li><a href="/">主页</a></li>
-    
-    <li><a href="/archives/index.html">归档</a></li>
-    
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
-    
-    <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    
-    
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-    <a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i
-        class="icon-github"></i></a>
-    
-    <a class="weibo" target="_blank" href="#" title="weibo"><i
-        class="icon-weibo"></i></a>
-    
-    <a class="qq" target="_blank" href="#" title="qq"><i
-        class="icon-qq"></i></a>
-    
-    <a class="weixin" target="_blank" href="#" title="weixin"><i
-        class="icon-weixin"></i></a>
-    
+					<a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="qq" target="_blank" href="#" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -180,12 +175,150 @@
         <hr>
 <a id="more"></a>
 <h1 id="express-和-koa"><a href="#express-和-koa" class="headerlink" title="express 和 koa"></a>express 和 koa</h1><h3 id="express介绍"><a href="#express介绍" class="headerlink" title="express介绍"></a>express介绍</h3><p>Express是基于Node.js的Web开发框架<br>下载运行:npm install …..</p>
-<h3 id="Express简单运行"><a href="#Express简单运行" class="headerlink" title="Express简单运行"></a>Express简单运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var express = require(<span class="string">'express'</span>);</span><br><span class="line">var app = express();</span><br><span class="line">app.use(xxxx)  // 注册调用中间件</span><br><span class="line">app.get(<span class="string">'/'</span>, (res,req)=&gt;&#123;xxxx&#125;); // 路由处理</span><br><span class="line">app.listen(port);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h3 id="中间件介绍"><a href="#中间件介绍" class="headerlink" title="中间件介绍"></a>中间件介绍</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">个人理解：在express 中，中间件就是对http请求回来的数据进行处理，经过app.use 调用,而且按顺序执行传递.</span><br><span class="line">express实例在运行过程中，会调用一系列的中间件。</span><br><span class="line">每个中间件可以从App实例，接收三个参数，依次为request对象（代表HTTP请求）、response对象（代表HTTP回应），next回调函数（代表下一个中间件）。每个中间件都可以对HTTP请求（request对象）进行加工，并且决定是否调用next方法，将request对象再传给下一个中间件</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h3 id="Express常用api"><a href="#Express常用api" class="headerlink" title="Express常用api"></a>Express常用api</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">可以使用express-generator 脚手架工具快速生成express 项目.</span><br><span class="line">执行命令 express xxxx(项目名称) 可快速生成express项目</span><br><span class="line">目录结构:</span><br><span class="line">app.js应用的初始化文件，包括引入应用程序的基础依赖项、设置视图即view的引擎目录以及模板、设置静态资源路径、配置通用的中间件、引入路由和一些错误处理中间件等。</span><br><span class="line">package.json应用的配置文件，文件内包含程序的基础信息、启动脚本和依赖包等。</span><br><span class="line">bin/www应用的启动文件，文件内包含引用要启动的应用、设置应用监听的端口和启动http服务等。</span><br><span class="line">public/**应用的静态资源文件目录，该目录下的文件资源不需要经过文件映射就可以直接访问。</span><br><span class="line">routes/**应用的路由文件，这些路由文件中设置的接口最终会以指定的HTTP请求方式暴露给用户，并在用户请求之后将结果返回。</span><br><span class="line">views应用的视图文件，在app.js中设置好视图引擎和模板之后，该目录即为应用视图的根目录，然后路由文件就会根据app.js中的设置加载并渲染该目录下的视图文件。</span><br><span class="line"></span><br><span class="line">在调用中间件过程中,使用 req 获取请求对象, req.query 获取 get带过来的参数,req.body 获取 post带过来的参数.</span><br><span class="line">req.app：当callback为外部文件时，用req.app访问express的实例</span><br><span class="line">req.baseUrl：获取路由当前安装的URL路径</span><br><span class="line">req.body / req.cookies：获得「请求主体」/ Cookies</span><br><span class="line">req.fresh / req.stale：判断请求是否还「新鲜」</span><br><span class="line">req.hostname / req.ip：获取主机名和IP地址</span><br><span class="line">req.originalUrl：获取原始请求URL</span><br><span class="line">req.params：获取路由的parameters</span><br><span class="line">req.path：获取请求路径</span><br><span class="line">req.protocol：获取协议类型</span><br><span class="line">req.query：获取URL的查询参数串</span><br><span class="line">req.route：获取当前匹配的路由</span><br><span class="line">req.subdomains：获取子域名</span><br><span class="line">req.accepts()：检查可接受的请求的文档类型</span><br><span class="line">req.acceptsCharsets / req.acceptsEncodings / req.acceptsLanguages：返回指定字符集的第一个可接受字符编码</span><br><span class="line">req.get()：获取指定的HTTP请求头</span><br><span class="line">req.is()：判断请求头Content-Type的MIME类型</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">res处理响应对象.</span><br><span class="line">res.app：同req.app一样</span><br><span class="line">res.append()：追加指定HTTP头</span><br><span class="line">res.set()在res.append()后将重置之前设置的头</span><br><span class="line">res.cookie(name，value [，option])：设置Cookie</span><br><span class="line">opition: domain / expires / httpOnly / maxAge / path / secure / signed</span><br><span class="line">res.clearCookie()：清除Cookie</span><br><span class="line">res.download()：传送指定路径的文件</span><br><span class="line">res.get()：返回指定的HTTP头</span><br><span class="line">res.json()：传送JSON响应</span><br><span class="line">res.jsonp()：传送JSONP响应</span><br><span class="line">res.location()：只设置响应的Location HTTP头，不设置状态码或者close response</span><br><span class="line">res.redirect()：设置响应的Location HTTP头，并且设置状态码302</span><br><span class="line">res.send()：传送HTTP响应</span><br><span class="line">res.sendFile(path [，options] [，fn])：传送指定路径的文件 -会自动根据文件extension设定Content-Type</span><br><span class="line">res.set()：设置HTTP头，传入object可以一次设置多个头</span><br><span class="line">res.status()：设置HTTP状态码</span><br><span class="line">res.type()：设置Content-Type的MIME类型</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="Express简单运行"><a href="#Express简单运行" class="headerlink" title="Express简单运行"></a>Express简单运行</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>xxxx<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 注册调用中间件</span>
+app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>res<span class="token punctuation">,</span>req<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>xxxx<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 路由处理</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+</code></pre>
+<h3 id="中间件介绍"><a href="#中间件介绍" class="headerlink" title="中间件介绍"></a>中间件介绍</h3><pre class=" language-js"><code class="language-js">个人理解：在express 中，中间件就是对http请求回来的数据进行处理，经过app<span class="token punctuation">.</span>use 调用<span class="token punctuation">,</span>而且按顺序执行传递<span class="token punctuation">.</span>
+express实例在运行过程中，会调用一系列的中间件。
+每个中间件可以从App实例，接收三个参数，依次为request对象（代表HTTP请求）、response对象（代表HTTP回应），next回调函数（代表下一个中间件）。每个中间件都可以对HTTP请求（request对象）进行加工，并且决定是否调用next方法，将request对象再传给下一个中间件
+<span class="token operator">...</span>
+
+</code></pre>
+<h3 id="Express常用api"><a href="#Express常用api" class="headerlink" title="Express常用api"></a>Express常用api</h3><pre class=" language-js"><code class="language-js">可以使用express<span class="token operator">-</span>generator 脚手架工具快速生成express 项目<span class="token punctuation">.</span>
+执行命令 express <span class="token function">xxxx</span><span class="token punctuation">(</span>项目名称<span class="token punctuation">)</span> 可快速生成express项目
+目录结构<span class="token punctuation">:</span>
+app<span class="token punctuation">.</span>js应用的初始化文件，包括引入应用程序的基础依赖项、设置视图即view的引擎目录以及模板、设置静态资源路径、配置通用的中间件、引入路由和一些错误处理中间件等。
+<span class="token keyword">package</span><span class="token punctuation">.</span>json应用的配置文件，文件内包含程序的基础信息、启动脚本和依赖包等。
+bin<span class="token operator">/</span>www应用的启动文件，文件内包含引用要启动的应用、设置应用监听的端口和启动http服务等。
+<span class="token keyword">public</span><span class="token operator">/</span><span class="token operator">**</span>应用的静态资源文件目录，该目录下的文件资源不需要经过文件映射就可以直接访问。
+routes<span class="token operator">/</span><span class="token operator">**</span>应用的路由文件，这些路由文件中设置的接口最终会以指定的HTTP请求方式暴露给用户，并在用户请求之后将结果返回。
+views应用的视图文件，在app<span class="token punctuation">.</span>js中设置好视图引擎和模板之后，该目录即为应用视图的根目录，然后路由文件就会根据app<span class="token punctuation">.</span>js中的设置加载并渲染该目录下的视图文件。
+
+在调用中间件过程中<span class="token punctuation">,</span>使用 req 获取请求对象<span class="token punctuation">,</span> req<span class="token punctuation">.</span>query 获取 <span class="token keyword">get</span>带过来的参数<span class="token punctuation">,</span>req<span class="token punctuation">.</span>body 获取 post带过来的参数<span class="token punctuation">.</span>
+req<span class="token punctuation">.</span>app：当callback为外部文件时，用req<span class="token punctuation">.</span>app访问express的实例
+req<span class="token punctuation">.</span>baseUrl：获取路由当前安装的URL路径
+req<span class="token punctuation">.</span>body <span class="token operator">/</span> req<span class="token punctuation">.</span>cookies：获得「请求主体」<span class="token operator">/</span> Cookies
+req<span class="token punctuation">.</span>fresh <span class="token operator">/</span> req<span class="token punctuation">.</span>stale：判断请求是否还「新鲜」
+req<span class="token punctuation">.</span>hostname <span class="token operator">/</span> req<span class="token punctuation">.</span>ip：获取主机名和IP地址
+req<span class="token punctuation">.</span>originalUrl：获取原始请求URL
+req<span class="token punctuation">.</span>params：获取路由的parameters
+req<span class="token punctuation">.</span>path：获取请求路径
+req<span class="token punctuation">.</span>protocol：获取协议类型
+req<span class="token punctuation">.</span>query：获取URL的查询参数串
+req<span class="token punctuation">.</span>route：获取当前匹配的路由
+req<span class="token punctuation">.</span>subdomains：获取子域名
+req<span class="token punctuation">.</span><span class="token function">accepts</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：检查可接受的请求的文档类型
+req<span class="token punctuation">.</span>acceptsCharsets <span class="token operator">/</span> req<span class="token punctuation">.</span>acceptsEncodings <span class="token operator">/</span> req<span class="token punctuation">.</span>acceptsLanguages：返回指定字符集的第一个可接受字符编码
+req<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：获取指定的HTTP请求头
+req<span class="token punctuation">.</span><span class="token function">is</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：判断请求头Content<span class="token operator">-</span>Type的MIME类型
+
+
+res处理响应对象<span class="token punctuation">.</span>
+res<span class="token punctuation">.</span>app：同req<span class="token punctuation">.</span>app一样
+res<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：追加指定HTTP头
+res<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>在res<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token punctuation">)</span>后将重置之前设置的头
+res<span class="token punctuation">.</span><span class="token function">cookie</span><span class="token punctuation">(</span>name，value <span class="token punctuation">[</span>，option<span class="token punctuation">]</span><span class="token punctuation">)</span>：设置Cookie
+opition<span class="token punctuation">:</span> domain <span class="token operator">/</span> expires <span class="token operator">/</span> httpOnly <span class="token operator">/</span> maxAge <span class="token operator">/</span> path <span class="token operator">/</span> secure <span class="token operator">/</span> signed
+res<span class="token punctuation">.</span><span class="token function">clearCookie</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：清除Cookie
+res<span class="token punctuation">.</span><span class="token function">download</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：传送指定路径的文件
+res<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：返回指定的HTTP头
+res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：传送JSON响应
+res<span class="token punctuation">.</span><span class="token function">jsonp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：传送JSONP响应
+res<span class="token punctuation">.</span><span class="token function">location</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：只设置响应的Location HTTP头，不设置状态码或者close response
+res<span class="token punctuation">.</span><span class="token function">redirect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：设置响应的Location HTTP头，并且设置状态码<span class="token number">302</span>
+res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：传送HTTP响应
+res<span class="token punctuation">.</span><span class="token function">sendFile</span><span class="token punctuation">(</span>path <span class="token punctuation">[</span>，options<span class="token punctuation">]</span> <span class="token punctuation">[</span>，fn<span class="token punctuation">]</span><span class="token punctuation">)</span>：传送指定路径的文件 <span class="token operator">-</span>会自动根据文件extension设定Content<span class="token operator">-</span>Type
+res<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：设置HTTP头，传入object可以一次设置多个头
+res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：设置HTTP状态码
+res<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：设置Content<span class="token operator">-</span>Type的MIME类型
+<span class="token operator">...</span>
+
+
+</code></pre>
 <h3 id="koa介绍"><a href="#koa介绍" class="headerlink" title="koa介绍"></a>koa介绍</h3><p>koa和Express一样，也是基于Node.js的Web开发框架,作者是同一个人。<br>区别：<br>Express主要基于Connect中间件框架，功能丰富，随取随用，并且框架自身封装了大量便利的功能，Express基于Es5语法，通过回调组合逻辑（类比如同jQuery中的ajax方法），回调的硬伤在于不可组合，难以捕获，在复杂逻辑中会包含大量回调嵌套，也就是常说的回调地狱，以及调试问题。但在Es语法更细下，可以通过相关三方库完善支持Promise或Async/Await来弥补。<br>koa基于ES6新特性重新开发的敏捷开发框架，主要基于co中间件框架，框架自身并没集成太多功能，相比Express更加小巧，几乎所有功能都通过中间件来完成，相应的Router模块从核心模块中去除，需通过中间件的形式集成。</p>
-<h3 id="koa运行"><a href="#koa运行" class="headerlink" title="koa运行"></a>koa运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">npm install ...</span><br><span class="line">const Koa = require(<span class="string">'koa'</span>);</span><br><span class="line">// 实例化koa</span><br><span class="line">const app = new Koa();</span><br><span class="line">// 创建接受Context对象的函数，Context由koa提供，表示一次对话的上下文</span><br><span class="line">const main = ctx =&gt; &#123;</span><br><span class="line">  // ctx包含请求及响应对象，通过响应对象的body设置返回的内容</span><br><span class="line">  ctx.response.body = <span class="string">'Hello World'</span>;</span><br><span class="line">&#125;</span><br><span class="line">// 使用加载main函数，注册到koa</span><br><span class="line">app.use(main);</span><br><span class="line">// 监听并启动服务</span><br><span class="line">app.listen(3000);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">和express一样，koa也有自己的脚手架工具: koa-generator</span><br><span class="line">执行命令 koa2 -e xxxx(项目名称) 可快速生成express项目</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在koa中间件中，接收两个参数，一个是ctx,一个是next. </span><br><span class="line">ctx是context的缩写中文一般叫成上下文，这个在所有语言里都有的名词，可以理解为上(request)下(response)沟通的环境，koa把 req和res都封装到ctx对象中。</span><br><span class="line"></span><br><span class="line">body是http协议中的响应体，header是指响应头</span><br><span class="line">ctx.body = ctx.res.body = ctx.response.body</span><br><span class="line"></span><br><span class="line">ctx.req</span><br><span class="line">Node的请求对象。</span><br><span class="line"></span><br><span class="line">ctx.res</span><br><span class="line">Node的相应对象。</span><br><span class="line"></span><br><span class="line">Koa的响应处理是不能被传递的。请避免使用以下的Node属性/方法：</span><br><span class="line">res.statusCode</span><br><span class="line">res.writeHead()</span><br><span class="line">res.write()</span><br><span class="line">res.end()</span><br><span class="line">ctx.request</span><br><span class="line">Koa请求对象</span><br><span class="line">ctx.response</span><br><span class="line">Koa响应对象</span><br><span class="line">ctx.state</span><br><span class="line">这是适合你给中间件或者前端页面传递信息的命名空间。</span><br><span class="line">ctx.state.user = await User.find(id);</span><br><span class="line">ctx.app</span><br><span class="line">应用实例引用</span><br><span class="line">ctx.cookies.get(name, [options])</span><br><span class="line">ctx.cookies.set(name, value, [options])</span><br><span class="line">maxAge</span><br><span class="line">signed</span><br><span class="line">expires</span><br><span class="line">path 默认是 <span class="string">'/'</span></span><br><span class="line">domain</span><br><span class="line">secure</span><br><span class="line">httpOnly 默认是 <span class="literal">true</span></span><br><span class="line">overwrite，一个布尔值，指示是否覆盖以前设置的同名cookie（默认为<span class="literal">false</span>）。如果是这样，则在设置此cookie时，将在Set-Cookie标头中过滤掉在相同请求期间设置的具有相同名称（无论路径或域）的所有cookie。</span><br><span class="line">ctx.throw([status], [msg], [properties])</span><br><span class="line">Helper方法抛出一个错误，其中.status属性默认为500，这将允许Koa做出适当的响应。允许以下组合：</span><br><span class="line">ctx.throw(400);</span><br><span class="line">ctx.throw(400, <span class="string">'name required'</span>);</span><br><span class="line">ctx.throw(400, <span class="string">'name required'</span>, &#123; user: user &#125;);</span><br><span class="line">例如ctx.throw(400, <span class="string">'name required'</span>)与下面相等：</span><br><span class="line">const err = new Error(<span class="string">'name required'</span>);</span><br><span class="line">err.status = 400;</span><br><span class="line">err.expose = <span class="literal">true</span>;</span><br><span class="line">throw err;</span><br><span class="line">请注意，这些是用户级错误，并使用err.expose标记，这意味着消息适用于客户端响应，这通常不是错误消息的情况，因为您不希望泄漏故障详细信息。</span><br><span class="line">您可以选择传递一个属性对象，该对象按原样合并到错误中，对于装饰向上游请求者报告的机器友好错误很有用。</span><br><span class="line">Koa使用http-errors创建错误。</span><br><span class="line">ctx.assert(value, [status], [msg], [properties])</span><br><span class="line">当value不存在的时候抛出一个错误，与.throw()类似。与Node的assert()方法类似。</span><br><span class="line">ctx.assert(ctx.state.user, 401, <span class="string">'User not found. Please login!'</span>);</span><br><span class="line">Koa使用http-assert进行断言。</span><br></pre></td></tr></table></figure>
-<h3 id="express中间件和koa中间件不同"><a href="#express中间件和koa中间件不同" class="headerlink" title="express中间件和koa中间件不同"></a>express中间件和koa中间件不同</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">koa2的中间件是通过 async await 实现的，中间件执行顺序是“洋葱圈”模型。</span><br><span class="line">中间件之间通过next函数联系,当一个中间件调用 next() 后，会将控制权交给下一个中间件, 直到下一个中间件不再执行 next() 后, 将会沿路折返,将控制权依次交换给前一个中间件。</span><br><span class="line">与 koa2 中间件不同的是，express中间件一个接一个的顺序执行, 通常会将 response 响应写在最后一个中间件中。</span><br></pre></td></tr></table></figure>
+<h3 id="koa运行"><a href="#koa运行" class="headerlink" title="koa运行"></a>koa运行</h3><pre class=" language-js"><code class="language-js">npm install <span class="token operator">...</span>
+<span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 实例化koa</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 创建接受Context对象的函数，Context由koa提供，表示一次对话的上下文</span>
+<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ctx包含请求及响应对象，通过响应对象的body设置返回的内容</span>
+  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 使用加载main函数，注册到koa</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 监听并启动服务</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+和express一样，koa也有自己的脚手架工具<span class="token punctuation">:</span> koa<span class="token operator">-</span>generator
+执行命令 koa2 <span class="token operator">-</span>e <span class="token function">xxxx</span><span class="token punctuation">(</span>项目名称<span class="token punctuation">)</span> 可快速生成express项目
+
+
+在koa中间件中，接收两个参数，一个是ctx<span class="token punctuation">,</span>一个是next<span class="token punctuation">.</span> 
+<span class="token function">ctx是context的缩写中文一般叫成上下文，这个在所有语言里都有的名词，可以理解为上</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token function">下</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>沟通的环境，koa把 req和res都封装到ctx对象中。
+
+body是http协议中的响应体，header是指响应头
+ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> ctx<span class="token punctuation">.</span>res<span class="token punctuation">.</span>body <span class="token operator">=</span> ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body
+
+ctx<span class="token punctuation">.</span>req
+Node的请求对象。
+
+ctx<span class="token punctuation">.</span>res
+Node的相应对象。
+
+Koa的响应处理是不能被传递的。请避免使用以下的Node属性<span class="token operator">/</span>方法：
+res<span class="token punctuation">.</span>statusCode
+res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ctx<span class="token punctuation">.</span>request
+Koa请求对象
+ctx<span class="token punctuation">.</span>response
+Koa响应对象
+ctx<span class="token punctuation">.</span>state
+这是适合你给中间件或者前端页面传递信息的命名空间。
+ctx<span class="token punctuation">.</span>state<span class="token punctuation">.</span>user <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ctx<span class="token punctuation">.</span>app
+应用实例引用
+ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span><span class="token punctuation">)</span>
+ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> value<span class="token punctuation">,</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span><span class="token punctuation">)</span>
+maxAge
+signed
+expires
+path 默认是 <span class="token string">'/'</span>
+domain
+secure
+httpOnly 默认是 <span class="token boolean">true</span>
+overwrite，一个布尔值，指示是否覆盖以前设置的同名cookie（默认为<span class="token boolean">false</span>）。如果是这样，则在设置此cookie时，将在Set<span class="token operator">-</span>Cookie标头中过滤掉在相同请求期间设置的具有相同名称（无论路径或域）的所有cookie。
+ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token punctuation">[</span>status<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>msg<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>properties<span class="token punctuation">]</span><span class="token punctuation">)</span>
+Helper方法抛出一个错误，其中<span class="token punctuation">.</span>status属性默认为<span class="token number">500</span>，这将允许Koa做出适当的响应。允许以下组合：
+ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'name required'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'name required'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> user<span class="token punctuation">:</span> user <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+例如ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">'name required'</span><span class="token punctuation">)</span>与下面相等：
+<span class="token keyword">const</span> err <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'name required'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+err<span class="token punctuation">.</span>status <span class="token operator">=</span> <span class="token number">400</span><span class="token punctuation">;</span>
+err<span class="token punctuation">.</span>expose <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">throw</span> err<span class="token punctuation">;</span>
+请注意，这些是用户级错误，并使用err<span class="token punctuation">.</span>expose标记，这意味着消息适用于客户端响应，这通常不是错误消息的情况，因为您不希望泄漏故障详细信息。
+您可以选择传递一个属性对象，该对象按原样合并到错误中，对于装饰向上游请求者报告的机器友好错误很有用。
+Koa使用http<span class="token operator">-</span>errors创建错误。
+ctx<span class="token punctuation">.</span><span class="token function">assert</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token punctuation">[</span>status<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>msg<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>properties<span class="token punctuation">]</span><span class="token punctuation">)</span>
+当value不存在的时候抛出一个错误，与<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token function">类似。与Node的assert</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法类似。
+ctx<span class="token punctuation">.</span><span class="token function">assert</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>state<span class="token punctuation">.</span>user<span class="token punctuation">,</span> <span class="token number">401</span><span class="token punctuation">,</span> <span class="token string">'User not found. Please login!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Koa使用http<span class="token operator">-</span>assert进行断言。
+
+</code></pre>
+<h3 id="express中间件和koa中间件不同"><a href="#express中间件和koa中间件不同" class="headerlink" title="express中间件和koa中间件不同"></a>express中间件和koa中间件不同</h3><pre class=" language-js"><code class="language-js">koa2的中间件是通过 <span class="token keyword">async</span> <span class="token keyword">await</span> 实现的，中间件执行顺序是“洋葱圈”模型。
+中间件之间通过next函数联系<span class="token punctuation">,</span>当一个中间件调用 <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 后，会将控制权交给下一个中间件<span class="token punctuation">,</span> 直到下一个中间件不再执行 <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 后<span class="token punctuation">,</span> 将会沿路折返<span class="token punctuation">,</span>将控制权依次交换给前一个中间件。
+与 koa2 中间件不同的是，express中间件一个接一个的顺序执行<span class="token punctuation">,</span> 通常会将 response 响应写在最后一个中间件中。
+
+</code></pre>
 
       
 

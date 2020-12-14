@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/07/10/token、pm2、node定时任务/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-07T08:49:50.450Z">
+<meta property="og:updated_time" content="2020-12-14T14:58:57.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="token、pm2、node定时任务">
   
@@ -34,64 +34,59 @@
 
   
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d">
-</div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
-  <header id="header" class="inner">
-    <a href="/" class="profilepic">
-      <img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
-    </a>
-    <hgroup>
-      <h1 class="header-author"><a href="/">Comet_cc</a></h1>
-    </hgroup>
-    
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Comet_cc</a></h1>
+		</hgroup>
+		
 
 		<nav class="header-menu">
-    <ul>
-      
-    <li><a href="/">主页</a></li>
-    
-    <li><a href="/archives/index.html">归档</a></li>
-    
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
-    
-    <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    
-    
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-    <a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i
-        class="icon-github"></i></a>
-    
-    <a class="weibo" target="_blank" href="#" title="weibo"><i
-        class="icon-weibo"></i></a>
-    
-    <a class="qq" target="_blank" href="#" title="qq"><i
-        class="icon-qq"></i></a>
-    
-    <a class="weixin" target="_blank" href="#" title="weixin"><i
-        class="icon-weixin"></i></a>
-    
+					<a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="qq" target="_blank" href="#" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -181,10 +176,156 @@
 <a id="more"></a>
 <h1 id="token、pm2、node定时任务"><a href="#token、pm2、node定时任务" class="headerlink" title="token、pm2、node定时任务"></a>token、pm2、node定时任务</h1><h3 id="token鉴权"><a href="#token鉴权" class="headerlink" title="token鉴权"></a>token鉴权</h3><p>token是服务端生成的一串字符串，以作客户端进行请求的一个令牌，当第一次登录后，服务器生成一个Token便将此Token返回给客户端，以后客户端只需带上这个Token前来请求数据即可，无需再次带上用户名和密码。<br>token和session其实都是为了身份验证，session一般翻译为会话，而token更多的时候是翻译为令牌；<br>session服务器会保存一份，可能保存到缓存，文件，数据库；同样，session和token都是有过期时间一说，都需要去管理过期时间；<br>其实token与session的问题是一种时间与空间的博弈问题，session是空间换时间，而token是时间换空间。两者的选择要看具体情况而定。</p>
 <p>nodejs 中使用 JsonWebToken,JSON Web Token（缩写JWT）是当前最流行的跨域认证解决方案<br>npm install jsonwebtoken<br>JWT由三部分组成: header(头)、payload(载体)、signature(签名)<br>header值有:HS384 HS512 RS256 RS384 RS512 ES256 ES384 ES512 PS256 PS384有这几种<br>载体：iss：Issuer，发行者<br>      sub：Subject，主题<br>      aud：Audience，观众<br>      exp：Expiration time，过期时间<br>      nbf：Not before<br>      iat：Issued at，发行时间<br>      jti：JWT ID<br>签名：是对前两部分的签名，防止数据篡改。<br>首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用 Header 里面指定的签名算法（默认是 HMAC SHA256），按照下面的公式产生签名。<br>HMACSHA256(<br>  base64UrlEncode(header) + “.” +<br>  base64UrlEncode(payload),<br>  secret)<br>算出签名以后，把 Header、Payload、Signature 三个部分拼成一个字符串，每个部分之间用”点”（.）分隔，就可以返回给用户</p>
-<p>jsonwebtoken主要用到方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1。jwt.sign(payload, secretOrPrivateKey, [options, callback])</span><br><span class="line">payload 是一个json对象或者是一个可以json化的buffer或字符串 这个对象可以存储用户id,会话信息等,这里的信息都是可以使用jwt.verify()方法拿到的. </span><br><span class="line">secretOrPrivateKey是加密的key或者叫做密匙,不知道密匙是无法解析payload参数的.</span><br><span class="line">options 参数 是一个json对象</span><br><span class="line">expiresIn : 表示有效期  不带单位默认为秒  如带单位如: <span class="string">"2 days"</span>, <span class="string">"10h"</span>, <span class="string">"7d"</span></span><br><span class="line"></span><br><span class="line">2。jwt.verify(token, secretOrPublicKey, [options, callback])</span><br><span class="line">token: 就是token字符串 由jwt.sign()方法生成的</span><br><span class="line">secretOrPublicKey:是加密的key,用于解析生成token时的payload参数</span><br><span class="line">options:设置一些解密的方法....</span><br></pre></td></tr></table></figure></p>
+<p>jsonwebtoken主要用到方法</p>
+<pre class=" language-js"><code class="language-js"><span class="token number">1</span>。jwt<span class="token punctuation">.</span><span class="token function">sign</span><span class="token punctuation">(</span>payload<span class="token punctuation">,</span> secretOrPrivateKey<span class="token punctuation">,</span> <span class="token punctuation">[</span>options<span class="token punctuation">,</span> callback<span class="token punctuation">]</span><span class="token punctuation">)</span>
+payload 是一个json对象或者是一个可以json化的buffer或字符串 这个对象可以存储用户id<span class="token punctuation">,</span>会话信息等<span class="token punctuation">,</span>这里的信息都是可以使用jwt<span class="token punctuation">.</span><span class="token function">verify</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法拿到的<span class="token punctuation">.</span> 
+secretOrPrivateKey是加密的key或者叫做密匙<span class="token punctuation">,</span>不知道密匙是无法解析payload参数的<span class="token punctuation">.</span>
+options 参数 是一个json对象
+expiresIn <span class="token punctuation">:</span> 表示有效期  不带单位默认为秒  如带单位如<span class="token punctuation">:</span> <span class="token string">"2 days"</span><span class="token punctuation">,</span> <span class="token string">"10h"</span><span class="token punctuation">,</span> <span class="token string">"7d"</span>
+
+<span class="token number">2</span>。jwt<span class="token punctuation">.</span><span class="token function">verify</span><span class="token punctuation">(</span>token<span class="token punctuation">,</span> secretOrPublicKey<span class="token punctuation">,</span> <span class="token punctuation">[</span>options<span class="token punctuation">,</span> callback<span class="token punctuation">]</span><span class="token punctuation">)</span>
+token<span class="token punctuation">:</span> 就是token字符串 由jwt<span class="token punctuation">.</span><span class="token function">sign</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法生成的
+secretOrPublicKey<span class="token punctuation">:</span>是加密的key<span class="token punctuation">,</span>用于解析生成token时的payload参数
+options<span class="token punctuation">:</span>设置一些解密的方法<span class="token operator">...</span><span class="token punctuation">.</span>
+</code></pre>
 <h3 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h3><p>PM2是nodejs应用程序的运行管理工具，提供了进程管理、性能监控、负载均衡等功能</p>
-<p>npm install -g pm2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">1。常用命令</span><br><span class="line">启动：pm2 start xxx --参数...</span><br><span class="line">参数说明:</span><br><span class="line">--watch：监听应用目录的变化，一旦发生变化，自动重启。如果要精确监听、不监听的目录，最好通过配置文件。</span><br><span class="line">-i --instances：启用多少个实例，可用于负载均衡。如果-i 0或者-i max，则根据当前机器核数确定实例数目。</span><br><span class="line">--ignore-watch：排除监听的目录/文件，可以是特定的文件名，也可以是正则。比如--ignore-watch=<span class="string">"test node_modules "</span>some scripts<span class="string">""</span></span><br><span class="line">-n --name：应用的名称。查看应用信息的时候可以用到。</span><br><span class="line">-o --output &lt;path&gt;：标准输出日志文件的路径。</span><br><span class="line">-e --error &lt;path&gt;：错误输出日志文件的路径。</span><br><span class="line">--interpreter &lt;interpreter&gt;：the interpreter pm2 should use <span class="keyword">for</span> executing app (bash, python...)。比如你用的coffee script来编写应用。</span><br><span class="line">--max-memory-restart xxxM 超过使用内存上限后自动重启</span><br><span class="line"></span><br><span class="line">重启：pm2 restart xxx           </span><br><span class="line">停止：pm2 stop xxx           </span><br><span class="line">删除：pm2 delete xxx           </span><br><span class="line">查看：pm2 list</span><br><span class="line">监控：pm2 monit</span><br><span class="line">日志：pm2 logs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2。使用配置文件（使用json文件或者yaml文件格式）,简化命令</span><br><span class="line">启动.执行pm2 start 配置文件</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"apps"</span>: &#123;</span><br><span class="line">      <span class="string">"name"</span>: <span class="string">"wuwu"</span>,                             // 项目名          </span><br><span class="line">      <span class="string">"script"</span>: <span class="string">"./bin/www"</span>,                      // 执行文件</span><br><span class="line">      <span class="string">"cwd"</span>: <span class="string">"./"</span>,                                // 根目录</span><br><span class="line">      <span class="string">"args"</span>: <span class="string">""</span>,                                 // 传递给脚本的参数</span><br><span class="line">      <span class="string">"interpreter"</span>: <span class="string">""</span>,                          // 指定的脚本解释器</span><br><span class="line">      <span class="string">"interpreter_args"</span>: <span class="string">""</span>,                     // 传递给解释器的参数</span><br><span class="line">      <span class="string">"watch"</span>: <span class="literal">true</span>,                              // 是否监听文件变动然后重启</span><br><span class="line">      <span class="string">"ignore_watch"</span>: [                           // 不用监听的文件</span><br><span class="line">          <span class="string">"node_modules"</span>,</span><br><span class="line">          <span class="string">"logs"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="string">"exec_mode"</span>: <span class="string">"cluster_mode"</span>,                // 应用启动模式，支持fork和cluster模式</span><br><span class="line">      <span class="string">"instances"</span>: 4,                             // 应用启动实例个数，仅在cluster模式有效 默认为fork；或者 max</span><br><span class="line">      <span class="string">"max_memory_restart"</span>: 8,                    // 最大内存限制数，超出自动重启</span><br><span class="line">      <span class="string">"error_file"</span>: <span class="string">"./logs/app-err.log"</span>,         // 错误日志文件</span><br><span class="line">      <span class="string">"out_file"</span>: <span class="string">"./logs/app-out.log"</span>,           // 正常日志文件</span><br><span class="line">      <span class="string">"merge_logs"</span>: <span class="literal">true</span>,                         // 设置追加日志而不是新建日志</span><br><span class="line">      <span class="string">"log_date_format"</span>: <span class="string">"YYYY-MM-DD HH:mm:ss"</span>,   // 指定日志文件的时间格式</span><br><span class="line">      <span class="string">"min_uptime"</span>: <span class="string">"60s"</span>,                        // 应用运行少于时间被认为是异常启动</span><br><span class="line">      <span class="string">"max_restarts"</span>: 30,                         // 最大异常重启次数，即小于min_uptime运行时间重启次数；</span><br><span class="line">      <span class="string">"autorestart"</span>: <span class="literal">true</span>,                        // 默认为<span class="literal">true</span>, 发生异常的情况下自动重启</span><br><span class="line">      <span class="string">"cron_restart"</span>: <span class="string">""</span>,                         // crontab时间格式重启应用，目前只支持cluster模式;</span><br><span class="line">      <span class="string">"restart_delay"</span>: <span class="string">"60s"</span>                      // 异常重启情况下，延时重启时间</span><br><span class="line">      <span class="string">"env"</span>: &#123;</span><br><span class="line">          <span class="string">"NODE_ENV"</span>: <span class="string">"production"</span>,                // 环境参数，当前指定为生产环境 process.env.NODE_ENV</span><br><span class="line">          <span class="string">"REMOTE_ADDR"</span>: <span class="string">"爱上大声地"</span>               // process.env.REMOTE_ADDR</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"env_dev"</span>: &#123;</span><br><span class="line">          <span class="string">"NODE_ENV"</span>: <span class="string">"development"</span>,              // 环境参数，当前指定为开发环境 pm2 start app.js --env_dev</span><br><span class="line">          <span class="string">"REMOTE_ADDR"</span>: <span class="string">""</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"env_test"</span>: &#123;                               // 环境参数，当前指定为测试环境 pm2 start app.js --env_test</span><br><span class="line">          <span class="string">"NODE_ENV"</span>: <span class="string">"test"</span>,</span><br><span class="line">          <span class="string">"REMOTE_ADDR"</span>: <span class="string">""</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="node定时任务"><a href="#node定时任务" class="headerlink" title="node定时任务"></a>node定时任务</h3><p>安装<br>npm install node-schedule<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">const schedule = require(<span class="string">'node-schedule'</span>);//定时器</span><br><span class="line">const nodeTimer = &#123;&#125;;</span><br><span class="line"><span class="built_in">let</span> cancelTimer = <span class="string">''</span></span><br><span class="line">Cron风格定时器</span><br><span class="line">//   参数：</span><br><span class="line">// * 第一位，表示秒，取值0-59</span><br><span class="line">// * 第二位，表示分，取值0-59</span><br><span class="line">// * 第三位，表示小时，取值0-23</span><br><span class="line">// * 第四位，日期天/日，取值1-31</span><br><span class="line">// * 第五位，日期月份，取值1-12</span><br><span class="line">// * 第六位，星期，取值1-7，星期一，星期二...，注：不是第1周，第二周的意思，另外：1表示星期天，2表示星期一。</span><br><span class="line">// * 第7为，年份，可以留空，取值1970-2099</span><br><span class="line">// (*)星号：可以理解为每的意思，每秒，每分，每天，每月，每年...</span><br><span class="line">// (?)问号：问号只能出现在日期和星期这两个位置，表示这个位置的值不确定，每天3点执行，所以第六位星期的位置，我们是不需要关注的，就是不确定的值。同时：日期和星期是两个相互排斥的元素，通过问号来表明不指定值。比如，1月10日，比如是星期1，如果在星期的位置是另指定星期二，就前后冲突矛盾了。</span><br><span class="line">// (-)减号：表达一个范围，如在小时字段中使用“10-12”，则表示从10到12点，即10,11,12</span><br><span class="line">// (,)逗号：表达一个列表值，如在星期字段中使用“1,2,4”，则表示星期一，星期二，星期四</span><br><span class="line">// (/)斜杠：如：x/y，x是开始值，y是步长，比如在第一位（秒） 0/15就是，从0秒开始，每15秒，最后就是0，15，30，45，60    另：*/y，等同于0/y</span><br><span class="line">// 示例：</span><br><span class="line">// 0 3 * * ?     每天3点执行</span><br><span class="line">// 5 3 * * ?     每天3点5分执行</span><br><span class="line">// 5 3 ? * *     每天3点5分执行，与上面作用相同</span><br><span class="line">// 5/10 3 * * ?  每天3点的 5分，15分，25分，35分，45分，55分这几个时间点执行</span><br><span class="line">// 10 3 ? * 1    每周星期天，3点10分 执行，注：1表示星期天    </span><br><span class="line">// 10 3 ? * 1<span class="comment">#3  每个月的第三个星期，星期天 执行，#号只能出现在星期的位置</span></span><br><span class="line">nodeTimer.scheduleTimer = (executionTime = <span class="string">'30 * * * * *'</span>, callback) =&gt; &#123;</span><br><span class="line">    // 每分钟的第30秒触发： <span class="string">'30 * * * * *'</span></span><br><span class="line">    // 每小时的1分30秒触发 ：<span class="string">'30 1 * * * *'</span></span><br><span class="line">    // 每天的凌晨1点1分30秒触发 ：<span class="string">'30 1 1 * * *'</span></span><br><span class="line">    // 每月的1日1点1分30秒触发 ：<span class="string">'30 1 1 1 * *'</span></span><br><span class="line">    // 2016年的1月1日1点1分30秒触发 ：<span class="string">'30 1 1 1 2016 *'</span></span><br><span class="line">    // 每周1的1点1分30秒触发 ：<span class="string">'30 1 1 * * 1'</span></span><br><span class="line">    cancelTimer = schedule.scheduleJob(executionTime, () =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (typeof callback === <span class="string">'function'</span>) &#123;</span><br><span class="line">            callback()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    cancelTimer.cancel() //取消定时器任务</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">递归规则定时器</span><br><span class="line">var schedule = require(<span class="string">'node-schedule'</span>);</span><br><span class="line"><span class="keyword">function</span> scheduleRecurrenceRule(callback)&#123;</span><br><span class="line">    var rule = new schedule.RecurrenceRule();</span><br><span class="line">    // rule.dayOfWeek = 2;</span><br><span class="line">    // rule.month = 3;</span><br><span class="line">    // rule.dayOfMonth = 1;</span><br><span class="line">    // rule.hour = 1;</span><br><span class="line">    // rule.minute = 42;</span><br><span class="line">    rule.second = 0;</span><br><span class="line">    schedule.scheduleJob(rule, <span class="keyword">function</span>(callback)&#123;</span><br><span class="line">        console.log(<span class="string">'scheduleRecurrenceRule:'</span> + new Date());</span><br><span class="line">        callback()</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">scheduleRecurrenceRule(()=&gt;&#123; //todo &#125;);</span><br><span class="line"></span><br><span class="line">对象文本语法定时器</span><br><span class="line">var schedule = require(<span class="string">'node-schedule'</span>);</span><br><span class="line"><span class="keyword">function</span> scheduleObjectLiteralSyntax(callback)&#123;</span><br><span class="line">    //dayOfWeek</span><br><span class="line">    //month</span><br><span class="line">    //dayOfMonth</span><br><span class="line">    //hour</span><br><span class="line">    //minute</span><br><span class="line">    //second</span><br><span class="line">    schedule.scheduleJob(&#123;hour: 16, minute: 11, dayOfWeek: 1&#125;, <span class="keyword">function</span>(callback)&#123;</span><br><span class="line">        console.log(<span class="string">'scheduleObjectLiteralSyntax:'</span> + new Date());</span><br><span class="line">        callback()</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">scheduleObjectLiteralSyntax(()=&gt;&#123; //todo &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>npm install -g pm2</p>
+<pre class=" language-js"><code class="language-js"><span class="token number">1</span>。常用命令
+启动：pm2 start xxx <span class="token operator">--</span>参数<span class="token operator">...</span>
+参数说明<span class="token punctuation">:</span>
+<span class="token operator">--</span>watch：监听应用目录的变化，一旦发生变化，自动重启。如果要精确监听、不监听的目录，最好通过配置文件。
+<span class="token operator">-</span>i <span class="token operator">--</span>instances：启用多少个实例，可用于负载均衡。如果<span class="token operator">-</span>i <span class="token number">0</span>或者<span class="token operator">-</span>i max，则根据当前机器核数确定实例数目。
+<span class="token operator">--</span>ignore<span class="token operator">-</span>watch：排除监听的目录<span class="token operator">/</span>文件，可以是特定的文件名，也可以是正则。比如<span class="token operator">--</span>ignore<span class="token operator">-</span>watch<span class="token operator">=</span><span class="token string">"test node_modules "</span>some scripts<span class="token string">""</span>
+<span class="token operator">-</span>n <span class="token operator">--</span>name：应用的名称。查看应用信息的时候可以用到。
+<span class="token operator">-</span>o <span class="token operator">--</span>output <span class="token operator">&lt;</span>path<span class="token operator">></span>：标准输出日志文件的路径。
+<span class="token operator">-</span>e <span class="token operator">--</span>error <span class="token operator">&lt;</span>path<span class="token operator">></span>：错误输出日志文件的路径。
+<span class="token operator">--</span>interpreter <span class="token operator">&lt;</span>interpreter<span class="token operator">></span>：the interpreter pm2 should use <span class="token keyword">for</span> executing app <span class="token punctuation">(</span>js<span class="token punctuation">,</span> python<span class="token operator">...</span><span class="token punctuation">)</span>。比如你用的coffee script来编写应用。
+<span class="token operator">--</span>max<span class="token operator">-</span>memory<span class="token operator">-</span>restart xxxM 超过使用内存上限后自动重启
+
+重启：pm2 restart xxx           
+停止：pm2 stop xxx           
+删除：pm2 <span class="token keyword">delete</span> xxx           
+查看：pm2 list
+监控：pm2 monit
+日志：pm2 logs
+
+
+<span class="token number">2</span>。使用配置文件（使用json文件或者yaml文件格式）<span class="token punctuation">,</span>简化命令
+启动<span class="token punctuation">.</span>执行pm2 start 配置文件
+<span class="token punctuation">{</span>
+  <span class="token string">"apps"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"wuwu"</span><span class="token punctuation">,</span>                             <span class="token comment" spellcheck="true">// 项目名          </span>
+      <span class="token string">"script"</span><span class="token punctuation">:</span> <span class="token string">"./bin/www"</span><span class="token punctuation">,</span>                      <span class="token comment" spellcheck="true">// 执行文件</span>
+      <span class="token string">"cwd"</span><span class="token punctuation">:</span> <span class="token string">"./"</span><span class="token punctuation">,</span>                                <span class="token comment" spellcheck="true">// 根目录</span>
+      <span class="token string">"args"</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>                                 <span class="token comment" spellcheck="true">// 传递给脚本的参数</span>
+      <span class="token string">"interpreter"</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>                          <span class="token comment" spellcheck="true">// 指定的脚本解释器</span>
+      <span class="token string">"interpreter_args"</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>                     <span class="token comment" spellcheck="true">// 传递给解释器的参数</span>
+      <span class="token string">"watch"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>                              <span class="token comment" spellcheck="true">// 是否监听文件变动然后重启</span>
+      <span class="token string">"ignore_watch"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>                           <span class="token comment" spellcheck="true">// 不用监听的文件</span>
+          <span class="token string">"node_modules"</span><span class="token punctuation">,</span>
+          <span class="token string">"logs"</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string">"exec_mode"</span><span class="token punctuation">:</span> <span class="token string">"cluster_mode"</span><span class="token punctuation">,</span>                <span class="token comment" spellcheck="true">// 应用启动模式，支持fork和cluster模式</span>
+      <span class="token string">"instances"</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>                             <span class="token comment" spellcheck="true">// 应用启动实例个数，仅在cluster模式有效 默认为fork；或者 max</span>
+      <span class="token string">"max_memory_restart"</span><span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">,</span>                    <span class="token comment" spellcheck="true">// 最大内存限制数，超出自动重启</span>
+      <span class="token string">"error_file"</span><span class="token punctuation">:</span> <span class="token string">"./logs/app-err.log"</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">// 错误日志文件</span>
+      <span class="token string">"out_file"</span><span class="token punctuation">:</span> <span class="token string">"./logs/app-out.log"</span><span class="token punctuation">,</span>           <span class="token comment" spellcheck="true">// 正常日志文件</span>
+      <span class="token string">"merge_logs"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>                         <span class="token comment" spellcheck="true">// 设置追加日志而不是新建日志</span>
+      <span class="token string">"log_date_format"</span><span class="token punctuation">:</span> <span class="token string">"YYYY-MM-DD HH:mm:ss"</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">// 指定日志文件的时间格式</span>
+      <span class="token string">"min_uptime"</span><span class="token punctuation">:</span> <span class="token string">"60s"</span><span class="token punctuation">,</span>                        <span class="token comment" spellcheck="true">// 应用运行少于时间被认为是异常启动</span>
+      <span class="token string">"max_restarts"</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span>                         <span class="token comment" spellcheck="true">// 最大异常重启次数，即小于min_uptime运行时间重启次数；</span>
+      <span class="token string">"autorestart"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>                        <span class="token comment" spellcheck="true">// 默认为true, 发生异常的情况下自动重启</span>
+      <span class="token string">"cron_restart"</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>                         <span class="token comment" spellcheck="true">// crontab时间格式重启应用，目前只支持cluster模式;</span>
+      <span class="token string">"restart_delay"</span><span class="token punctuation">:</span> <span class="token string">"60s"</span>                      <span class="token comment" spellcheck="true">// 异常重启情况下，延时重启时间</span>
+      <span class="token string">"env"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token string">"NODE_ENV"</span><span class="token punctuation">:</span> <span class="token string">"production"</span><span class="token punctuation">,</span>                <span class="token comment" spellcheck="true">// 环境参数，当前指定为生产环境 process.env.NODE_ENV</span>
+          <span class="token string">"REMOTE_ADDR"</span><span class="token punctuation">:</span> <span class="token string">"爱上大声地"</span>               <span class="token comment" spellcheck="true">// process.env.REMOTE_ADDR</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"env_dev"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token string">"NODE_ENV"</span><span class="token punctuation">:</span> <span class="token string">"development"</span><span class="token punctuation">,</span>              <span class="token comment" spellcheck="true">// 环境参数，当前指定为开发环境 pm2 start app.js --env_dev</span>
+          <span class="token string">"REMOTE_ADDR"</span><span class="token punctuation">:</span> <span class="token string">""</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"env_test"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>                               <span class="token comment" spellcheck="true">// 环境参数，当前指定为测试环境 pm2 start app.js --env_test</span>
+          <span class="token string">"NODE_ENV"</span><span class="token punctuation">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
+          <span class="token string">"REMOTE_ADDR"</span><span class="token punctuation">:</span> <span class="token string">""</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="node定时任务"><a href="#node定时任务" class="headerlink" title="node定时任务"></a>node定时任务</h3><p>安装<br>npm install node-schedule </p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> schedule <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node-schedule'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//定时器</span>
+<span class="token keyword">const</span> nodeTimer <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> cancelTimer <span class="token operator">=</span> <span class="token string">''</span>
+Cron风格定时器
+<span class="token comment" spellcheck="true">//   参数：</span>
+<span class="token comment" spellcheck="true">// * 第一位，表示秒，取值0-59</span>
+<span class="token comment" spellcheck="true">// * 第二位，表示分，取值0-59</span>
+<span class="token comment" spellcheck="true">// * 第三位，表示小时，取值0-23</span>
+<span class="token comment" spellcheck="true">// * 第四位，日期天/日，取值1-31</span>
+<span class="token comment" spellcheck="true">// * 第五位，日期月份，取值1-12</span>
+<span class="token comment" spellcheck="true">// * 第六位，星期，取值1-7，星期一，星期二...，注：不是第1周，第二周的意思，另外：1表示星期天，2表示星期一。</span>
+<span class="token comment" spellcheck="true">// * 第7为，年份，可以留空，取值1970-2099</span>
+<span class="token comment" spellcheck="true">// (*)星号：可以理解为每的意思，每秒，每分，每天，每月，每年...</span>
+<span class="token comment" spellcheck="true">// (?)问号：问号只能出现在日期和星期这两个位置，表示这个位置的值不确定，每天3点执行，所以第六位星期的位置，我们是不需要关注的，就是不确定的值。同时：日期和星期是两个相互排斥的元素，通过问号来表明不指定值。比如，1月10日，比如是星期1，如果在星期的位置是另指定星期二，就前后冲突矛盾了。</span>
+<span class="token comment" spellcheck="true">// (-)减号：表达一个范围，如在小时字段中使用“10-12”，则表示从10到12点，即10,11,12</span>
+<span class="token comment" spellcheck="true">// (,)逗号：表达一个列表值，如在星期字段中使用“1,2,4”，则表示星期一，星期二，星期四</span>
+<span class="token comment" spellcheck="true">// (/)斜杠：如：x/y，x是开始值，y是步长，比如在第一位（秒） 0/15就是，从0秒开始，每15秒，最后就是0，15，30，45，60    另：*/y，等同于0/y</span>
+<span class="token comment" spellcheck="true">// 示例：</span>
+<span class="token comment" spellcheck="true">// 0 3 * * ?     每天3点执行</span>
+<span class="token comment" spellcheck="true">// 5 3 * * ?     每天3点5分执行</span>
+<span class="token comment" spellcheck="true">// 5 3 ? * *     每天3点5分执行，与上面作用相同</span>
+<span class="token comment" spellcheck="true">// 5/10 3 * * ?  每天3点的 5分，15分，25分，35分，45分，55分这几个时间点执行</span>
+<span class="token comment" spellcheck="true">// 10 3 ? * 1    每周星期天，3点10分 执行，注：1表示星期天    </span>
+<span class="token comment" spellcheck="true">// 10 3 ? * 1#3  每个月的第三个星期，星期天 执行，#号只能出现在星期的位置</span>
+nodeTimer<span class="token punctuation">.</span>scheduleTimer <span class="token operator">=</span> <span class="token punctuation">(</span>executionTime <span class="token operator">=</span> <span class="token string">'30 * * * * *'</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 每分钟的第30秒触发： '30 * * * * *'</span>
+    <span class="token comment" spellcheck="true">// 每小时的1分30秒触发 ：'30 1 * * * *'</span>
+    <span class="token comment" spellcheck="true">// 每天的凌晨1点1分30秒触发 ：'30 1 1 * * *'</span>
+    <span class="token comment" spellcheck="true">// 每月的1日1点1分30秒触发 ：'30 1 1 1 * *'</span>
+    <span class="token comment" spellcheck="true">// 2016年的1月1日1点1分30秒触发 ：'30 1 1 1 2016 *'</span>
+    <span class="token comment" spellcheck="true">// 每周1的1点1分30秒触发 ：'30 1 1 * * 1'</span>
+    cancelTimer <span class="token operator">=</span> schedule<span class="token punctuation">.</span><span class="token function">scheduleJob</span><span class="token punctuation">(</span>executionTime<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> callback <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cancelTimer<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//取消定时器任务</span>
+<span class="token punctuation">}</span>
+
+递归规则定时器
+<span class="token keyword">var</span> schedule <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node-schedule'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">scheduleRecurrenceRule</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> rule <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">schedule<span class="token punctuation">.</span>RecurrenceRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// rule.dayOfWeek = 2;</span>
+    <span class="token comment" spellcheck="true">// rule.month = 3;</span>
+    <span class="token comment" spellcheck="true">// rule.dayOfMonth = 1;</span>
+    <span class="token comment" spellcheck="true">// rule.hour = 1;</span>
+    <span class="token comment" spellcheck="true">// rule.minute = 42;</span>
+    rule<span class="token punctuation">.</span>second <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    schedule<span class="token punctuation">.</span><span class="token function">scheduleJob</span><span class="token punctuation">(</span>rule<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'scheduleRecurrenceRule:'</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">scheduleRecurrenceRule</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//todo });</span>
+
+对象文本语法定时器
+<span class="token keyword">var</span> schedule <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'node-schedule'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">scheduleObjectLiteralSyntax</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//dayOfWeek</span>
+    <span class="token comment" spellcheck="true">//month</span>
+    <span class="token comment" spellcheck="true">//dayOfMonth</span>
+    <span class="token comment" spellcheck="true">//hour</span>
+    <span class="token comment" spellcheck="true">//minute</span>
+    <span class="token comment" spellcheck="true">//second</span>
+    schedule<span class="token punctuation">.</span><span class="token function">scheduleJob</span><span class="token punctuation">(</span><span class="token punctuation">{</span>hour<span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">,</span> minute<span class="token punctuation">:</span> <span class="token number">11</span><span class="token punctuation">,</span> dayOfWeek<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'scheduleObjectLiteralSyntax:'</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">scheduleObjectLiteralSyntax</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//todo });</span>
+</code></pre>
 
       
 

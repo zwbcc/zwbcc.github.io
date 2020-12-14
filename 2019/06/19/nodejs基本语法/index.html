@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/06/19/nodejs基本语法/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-07T14:34:56.321Z">
+<meta property="og:updated_time" content="2020-12-14T14:58:57.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nodejs基本语法">
   
@@ -34,64 +34,59 @@
 
   
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d">
-</div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
-  <header id="header" class="inner">
-    <a href="/" class="profilepic">
-      <img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
-    </a>
-    <hgroup>
-      <h1 class="header-author"><a href="/">Comet_cc</a></h1>
-    </hgroup>
-    
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Comet_cc</a></h1>
+		</hgroup>
+		
 
 		<nav class="header-menu">
-    <ul>
-      
-    <li><a href="/">主页</a></li>
-    
-    <li><a href="/archives/index.html">归档</a></li>
-    
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
-    
-    <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    
-    
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-    <a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i
-        class="icon-github"></i></a>
-    
-    <a class="weibo" target="_blank" href="#" title="weibo"><i
-        class="icon-weibo"></i></a>
-    
-    <a class="qq" target="_blank" href="#" title="qq"><i
-        class="icon-qq"></i></a>
-    
-    <a class="weixin" target="_blank" href="#" title="weixin"><i
-        class="icon-weixin"></i></a>
-    
+					<a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="qq" target="_blank" href="#" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -180,12 +175,83 @@
         <hr>
 <a id="more"></a>
 <h1 id="nodeJS"><a href="#nodeJS" class="headerlink" title="nodeJS"></a>nodeJS</h1><h3 id="nodeJS介绍"><a href="#nodeJS介绍" class="headerlink" title="nodeJS介绍"></a>nodeJS介绍</h3><p>Node是一个基于Chrome JavaScript运行时建立的平台， 用于方便地搭建响应速度快、<br>易于扩展的网络应用。Node 使用事件驱动， 非阻塞I/O 模型而得以轻量和高效。<br>Node应用由模块组成，采用CommonJS模块规范<br>引用 const xx = require(‘xxx’)<br>导出 module.exports = xx</p>
-<h3 id="nodejs常用内置模块"><a href="#nodejs常用内置模块" class="headerlink" title="nodejs常用内置模块"></a>nodejs常用内置模块</h3><h4 id="1-fs模块，文件操作"><a href="#1-fs模块，文件操作" class="headerlink" title="1.fs模块，文件操作"></a>1.fs模块，文件操作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">常用api有:</span><br><span class="line">fs.readFile(filename,[options],callback); 读取文件。</span><br><span class="line">fs.writeFile(filename,data,[options],callback);写文件。</span><br><span class="line">fs.appendFile(filename,data,[options],callback);以追加的方式写文件。</span><br><span class="line">fs.open(filename,flags,[mode],callback); 打开文件。</span><br><span class="line">fs.mkdir(path,[mode],callback);创建目录。</span><br><span class="line">fs.readdir(path,callback);读取目录。</span><br><span class="line">fs.exists(path,callback);查看文件与目录是否存在。</span><br><span class="line">fs.utimes(path,atime,mtime,callback);修改文件的访问时间和修改时间。</span><br><span class="line">fs.rename(oldfilename,newfilename,callback);重命名文件名或者目录。</span><br><span class="line">fs.rmdir(path,callback);删除空目录。</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">(</span><br><span class="line">filename:文件名，必须。</span><br><span class="line">data：写入的数据或者buffer流。</span><br><span class="line">flags:操作标识，打开方式，r w。</span><br><span class="line">[options]：指定权限，读、写、执行。是否可续写。</span><br><span class="line">callback：回调函数。<span class="keyword">function</span>（err，data）;</span><br><span class="line">path：被创建目录的完整路径以及目录名。</span><br><span class="line">[mode]:目录权限，默认0777（可读可写可执行）。</span><br><span class="line">atime:新的访问时间。</span><br><span class="line">ctime：新的修改时间。</span><br><span class="line">oldfilename、newfilename  旧名字和新名字。</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h4 id="2-path模块-处理文件路径"><a href="#2-path模块-处理文件路径" class="headerlink" title="2.path模块  处理文件路径"></a>2.path模块  处理文件路径</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">常用api有:</span><br><span class="line">path.normalize(路径解析，得到规范路径)；</span><br><span class="line">path.join(路径合并)；</span><br><span class="line">path.resolve（获取绝对路径）；</span><br><span class="line">path.relative(获取相对路径)。</span><br><span class="line">path.extname(返回path的扩展名)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h4 id="3-http模块-网络请求模块"><a href="#3-http模块-网络请求模块" class="headerlink" title="3.http模块  网络请求模块"></a>3.http模块  网络请求模块</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">常用api有:</span><br><span class="line">http.createServer(<span class="function"><span class="title">function</span></span>()&#123;&#125;);创建服务器。</span><br><span class="line">http.get(<span class="string">'路径'</span>,callback);发送get请求。</span><br><span class="line">http.request(options,callback);发送请求。</span><br><span class="line">options：options是一个类似关联数组的对象，表示请求的参数，callback作为回调函数，需要传递一个参数。options常用的参数有host、port（默认为80）、method（默认为GET）、path（请求的相对于根的路径，默认是“/”。</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h4 id="4-queryString模块-解析与格式化URL查询字符串"><a href="#4-queryString模块-解析与格式化URL查询字符串" class="headerlink" title="4.queryString模块  解析与格式化URL查询字符串"></a>4.queryString模块  解析与格式化URL查询字符串</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">常用api有:</span><br><span class="line">querystring.escape(str) 对给定的 str 进行 URL 编码。</span><br><span class="line">querystring.unescape(str) 对给定的 str 进行 URL 解码。</span><br><span class="line">querystring.stringify(obj[, sep[, eq[, options]]]) 将对象转化成字符串</span><br><span class="line">querystring.parse(str[, sep[, eq[, options]]]) 将query字符串装华为对象</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h4 id="5-stream-流"><a href="#5-stream-流" class="headerlink" title="5.stream 流"></a>5.stream 流</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">”数据流“（stream）是处理系统缓存的一种方式。操作系统采用数据块（chunk）的方式读取数据，每收到一次数据，就存入缓存。Node应用程序有两种缓存的处理方式，第一种是等到所有数据接收完毕，一次性从缓存读取，这就是传统的读取文件的方式；第二种是采用“数据流”的方式，每次只读入数据的一小块，像“流水”一样，每当系统读入了一小块数据，就会触发一个事件，发出“新数据块”的信号。应用程序只要监听这个事件，就能掌握数据读取的进展，做出相应处理，这样就提高了程序的性能</span><br><span class="line">Stream 是一个抽象接口，Node 中有很多对象实现了这个接口</span><br><span class="line">Node.js，Stream 有四种流类型：</span><br><span class="line">Readable - 可读操作。</span><br><span class="line">Writable - 可写操作。</span><br><span class="line">Duplex - 可读可写操作.</span><br><span class="line">Transform - 操作被写入数据，然后读出结果。</span><br><span class="line"></span><br><span class="line">所有的 Stream 对象都是 EventEmitter 的实例。常用的事件有：</span><br><span class="line">data - 当有数据可读时触发。</span><br><span class="line">end - 没有更多的数据可读时触发。</span><br><span class="line">error - 在接收和写入过程中发生错误时触发。</span><br><span class="line">finish - 所有数据已被写入到底层系统时触发。</span><br></pre></td></tr></table></figure>
-<h3 id="nodeJS-简单服务"><a href="#nodeJS-简单服务" class="headerlink" title="nodeJS 简单服务"></a>nodeJS 简单服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const http = require(<span class="string">'http'</span>)</span><br><span class="line"></span><br><span class="line">const server = http.createServer((req,res)=&gt;&#123;</span><br><span class="line">  const result = handleRouterAndController(req,res)</span><br><span class="line">  ...</span><br><span class="line">  res.end(...)</span><br><span class="line">&#125;)</span><br><span class="line">server.listen(port,callback)</span><br></pre></td></tr></table></figure>
+<h3 id="nodejs常用内置模块"><a href="#nodejs常用内置模块" class="headerlink" title="nodejs常用内置模块"></a>nodejs常用内置模块</h3><h4 id="1-fs模块，文件操作"><a href="#1-fs模块，文件操作" class="headerlink" title="1.fs模块，文件操作"></a>1.fs模块，文件操作</h4><pre class=" language-js"><code class="language-js">常用api有<span class="token punctuation">:</span>
+fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span><span class="token punctuation">[</span>options<span class="token punctuation">]</span><span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span> 读取文件。
+fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span>data<span class="token punctuation">,</span><span class="token punctuation">[</span>options<span class="token punctuation">]</span><span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>写文件。
+fs<span class="token punctuation">.</span><span class="token function">appendFile</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span>data<span class="token punctuation">,</span><span class="token punctuation">[</span>options<span class="token punctuation">]</span><span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>以追加的方式写文件。
+fs<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span>flags<span class="token punctuation">,</span><span class="token punctuation">[</span>mode<span class="token punctuation">]</span><span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span> 打开文件。
+fs<span class="token punctuation">.</span><span class="token function">mkdir</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span><span class="token punctuation">[</span>mode<span class="token punctuation">]</span><span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>创建目录。
+fs<span class="token punctuation">.</span><span class="token function">readdir</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>读取目录。
+fs<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>查看文件与目录是否存在。
+fs<span class="token punctuation">.</span><span class="token function">utimes</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span>atime<span class="token punctuation">,</span>mtime<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>修改文件的访问时间和修改时间。
+fs<span class="token punctuation">.</span><span class="token function">rename</span><span class="token punctuation">(</span>oldfilename<span class="token punctuation">,</span>newfilename<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>重命名文件名或者目录。
+fs<span class="token punctuation">.</span><span class="token function">rmdir</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>删除空目录。
+<span class="token operator">...</span>
+
+<span class="token punctuation">(</span>
+filename<span class="token punctuation">:</span>文件名，必须。
+data：写入的数据或者buffer流。
+flags<span class="token punctuation">:</span>操作标识，打开方式，r w。
+<span class="token punctuation">[</span>options<span class="token punctuation">]</span>：指定权限，读、写、执行。是否可续写。
+callback：回调函数。<span class="token keyword">function</span>（err，data）<span class="token punctuation">;</span>
+path：被创建目录的完整路径以及目录名。
+<span class="token punctuation">[</span>mode<span class="token punctuation">]</span><span class="token punctuation">:</span>目录权限，默认<span class="token number">0777</span>（可读可写可执行）。
+atime<span class="token punctuation">:</span>新的访问时间。
+ctime：新的修改时间。
+oldfilename、newfilename  旧名字和新名字。
+<span class="token punctuation">)</span>
+
+</code></pre>
+<h4 id="2-path模块-处理文件路径"><a href="#2-path模块-处理文件路径" class="headerlink" title="2.path模块  处理文件路径"></a>2.path模块  处理文件路径</h4><pre class=" language-js"><code class="language-js">常用api有<span class="token punctuation">:</span>
+path<span class="token punctuation">.</span><span class="token function">normalize</span><span class="token punctuation">(</span>路径解析，得到规范路径<span class="token punctuation">)</span>；
+path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>路径合并<span class="token punctuation">)</span>；
+path<span class="token punctuation">.</span>resolve（获取绝对路径）；
+path<span class="token punctuation">.</span><span class="token function">relative</span><span class="token punctuation">(</span>获取相对路径<span class="token punctuation">)</span>。
+path<span class="token punctuation">.</span><span class="token function">extname</span><span class="token punctuation">(</span>返回path的扩展名<span class="token punctuation">)</span>
+<span class="token operator">...</span>
+
+</code></pre>
+<h4 id="3-http模块-网络请求模块"><a href="#3-http模块-网络请求模块" class="headerlink" title="3.http模块  网络请求模块"></a>3.http模块  网络请求模块</h4><pre class=" language-js"><code class="language-js">常用api有<span class="token punctuation">:</span>
+http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>创建服务器。
+http<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'路径'</span><span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>发送<span class="token keyword">get</span>请求。
+http<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span>options<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>发送请求。
+options：options是一个类似关联数组的对象，表示请求的参数，callback作为回调函数，需要传递一个参数。options常用的参数有host、port（默认为<span class="token number">80</span>）、method（默认为GET）、path（请求的相对于根的路径，默认是“<span class="token operator">/</span>”。
+<span class="token operator">...</span>
+
+</code></pre>
+<h4 id="4-queryString模块-解析与格式化URL查询字符串"><a href="#4-queryString模块-解析与格式化URL查询字符串" class="headerlink" title="4.queryString模块  解析与格式化URL查询字符串"></a>4.queryString模块  解析与格式化URL查询字符串</h4><pre class=" language-js"><code class="language-js">常用api有<span class="token punctuation">:</span>
+querystring<span class="token punctuation">.</span><span class="token function">escape</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> 对给定的 str 进行 URL 编码。
+querystring<span class="token punctuation">.</span><span class="token function">unescape</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> 对给定的 str 进行 URL 解码。
+querystring<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span><span class="token punctuation">,</span> sep<span class="token punctuation">[</span><span class="token punctuation">,</span> eq<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 将对象转化成字符串
+querystring<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span><span class="token punctuation">,</span> sep<span class="token punctuation">[</span><span class="token punctuation">,</span> eq<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 将query字符串装华为对象
+<span class="token operator">...</span>
+
+</code></pre>
+<h4 id="5-stream-流"><a href="#5-stream-流" class="headerlink" title="5.stream 流"></a>5.stream 流</h4><pre class=" language-js"><code class="language-js">”数据流“（stream）是处理系统缓存的一种方式。操作系统采用数据块（chunk）的方式读取数据，每收到一次数据，就存入缓存。Node应用程序有两种缓存的处理方式，第一种是等到所有数据接收完毕，一次性从缓存读取，这就是传统的读取文件的方式；第二种是采用“数据流”的方式，每次只读入数据的一小块，像“流水”一样，每当系统读入了一小块数据，就会触发一个事件，发出“新数据块”的信号。应用程序只要监听这个事件，就能掌握数据读取的进展，做出相应处理，这样就提高了程序的性能
+Stream 是一个抽象接口，Node 中有很多对象实现了这个接口
+Node<span class="token punctuation">.</span>js，Stream 有四种流类型：
+Readable <span class="token operator">-</span> 可读操作。
+Writable <span class="token operator">-</span> 可写操作。
+Duplex <span class="token operator">-</span> 可读可写操作<span class="token punctuation">.</span>
+Transform <span class="token operator">-</span> 操作被写入数据，然后读出结果。
+
+所有的 Stream 对象都是 EventEmitter 的实例。常用的事件有：
+data <span class="token operator">-</span> 当有数据可读时触发。
+end <span class="token operator">-</span> 没有更多的数据可读时触发。
+error <span class="token operator">-</span> 在接收和写入过程中发生错误时触发。
+finish <span class="token operator">-</span> 所有数据已被写入到底层系统时触发。
+
+</code></pre>
+<h3 id="nodeJS-简单服务"><a href="#nodeJS-简单服务" class="headerlink" title="nodeJS 简单服务"></a>nodeJS 简单服务</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">handleRouterAndController</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span>res<span class="token punctuation">)</span>
+  <span class="token operator">...</span>
+  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span>callback<span class="token punctuation">)</span>
+
+</code></pre>
 
       
 

@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/06/29/mysql和sequelize使用/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-17T17:00:23.169Z">
+<meta property="og:updated_time" content="2020-12-14T14:58:57.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql和sequelize使用">
   
@@ -34,64 +34,59 @@
 
   
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d">
-</div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
-  <header id="header" class="inner">
-    <a href="/" class="profilepic">
-      <img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
-    </a>
-    <hgroup>
-      <h1 class="header-author"><a href="/">Comet_cc</a></h1>
-    </hgroup>
-    
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Comet_cc</a></h1>
+		</hgroup>
+		
 
 		<nav class="header-menu">
-    <ul>
-      
-    <li><a href="/">主页</a></li>
-    
-    <li><a href="/archives/index.html">归档</a></li>
-    
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
-    
-    <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    
-    
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-    <a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i
-        class="icon-github"></i></a>
-    
-    <a class="weibo" target="_blank" href="#" title="weibo"><i
-        class="icon-weibo"></i></a>
-    
-    <a class="qq" target="_blank" href="#" title="qq"><i
-        class="icon-qq"></i></a>
-    
-    <a class="weixin" target="_blank" href="#" title="weixin"><i
-        class="icon-weixin"></i></a>
-    
+					<a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="qq" target="_blank" href="#" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -179,8 +174,145 @@
       
         <hr>
 <a id="more"></a>
-<h1 id="mysql和sequelize使用"><a href="#mysql和sequelize使用" class="headerlink" title="mysql和sequelize使用"></a>mysql和sequelize使用</h1><h3 id="nodejs中操作Mysql"><a href="#nodejs中操作Mysql" class="headerlink" title="nodejs中操作Mysql"></a>nodejs中操作Mysql</h3><p>在学习node中，所用到的数据库为Mysql，在nodejs中操作mysql数据库，首先下载对应依赖，<br>npm install mysql, 创建链接对象与相关配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">const mysql = require(<span class="string">'mysql'</span>)</span><br><span class="line">const MYSQL_CONF = &#123;</span><br><span class="line">  host: <span class="string">'localhost'</span>, //域名</span><br><span class="line">  user: <span class="string">'root'</span>, //mysql 账户名</span><br><span class="line">  password: <span class="string">'Mysql_2018'</span>, //mysql 密码</span><br><span class="line">  port: <span class="string">'3306'</span>, //mysql 端口</span><br><span class="line">  database: <span class="string">'myblog'</span> // 数据库名字</span><br><span class="line">&#125;</span><br><span class="line">// 创建链接对象</span><br><span class="line">const con = mysql.createConnection(MYSQL_CONF)</span><br><span class="line"></span><br><span class="line">// 开始链接</span><br><span class="line">con.connect()</span><br><span class="line"></span><br><span class="line">// 统一执行 sql 的函数</span><br><span class="line"><span class="keyword">function</span> <span class="built_in">exec</span>(sql) &#123;</span><br><span class="line">    const promise = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        con.query(sql, (err, result) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                reject(err)</span><br><span class="line">                <span class="built_in">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            resolve(result)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">return</span> promise</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">对应controller执行数据库操作</span><br><span class="line"></span><br><span class="line">// mysql简单查询语句</span><br><span class="line"><span class="built_in">let</span> sql = `select *(可以筛选属性 select xx,xx from...) from xxx(表名) <span class="built_in">where</span> 1=1 and xx=xx(对应字段) order by xxx(排序)`</span><br><span class="line"></span><br><span class="line">// mysql 新增语句</span><br><span class="line"><span class="built_in">let</span> sql = `insert into xxx(表名) (title, content, xxx, xxx)  //字段</span><br><span class="line">        values (<span class="string">'$&#123;title&#125;'</span>, <span class="string">'$&#123;content&#125;'</span>, <span class="variable">$&#123;xxx&#125;</span>, <span class="string">'$&#123;xxx&#125;'</span>);` //对应的值</span><br><span class="line"></span><br><span class="line">// mysql 更新语句</span><br><span class="line"><span class="built_in">let</span> sql = `update xxx(表名) <span class="built_in">set</span> xxx(字段)=<span class="string">'$&#123;xxx(对应的值)&#125;'</span>，xxx(字段)=<span class="string">'$&#123;xxx(对应的值)&#125;'</span> <span class="built_in">where</span> xx=<span class="variable">$&#123;xx&#125;</span> 条件刷选` </span><br><span class="line"></span><br><span class="line">// mysql 删除语句</span><br><span class="line"><span class="built_in">let</span> sql = `delete from xx(表名) <span class="built_in">where</span> id=<span class="string">'$&#123;id&#125;'</span> and xx=<span class="string">'$&#123;xx&#125;'</span>条件筛选;`</span><br><span class="line"></span><br><span class="line">在nodejs操作mysql 防止 sql注入可以使用 mysql.escape </span><br><span class="line">在对应的值之前调用 mysql.escape函数 如 </span><br><span class="line"><span class="built_in">let</span> aa = mysql.escape(aa)</span><br><span class="line">//此时sql语句中 aa不用 <span class="string">''</span> 包起来了</span><br><span class="line"><span class="built_in">let</span> sql =  `update xxx(表名) <span class="built_in">set</span> xxx(字段)=<span class="variable">$&#123;aa&#125;</span> <span class="built_in">where</span> xx=<span class="variable">$&#123;xx&#125;</span> 条件刷选` </span><br><span class="line"></span><br><span class="line">执行对应sql语句 </span><br><span class="line"><span class="built_in">exec</span>(sql)</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<h3 id="nodejs中使用sequelize操作Mysql"><a href="#nodejs中使用sequelize操作Mysql" class="headerlink" title="nodejs中使用sequelize操作Mysql"></a>nodejs中使用sequelize操作Mysql</h3><p>在上述方法中，操作数据库使用大量的sql语句，为了简化这个流程，使用orm框架来快速操作mysql。<br>orm框架是对SQL查询语句的封装，让我们可以用OOP的方式操作数据库，优雅的生成安全、可维护的SQL代码。直观上，是一种Model和SQL的映射关系。在orm框架中，选择使用sequelize来对mysql进行操作，Sequelize是一款基于Nodejs功能强大的异步ORM框架。<br>同时支持PostgreSQL, MySQL, SQLite and MSSQL多种数据库，很适合作为Nodejs后端数据库的存储接口，为快速开发Nodejs应用奠定扎实、安全的基础。<br>首先下载sequelize 依赖包和所对应的数据库依赖包， mysql对应的包为mysql2<br>npm i sequelize mysql2<br>这次学习的sequelize版本为5.0版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">const Sequelize = &#123;Model&#125; = require(<span class="string">'sequelize'</span>)</span><br><span class="line">const MYSQL_CONF = &#123;</span><br><span class="line">  host: <span class="string">'localhost'</span>, //域名</span><br><span class="line">  user: <span class="string">'root'</span>, //mysql 账户名</span><br><span class="line">  password: <span class="string">'Mysql_2018'</span>, //mysql 密码</span><br><span class="line">  port: <span class="string">'3306'</span>, //mysql 端口</span><br><span class="line">  database: <span class="string">'myblog'</span> // 数据库名字</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const sequelize = new Sequelize(MYSQL_CONF.database,MYSQL_CONF.user,MYSQL_CONF.password,&#123;</span><br><span class="line">  host:MYSQL_CONF.host,</span><br><span class="line">  dialect:<span class="string">'mysql'</span>, //数据库类型</span><br><span class="line">  dialectOptions: &#123;  // 时间选项</span><br><span class="line">    useUTC: <span class="literal">false</span>, //<span class="keyword">for</span> reading from database</span><br><span class="line">    dateStrings: <span class="literal">true</span>,</span><br><span class="line">    typeCast: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  pool:&#123;   //连接池选项</span><br><span class="line">    max:10,</span><br><span class="line">    min:0,</span><br><span class="line">    idle:10000</span><br><span class="line">  &#125;,</span><br><span class="line">  timezone: <span class="string">'+08:00'</span>  // 中国时区</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 定义对象与数据库表对应</span><br><span class="line">module.exports = <span class="keyword">function</span>(sequelize, DataTypes)&#123;</span><br><span class="line">  class xxx extends Model &#123;&#125;</span><br><span class="line">  xxx.init(&#123;</span><br><span class="line">    xxxx(驼峰命名): &#123;</span><br><span class="line">      <span class="built_in">type</span>: DataTypes.INTEGER, //表字段类型</span><br><span class="line">      // 常用有 INTEGER 整数型 STRING 字符串型 DECIMAL 浮点型 DATE日期时间 DATEONLY 仅日期      后面括号表示长度  如STRING(10)  长度为10  DECIMAL(10,4)长度为10 小数点保留4个 DECIMAL(6).ZEROFILL(长度6，不足充0)</span><br><span class="line">      primaryKey: <span class="literal">true</span>,  // 是否主键</span><br><span class="line">      allowNull: <span class="literal">false</span>,  // 是否为空</span><br><span class="line">      autoIncrement: <span class="literal">true</span>,  // 是否自增</span><br><span class="line">      field: <span class="string">'xxx'</span> //数据库表字段</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    timestamps: <span class="literal">false</span>, // 是否创建时间戳字段(sequelize自带3个)</span><br><span class="line">    underscored: <span class="literal">true</span>, </span><br><span class="line">    freezeTableName:<span class="literal">true</span>,  // 是否不更改表名</span><br><span class="line">    sequelize, // sequelize实例</span><br><span class="line">    tableName:<span class="string">'user_fund_lists'</span> //数据库表名</span><br><span class="line">&#125;);</span><br><span class="line">  <span class="built_in">return</span> xxx</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 数据库表关联 如有 A B C D E 5个表  </span><br><span class="line">A B 一对一关系 A C 一对多关系 A D 多对多关系 此时需要将他们关联起来</span><br><span class="line"></span><br><span class="line">// 一对一</span><br><span class="line">A.hasOne(B)  //A主键 B含字段外键A</span><br><span class="line">或 B.belongsTo(A)</span><br><span class="line"></span><br><span class="line">//一对多</span><br><span class="line">A.hasMany(C)  //A主键  C含字段外键A  </span><br><span class="line"></span><br><span class="line">// 多对多 </span><br><span class="line">A.belongsToMany(D,&#123;through:E&#125;) </span><br><span class="line">D.belongsToMany(A,&#123;through:E&#125;) //E是中间表 A D通过E进行多对多关联</span><br><span class="line">在多对多关系关联后 A D 身上含有关联对方的实例，当两个要关联时,通过操作实例方法关联,如：  const a = A.findOne(&#123;<span class="built_in">where</span>:&#123;id:xx&#125;&#125;)  const d = D.findAll()</span><br><span class="line">两者关联 a.setDs(d) 或 d.setAs(a)  //设置a,d数据相关实例</span><br><span class="line">         a.addDs(d) 或 d.addAs(a)  //添加a,d数据相关实例</span><br><span class="line">         a.getDs(d) 或 d.getAs(a)  //获取a,d数据相关实例</span><br><span class="line"></span><br><span class="line">sequelize操作数据库</span><br><span class="line">// 简单查询</span><br><span class="line">xxx.findOne(config)  xxx.findAll()  xxx.findAndCountAll(config) xxx.findOrCreate(config)</span><br><span class="line">config对象为查询配置 &#123;<span class="built_in">where</span>:&#123;xx(字段):x(值)&#125;(查找筛选符合条件的数据),includes:[&#123;model:xx&#125;](有关联表时可关联查询),attributes:[xxx](筛选所要的字段，不是全部字段出来),<span class="built_in">limit</span>:x,offset:x (分页参数，<span class="built_in">limit</span>:要多少条,  offset:跳过多少条),order:[<span class="string">'xx'</span>](排序)&#125;  </span><br><span class="line"></span><br><span class="line">// 简单创建</span><br><span class="line">xxx.create() xxx.bulkCreate() </span><br><span class="line">xxx.create(data,config) data为创建的数据 当关联表时，可通过config配置关联添加数据</span><br><span class="line">如 data : &#123; name:<span class="string">'xxx'</span>, team(另一个表的数据)  &#125;, config:&#123;include:[&#123;model: Team&#125;]&#125; (此时 xx表创建一条数据 Team表也创建一条数据 为team 对象里面的数据,当 xx 和team 为一对多关系时 ,team为多条数据时， 此时 team 为 teams )</span><br><span class="line">xxx.bulkCreate(data,config) //批量添加 data为批量添加的数据 config :&#123;updateOnDuplicate:[<span class="string">"age"</span>,<span class="string">"sex"</span>]&#125;  config存在是检测config updateOnDuplicate数据，存在这些字段数据时则更新这些字段而不是创建</span><br><span class="line"></span><br><span class="line">// 简单更新</span><br><span class="line">xxx.update(data,config) data为要更新的数据 config为所要更新哪条数据筛选条件 &#123;<span class="built_in">where</span>:&#123;xxx:xx&#125;&#125;等等</span><br><span class="line"></span><br><span class="line">// 简单删除</span><br><span class="line">xxx.destroy(config) config为所要删除哪条数据筛选条件 &#123;<span class="built_in">where</span>:&#123;xxx:xx&#125;&#125;等等</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<h1 id="mysql和sequelize使用"><a href="#mysql和sequelize使用" class="headerlink" title="mysql和sequelize使用"></a>mysql和sequelize使用</h1><h3 id="nodejs中操作Mysql"><a href="#nodejs中操作Mysql" class="headerlink" title="nodejs中操作Mysql"></a>nodejs中操作Mysql</h3><p>在学习node中，所用到的数据库为Mysql，在nodejs中操作mysql数据库，首先下载对应依赖，<br>npm install mysql, 创建链接对象与相关配置</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> mysql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mysql'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> MYSQL_CONF <span class="token operator">=</span> <span class="token punctuation">{</span>
+  host<span class="token punctuation">:</span> <span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//域名</span>
+  user<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//mysql 账户名</span>
+  password<span class="token punctuation">:</span> <span class="token string">'Mysql_2018'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//mysql 密码</span>
+  port<span class="token punctuation">:</span> <span class="token string">'3306'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//mysql 端口</span>
+  database<span class="token punctuation">:</span> <span class="token string">'myblog'</span> <span class="token comment" spellcheck="true">// 数据库名字</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 创建链接对象</span>
+<span class="token keyword">const</span> con <span class="token operator">=</span> mysql<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span>MYSQL_CONF<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 开始链接</span>
+con<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 统一执行 sql 的函数</span>
+<span class="token keyword">function</span> <span class="token function">exec</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        con<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> result<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+                <span class="token keyword">return</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> promise
+<span class="token punctuation">}</span>
+
+对应controller执行数据库操作
+
+<span class="token comment" spellcheck="true">// mysql简单查询语句</span>
+<span class="token keyword">let</span> sql <span class="token operator">=</span> <span class="token template-string"><span class="token string">`select *(可以筛选属性 select xx,xx from...) from xxx(表名) where 1=1 and xx=xx(对应字段) order by xxx(排序)`</span></span>
+
+<span class="token comment" spellcheck="true">// mysql 新增语句</span>
+<span class="token keyword">let</span> sql <span class="token operator">=</span> <span class="token template-string"><span class="token string">`insert into xxx(表名) (title, content, xxx, xxx)  //字段
+        values ('</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>title<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">', '</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>content<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">', </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>xxx<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, '</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>xxx<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">');`</span></span> <span class="token comment" spellcheck="true">//对应的值</span>
+
+<span class="token comment" spellcheck="true">// mysql 更新语句</span>
+<span class="token keyword">let</span> sql <span class="token operator">=</span> <span class="token template-string"><span class="token string">`update xxx(表名) set xxx(字段)='</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">xxx</span><span class="token punctuation">(</span>对应的值<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">'，xxx(字段)='</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">xxx</span><span class="token punctuation">(</span>对应的值<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">' where xx=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>xx<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> 条件刷选`</span></span> 
+
+<span class="token comment" spellcheck="true">// mysql 删除语句</span>
+<span class="token keyword">let</span> sql <span class="token operator">=</span> <span class="token template-string"><span class="token string">`delete from xx(表名) where id='</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">' and xx='</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>xx<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">'条件筛选;`</span></span>
+
+在nodejs操作mysql 防止 sql注入可以使用 mysql<span class="token punctuation">.</span>escape 
+在对应的值之前调用 mysql<span class="token punctuation">.</span>escape函数 如 
+<span class="token keyword">let</span> aa <span class="token operator">=</span> mysql<span class="token punctuation">.</span><span class="token function">escape</span><span class="token punctuation">(</span>aa<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//此时sql语句中 aa不用 '' 包起来了</span>
+<span class="token keyword">let</span> sql <span class="token operator">=</span>  <span class="token template-string"><span class="token string">`update xxx(表名) set xxx(字段)=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>aa<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> where xx=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>xx<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> 条件刷选`</span></span> 
+
+执行对应sql语句 
+<span class="token function">exec</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+<span class="token operator">...</span>
+</code></pre>
+<h3 id="nodejs中使用sequelize操作Mysql"><a href="#nodejs中使用sequelize操作Mysql" class="headerlink" title="nodejs中使用sequelize操作Mysql"></a>nodejs中使用sequelize操作Mysql</h3><p>在上述方法中，操作数据库使用大量的sql语句，为了简化这个流程，使用orm框架来快速操作mysql。<br>orm框架是对SQL查询语句的封装，让我们可以用OOP的方式操作数据库，优雅的生成安全、可维护的SQL代码。直观上，是一种Model和SQL的映射关系。在orm框架中，选择使用sequelize来对mysql进行操作，Sequelize是一款基于Nodejs功能强大的异步ORM框架。<br>同时支持PostgreSQL, MySQL, SQLite and MSSQL多种数据库，很适合作为Nodejs后端数据库的存储接口，为快速开发Nodejs应用奠定扎实、安全的基础。<br>首先下载sequelize 依赖包和所对应的数据库依赖包， mysql对应的包为mysql2<br>npm i sequelize mysql2<br>这次学习的sequelize版本为5.0版本</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> Sequelize <span class="token operator">=</span> <span class="token punctuation">{</span>Model<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'sequelize'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> MYSQL_CONF <span class="token operator">=</span> <span class="token punctuation">{</span>
+  host<span class="token punctuation">:</span> <span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//域名</span>
+  user<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//mysql 账户名</span>
+  password<span class="token punctuation">:</span> <span class="token string">'Mysql_2018'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//mysql 密码</span>
+  port<span class="token punctuation">:</span> <span class="token string">'3306'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//mysql 端口</span>
+  database<span class="token punctuation">:</span> <span class="token string">'myblog'</span> <span class="token comment" spellcheck="true">// 数据库名字</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> sequelize <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Sequelize</span><span class="token punctuation">(</span>MYSQL_CONF<span class="token punctuation">.</span>database<span class="token punctuation">,</span>MYSQL_CONF<span class="token punctuation">.</span>user<span class="token punctuation">,</span>MYSQL_CONF<span class="token punctuation">.</span>password<span class="token punctuation">,</span><span class="token punctuation">{</span>
+  host<span class="token punctuation">:</span>MYSQL_CONF<span class="token punctuation">.</span>host<span class="token punctuation">,</span>
+  dialect<span class="token punctuation">:</span><span class="token string">'mysql'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//数据库类型</span>
+  dialectOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 时间选项</span>
+    useUTC<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//for reading from database</span>
+    dateStrings<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    typeCast<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  pool<span class="token punctuation">:</span><span class="token punctuation">{</span>   <span class="token comment" spellcheck="true">//连接池选项</span>
+    max<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">,</span>
+    min<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+    idle<span class="token punctuation">:</span><span class="token number">10000</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  timezone<span class="token punctuation">:</span> <span class="token string">'+08:00'</span>  <span class="token comment" spellcheck="true">// 中国时区</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 定义对象与数据库表对应</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>sequelize<span class="token punctuation">,</span> DataTypes<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">class</span> <span class="token class-name">xxx</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  xxx<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token function">xxxx</span><span class="token punctuation">(</span>驼峰命名<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> DataTypes<span class="token punctuation">.</span>INTEGER<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//表字段类型</span>
+      <span class="token comment" spellcheck="true">// 常用有 INTEGER 整数型 STRING 字符串型 DECIMAL 浮点型 DATE日期时间 DATEONLY 仅日期      后面括号表示长度  如STRING(10)  长度为10  DECIMAL(10,4)长度为10 小数点保留4个 DECIMAL(6).ZEROFILL(长度6，不足充0)</span>
+      primaryKey<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 是否主键</span>
+      allowNull<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 是否为空</span>
+      autoIncrement<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 是否自增</span>
+      field<span class="token punctuation">:</span> <span class="token string">'xxx'</span> <span class="token comment" spellcheck="true">//数据库表字段</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    timestamps<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 是否创建时间戳字段(sequelize自带3个)</span>
+    underscored<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+    freezeTableName<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 是否不更改表名</span>
+    sequelize<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// sequelize实例</span>
+    tableName<span class="token punctuation">:</span><span class="token string">'user_fund_lists'</span> <span class="token comment" spellcheck="true">//数据库表名</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> xxx
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 数据库表关联 如有 A B C D E 5个表  </span>
+A B 一对一关系 A C 一对多关系 A D 多对多关系 此时需要将他们关联起来
+
+<span class="token comment" spellcheck="true">// 一对一</span>
+A<span class="token punctuation">.</span><span class="token function">hasOne</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//A主键 B含字段外键A</span>
+或 B<span class="token punctuation">.</span><span class="token function">belongsTo</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">//一对多</span>
+A<span class="token punctuation">.</span><span class="token function">hasMany</span><span class="token punctuation">(</span>C<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//A主键  C含字段外键A  </span>
+
+<span class="token comment" spellcheck="true">// 多对多 </span>
+A<span class="token punctuation">.</span><span class="token function">belongsToMany</span><span class="token punctuation">(</span>D<span class="token punctuation">,</span><span class="token punctuation">{</span>through<span class="token punctuation">:</span>E<span class="token punctuation">}</span><span class="token punctuation">)</span> 
+D<span class="token punctuation">.</span><span class="token function">belongsToMany</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span><span class="token punctuation">{</span>through<span class="token punctuation">:</span>E<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//E是中间表 A D通过E进行多对多关联</span>
+在多对多关系关联后 A D 身上含有关联对方的实例，当两个要关联时<span class="token punctuation">,</span>通过操作实例方法关联<span class="token punctuation">,</span>如：  <span class="token keyword">const</span> a <span class="token operator">=</span> A<span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">{</span>where<span class="token punctuation">:</span><span class="token punctuation">{</span>id<span class="token punctuation">:</span>xx<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>  <span class="token keyword">const</span> d <span class="token operator">=</span> D<span class="token punctuation">.</span><span class="token function">findAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+两者关联 a<span class="token punctuation">.</span><span class="token function">setDs</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span> 或 d<span class="token punctuation">.</span><span class="token function">setAs</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//设置a,d数据相关实例</span>
+         a<span class="token punctuation">.</span><span class="token function">addDs</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span> 或 d<span class="token punctuation">.</span><span class="token function">addAs</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//添加a,d数据相关实例</span>
+         a<span class="token punctuation">.</span><span class="token function">getDs</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span> 或 d<span class="token punctuation">.</span><span class="token function">getAs</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//获取a,d数据相关实例</span>
+
+sequelize操作数据库
+<span class="token comment" spellcheck="true">// 简单查询</span>
+xxx<span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span>  xxx<span class="token punctuation">.</span><span class="token function">findAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  xxx<span class="token punctuation">.</span><span class="token function">findAndCountAll</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span> xxx<span class="token punctuation">.</span><span class="token function">findOrCreate</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span>
+config对象为查询配置 <span class="token punctuation">{</span>where<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token function">xx</span><span class="token punctuation">(</span>字段<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token function">x</span><span class="token punctuation">(</span>值<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">(</span>查找筛选符合条件的数据<span class="token punctuation">)</span><span class="token punctuation">,</span>include<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>model<span class="token punctuation">:</span>xx<span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">(</span>有关联表时可关联查询<span class="token punctuation">)</span><span class="token punctuation">,</span>attributes<span class="token punctuation">:</span><span class="token punctuation">[</span>xxx<span class="token punctuation">]</span><span class="token punctuation">(</span>筛选所要的字段，不是全部字段出来<span class="token punctuation">)</span><span class="token punctuation">,</span>limit<span class="token punctuation">:</span>x<span class="token punctuation">,</span>offset<span class="token punctuation">:</span>x <span class="token punctuation">(</span>分页参数，limit<span class="token punctuation">:</span>要多少条<span class="token punctuation">,</span>  offset<span class="token punctuation">:</span>跳过多少条<span class="token punctuation">)</span><span class="token punctuation">,</span>order<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'xx'</span><span class="token punctuation">]</span><span class="token punctuation">(</span>排序<span class="token punctuation">)</span><span class="token punctuation">}</span>  
+
+<span class="token comment" spellcheck="true">// 简单创建</span>
+xxx<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span> xxx<span class="token punctuation">.</span><span class="token function">bulkCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+xxx<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>config<span class="token punctuation">)</span> data为创建的数据 当关联表时，可通过config配置关联添加数据
+如 data <span class="token punctuation">:</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span><span class="token string">'xxx'</span><span class="token punctuation">,</span> <span class="token function">team</span><span class="token punctuation">(</span>另一个表的数据<span class="token punctuation">)</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span> config<span class="token punctuation">:</span><span class="token punctuation">{</span>include<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>model<span class="token punctuation">:</span> Team<span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span> <span class="token punctuation">(</span>此时 xx表创建一条数据 Team表也创建一条数据 为team 对象里面的数据<span class="token punctuation">,</span>当 xx 和team 为一对多关系时 <span class="token punctuation">,</span>team为多条数据时， 此时 team 为 teams <span class="token punctuation">)</span>
+xxx<span class="token punctuation">.</span><span class="token function">bulkCreate</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>config<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//批量添加 data为批量添加的数据 config :{updateOnDuplicate:["age","sex"]}  config存在是检测config updateOnDuplicate数据，存在这些字段数据时则更新这些字段而不是创建</span>
+
+<span class="token comment" spellcheck="true">// 简单更新</span>
+xxx<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>config<span class="token punctuation">)</span> data为要更新的数据 config为所要更新哪条数据筛选条件 <span class="token punctuation">{</span>where<span class="token punctuation">:</span><span class="token punctuation">{</span>xxx<span class="token punctuation">:</span>xx<span class="token punctuation">}</span><span class="token punctuation">}</span>等等
+
+<span class="token comment" spellcheck="true">// 简单删除</span>
+xxx<span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span> config为所要删除哪条数据筛选条件 <span class="token punctuation">{</span>where<span class="token punctuation">:</span><span class="token punctuation">{</span>xxx<span class="token punctuation">:</span>xx<span class="token punctuation">}</span><span class="token punctuation">}</span>等等
+<span class="token operator">...</span>
+
+</code></pre>
 
       
 

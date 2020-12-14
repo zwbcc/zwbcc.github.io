@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2020/03/27/ie9兼容3/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-27T09:33:40.612Z">
+<meta property="og:updated_time" content="2020-12-14T14:58:57.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ie9兼容3">
   
@@ -34,64 +34,59 @@
 
   
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d">
-</div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
-  <header id="header" class="inner">
-    <a href="/" class="profilepic">
-      <img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
-    </a>
-    <hgroup>
-      <h1 class="header-author"><a href="/">Comet_cc</a></h1>
-    </hgroup>
-    
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Comet_cc</a></h1>
+		</hgroup>
+		
 
 		<nav class="header-menu">
-    <ul>
-      
-    <li><a href="/">主页</a></li>
-    
-    <li><a href="/archives/index.html">归档</a></li>
-    
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
-    
-    <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    
-    
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-    <a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i
-        class="icon-github"></i></a>
-    
-    <a class="weibo" target="_blank" href="#" title="weibo"><i
-        class="icon-weibo"></i></a>
-    
-    <a class="qq" target="_blank" href="#" title="qq"><i
-        class="icon-qq"></i></a>
-    
-    <a class="weixin" target="_blank" href="#" title="weixin"><i
-        class="icon-weixin"></i></a>
-    
+					<a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="qq" target="_blank" href="#" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -179,8 +174,46 @@
       
         <hr>
 <a id="more"></a>
-<h1 id="ie9兼容3"><a href="#ie9兼容3" class="headerlink" title="ie9兼容3"></a>ie9兼容3</h1><h3 id="请求缓存"><a href="#请求缓存" class="headerlink" title="请求缓存"></a>请求缓存</h3><p>在IE9下，进行Ajax请求时，若与之前请求相同，则不会再从浏览器获取数据，而是直接从本地获取。<br>解决方法个人找到比较方便的有两种：1 ,在请求中加上参数时间戳，IE9便会认为是不同的请求。<br>                                 2 ,请求头headers添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">headers: &#123;</span><br><span class="line">    <span class="string">'cache-control'</span>: <span class="string">'no-cache'</span>,</span><br><span class="line">    <span class="string">'Pragma'</span>: <span class="string">'no-cache'</span>           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="input框placeholder兼容"><a href="#input框placeholder兼容" class="headerlink" title="input框placeholder兼容"></a>input框placeholder兼容</h3><p>在IE9浏览器中，input框并不支持placeholder属性，因此需要进行兼容判断<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!(<span class="string">'placeholder'</span> <span class="keyword">in</span> document.createElement(<span class="string">'input'</span>))) &#123;</span><br><span class="line">      // 将返回的nodeList对象转为数组</span><br><span class="line">      var nodes = Array.prototype.slice.call(document.querySelectorAll(<span class="string">'[placeholder]'</span>))</span><br><span class="line">      nodes.forEach(<span class="keyword">function</span> (item, index) &#123;</span><br><span class="line">          item.addEventListener(<span class="string">'focus'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">              this.nextSibling.style.display = <span class="string">'none'</span></span><br><span class="line">          &#125;)</span><br><span class="line">          item.addEventListener(<span class="string">'blur'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">              <span class="keyword">if</span> (!this.value) &#123;</span><br><span class="line">                  this.style.display = <span class="string">'none'</span></span><br><span class="line">                  this.nextSibling.style.display = <span class="string">'inline'</span></span><br><span class="line">              &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">          var cloneNode = item.cloneNode()</span><br><span class="line">          // 如果[<span class="built_in">type</span>=<span class="string">'password'</span>]类型，则转为text</span><br><span class="line">          <span class="keyword">if</span> (cloneNode.getAttribute(<span class="string">'type'</span>).toLowerCase() === <span class="string">'password'</span>) &#123;</span><br><span class="line">              cloneNode.setAttribute(<span class="string">'type'</span>, <span class="string">'text'</span>)</span><br><span class="line">          &#125;</span><br><span class="line">          cloneNode.setAttribute(<span class="string">'value'</span>, cloneNode.getAttribute(<span class="string">'placeholder'</span>))</span><br><span class="line">          cloneNode.style.display = <span class="string">'none'</span></span><br><span class="line">          item.insertAdjacentHTML(<span class="string">'afterend'</span>, cloneNode.outerHTML)</span><br><span class="line">          item.nextSibling.addEventListener(<span class="string">'focus'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">              this.style.display = <span class="string">'none'</span></span><br><span class="line">              this.previousSibling.style.display = <span class="string">'inline'</span></span><br><span class="line">              this.previousSibling.focus()</span><br><span class="line">          &#125;)</span><br><span class="line">          <span class="keyword">if</span> (!item.value) &#123;</span><br><span class="line">              item.style.display = <span class="string">'none'</span></span><br><span class="line">              item.nextSibling.style.display = <span class="string">'inline'</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="ie9兼容3"><a href="#ie9兼容3" class="headerlink" title="ie9兼容3"></a>ie9兼容3</h1><h3 id="请求缓存"><a href="#请求缓存" class="headerlink" title="请求缓存"></a>请求缓存</h3><p>在IE9下，进行Ajax请求时，若与之前请求相同，则不会再从浏览器获取数据，而是直接从本地获取。<br>解决方法个人找到比较方便的有两种：1 ,在请求中加上参数时间戳，IE9便会认为是不同的请求。<br>                                 2 ,请求头headers添加</p>
+<pre class=" language-js"><code class="language-js">headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'cache-control'</span><span class="token punctuation">:</span> <span class="token string">'no-cache'</span><span class="token punctuation">,</span>
+    <span class="token string">'Pragma'</span><span class="token punctuation">:</span> <span class="token string">'no-cache'</span>           
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="input框placeholder兼容"><a href="#input框placeholder兼容" class="headerlink" title="input框placeholder兼容"></a>input框placeholder兼容</h3><p>在IE9浏览器中，input框并不支持placeholder属性，因此需要进行兼容判断</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token string">'placeholder'</span> <span class="token keyword">in</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// 将返回的nodeList对象转为数组</span>
+      <span class="token keyword">var</span> nodes <span class="token operator">=</span> Array<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>slice<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[placeholder]'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      nodes<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          item<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'focus'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span>nextSibling<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          item<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'blur'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                  <span class="token keyword">this</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span>
+                  <span class="token keyword">this</span><span class="token punctuation">.</span>nextSibling<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'inline'</span>
+              <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token keyword">var</span> cloneNode <span class="token operator">=</span> item<span class="token punctuation">.</span><span class="token function">cloneNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token comment" spellcheck="true">// 如果[type='password']类型，则转为text</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>cloneNode<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'type'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'password'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              cloneNode<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'type'</span><span class="token punctuation">,</span> <span class="token string">'text'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span>
+          cloneNode<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'value'</span><span class="token punctuation">,</span> cloneNode<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'placeholder'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+          cloneNode<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span>
+          item<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">'afterend'</span><span class="token punctuation">,</span> cloneNode<span class="token punctuation">.</span>outerHTML<span class="token punctuation">)</span>
+          item<span class="token punctuation">.</span>nextSibling<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'focus'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span>previousSibling<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'inline'</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span>previousSibling<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>item<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              item<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span>
+              item<span class="token punctuation">.</span>nextSibling<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'inline'</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</code></pre>
 
       
 

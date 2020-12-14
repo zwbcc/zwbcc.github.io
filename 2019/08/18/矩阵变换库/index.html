@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/08/18/矩阵变换库/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-17T08:12:24.018Z">
+<meta property="og:updated_time" content="2020-12-14T14:58:57.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="矩阵变换">
   
@@ -34,64 +34,59 @@
 
   
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d">
-</div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
-  <header id="header" class="inner">
-    <a href="/" class="profilepic">
-      <img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
-    </a>
-    <hgroup>
-      <h1 class="header-author"><a href="/">Comet_cc</a></h1>
-    </hgroup>
-    
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Comet_cc</a></h1>
+		</hgroup>
+		
 
 		<nav class="header-menu">
-    <ul>
-      
-    <li><a href="/">主页</a></li>
-    
-    <li><a href="/archives/index.html">归档</a></li>
-    
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
-    
-    <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    
-    
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-    <a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i
-        class="icon-github"></i></a>
-    
-    <a class="weibo" target="_blank" href="#" title="weibo"><i
-        class="icon-weibo"></i></a>
-    
-    <a class="qq" target="_blank" href="#" title="qq"><i
-        class="icon-qq"></i></a>
-    
-    <a class="weixin" target="_blank" href="#" title="weixin"><i
-        class="icon-weixin"></i></a>
-    
+					<a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="qq" target="_blank" href="#" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -179,7 +174,51 @@
       
         <hr>
 <a id="more"></a>
-<h1 id="矩阵变换方法"><a href="#矩阵变换方法" class="headerlink" title="矩阵变换方法"></a>矩阵变换方法</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">/* 矩阵变换库 ./lib/cuon-matrix.js  */</span><br><span class="line"><span class="built_in">let</span> matrix = new Matrix4()</span><br><span class="line">matrix.set(<span class="string">'m'</span>) /* 将matrix实例设置为 m  m必须为一个矩阵 */</span><br><span class="line">matrix.elements /* 包含该实例的矩阵元素 */</span><br><span class="line">matrix.setIdentity() /* 将实例初始化单位矩阵 */</span><br><span class="line">matrix.setTranslate(x, y, z) /* 将实例设置为平移变换矩阵 */</span><br><span class="line">matrix.setRotate(angle, x, y, z) /* 将实例设置为旋转变换矩阵 */</span><br><span class="line">matrix.setScale(x, y, z) /* 将实例设置为缩放变换矩阵 */</span><br><span class="line">matrix.translate(x, y, z) /* 将实例乘一个平移变换矩阵 */</span><br><span class="line">matrix.rotate(x, y, z) /* 将实例乘一个旋转变换矩阵 */</span><br><span class="line">matrix.scale(x, y, z) /* 将实例乘一个缩放变换矩阵 */</span><br><span class="line">matrix.multiply(matrix1) /* 两个矩阵相乘，返回的结果为一个新的matrix4对象，并且值为两个矩阵相乘的结果 */</span><br><span class="line">/* </span><br><span class="line">通过各参数计算正射投影矩阵，将其存储在Matrix4中。注意，left不一定与right相等，bottom不一定与top相等，near与far不相等。参数：</span><br><span class="line"></span><br><span class="line">left、right：指定近裁剪面的左边界和右边界</span><br><span class="line"></span><br><span class="line">bottom、top：指定近裁剪面的上边界和下边界</span><br><span class="line"></span><br><span class="line">near、far：指定近裁剪面和远裁剪面的位置，即可视空间的近边界和远边界 */</span><br><span class="line"></span><br><span class="line">matrix.setOrtho(left, right, bottom, top, near, far)</span><br><span class="line"></span><br><span class="line">/* 通过各参数计算透视投影矩阵，将其存储在Matrix4中。注意，near的值必须小于far。参数：</span><br><span class="line"> </span><br><span class="line">fov:指定垂直视角，即可视空间顶面和底面键的夹角，必须大于0</span><br><span class="line"></span><br><span class="line">aspect:指定近裁剪面的高宽比（宽度/高度）</span><br><span class="line"></span><br><span class="line">near、far：指定近裁剪面和远裁剪面的位置，即可视空间的近边界和远边界（near和far必须都大于0）</span><br><span class="line"></span><br><span class="line">注意，第二个参数aspect是近裁剪面的宽高比，而不是水平视角（第一个参数是垂直视角）。比如说，如果近裁剪面的高度100和宽度200，那么宽高比为2。 */</span><br><span class="line">matrix.setPerspective(fov, aspect, near, far)</span><br><span class="line"></span><br><span class="line">/* 视点：观察者所处的位置称为视点。从视点出发沿着观察方向的射线称作视线。坐标用(eyeX,eyeY,eyeZ)表示。</span><br><span class="line">观察目标点：被观察目标所在的点，它可以用来确定视线。坐标用(atX,atY,atZ)表示。</span><br><span class="line">上方向：最终绘制在屏幕上的影像中的向上的方向。坐标用(upX,upY,upZ)表示。</span><br><span class="line">在WebGL中，我们可以用上述的三个矢量创建一个视图矩阵，然后将该矩阵传给顶点着色器。</span><br><span class="line">在cuon-matrix.js中提供的Matrix4.setLookAt()函数可以根据上述的三个矢量：视点、观察点和上方向，来创建出视图矩阵 */</span><br><span class="line">matrix.setLookAt(eyeX, eyeY, eyeZ, atX, atY, atZ, upX, upY, upZ)</span><br><span class="line">matrix.lookAt(eyeX, eyeY, eyeZ, atX, atY, atZ, upX, upY, upZ)</span><br><span class="line"></span><br><span class="line">matrix.setInverseOf(m) /*     使自身称为矩阵m的逆矩阵。 */</span><br><span class="line">matrix.transpose() /* 对自身进行转置操作，并将自身设为转置后的结果 */</span><br></pre></td></tr></table></figure>
+<h1 id="矩阵变换方法"><a href="#矩阵变换方法" class="headerlink" title="矩阵变换方法"></a>矩阵变换方法</h1><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/* 矩阵变换库 ./lib/cuon-matrix.js  */</span>
+<span class="token keyword">let</span> matrix <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Matrix4</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+matrix<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'m'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 将matrix实例设置为 m  m必须为一个矩阵 */</span>
+matrix<span class="token punctuation">.</span>elements <span class="token comment" spellcheck="true">/* 包含该实例的矩阵元素 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">setIdentity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 将实例初始化单位矩阵 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">setTranslate</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 将实例设置为平移变换矩阵 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">setRotate</span><span class="token punctuation">(</span>angle<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 将实例设置为旋转变换矩阵 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">setScale</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 将实例设置为缩放变换矩阵 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">translate</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 将实例乘一个平移变换矩阵 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">rotate</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 将实例乘一个旋转变换矩阵 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 将实例乘一个缩放变换矩阵 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>matrix1<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 两个矩阵相乘，返回的结果为一个新的matrix4对象，并且值为两个矩阵相乘的结果 */</span>
+<span class="token comment" spellcheck="true">/* 
+通过各参数计算正射投影矩阵，将其存储在Matrix4中。注意，left不一定与right相等，bottom不一定与top相等，near与far不相等。参数：
+
+left、right：指定近裁剪面的左边界和右边界
+
+bottom、top：指定近裁剪面的上边界和下边界
+
+near、far：指定近裁剪面和远裁剪面的位置，即可视空间的近边界和远边界 */</span>
+
+matrix<span class="token punctuation">.</span><span class="token function">setOrtho</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">,</span> bottom<span class="token punctuation">,</span> top<span class="token punctuation">,</span> near<span class="token punctuation">,</span> far<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">/* 通过各参数计算透视投影矩阵，将其存储在Matrix4中。注意，near的值必须小于far。参数：
+
+fov:指定垂直视角，即可视空间顶面和底面键的夹角，必须大于0
+
+aspect:指定近裁剪面的高宽比（宽度/高度）
+
+near、far：指定近裁剪面和远裁剪面的位置，即可视空间的近边界和远边界（near和far必须都大于0）
+
+注意，第二个参数aspect是近裁剪面的宽高比，而不是水平视角（第一个参数是垂直视角）。比如说，如果近裁剪面的高度100和宽度200，那么宽高比为2。 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">setPerspective</span><span class="token punctuation">(</span>fov<span class="token punctuation">,</span> aspect<span class="token punctuation">,</span> near<span class="token punctuation">,</span> far<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">/* 视点：观察者所处的位置称为视点。从视点出发沿着观察方向的射线称作视线。坐标用(eyeX,eyeY,eyeZ)表示。
+观察目标点：被观察目标所在的点，它可以用来确定视线。坐标用(atX,atY,atZ)表示。
+上方向：最终绘制在屏幕上的影像中的向上的方向。坐标用(upX,upY,upZ)表示。
+在WebGL中，我们可以用上述的三个矢量创建一个视图矩阵，然后将该矩阵传给顶点着色器。
+在cuon-matrix.js中提供的Matrix4.setLookAt()函数可以根据上述的三个矢量：视点、观察点和上方向，来创建出视图矩阵 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">setLookAt</span><span class="token punctuation">(</span>eyeX<span class="token punctuation">,</span> eyeY<span class="token punctuation">,</span> eyeZ<span class="token punctuation">,</span> atX<span class="token punctuation">,</span> atY<span class="token punctuation">,</span> atZ<span class="token punctuation">,</span> upX<span class="token punctuation">,</span> upY<span class="token punctuation">,</span> upZ<span class="token punctuation">)</span>
+matrix<span class="token punctuation">.</span><span class="token function">lookAt</span><span class="token punctuation">(</span>eyeX<span class="token punctuation">,</span> eyeY<span class="token punctuation">,</span> eyeZ<span class="token punctuation">,</span> atX<span class="token punctuation">,</span> atY<span class="token punctuation">,</span> atZ<span class="token punctuation">,</span> upX<span class="token punctuation">,</span> upY<span class="token punctuation">,</span> upZ<span class="token punctuation">)</span>
+
+matrix<span class="token punctuation">.</span><span class="token function">setInverseOf</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/*     使自身称为矩阵m的逆矩阵。 */</span>
+matrix<span class="token punctuation">.</span><span class="token function">transpose</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">/* 对自身进行转置操作，并将自身设为转置后的结果 */</span>
+</code></pre>
 
       
 

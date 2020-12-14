@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/07/08/redis、日志/index.html">
 <meta property="og:site_name" content="Comet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-06T13:01:03.008Z">
+<meta property="og:updated_time" content="2020-12-14T14:58:57.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis、日志">
   
@@ -34,64 +34,59 @@
 
   
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d">
-</div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
-  <header id="header" class="inner">
-    <a href="/" class="profilepic">
-      <img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
-    </a>
-    <hgroup>
-      <h1 class="header-author"><a href="/">Comet_cc</a></h1>
-    </hgroup>
-    
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://q.qqtouxiang.com/q/2013/07/12153649267782.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Comet_cc</a></h1>
+		</hgroup>
+		
 
 		<nav class="header-menu">
-    <ul>
-      
-    <li><a href="/">主页</a></li>
-    
-    <li><a href="/archives/index.html">归档</a></li>
-    
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
-    
-    <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    
-    
-    
-    <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    
-    
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-    <a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i
-        class="icon-github"></i></a>
-    
-    <a class="weibo" target="_blank" href="#" title="weibo"><i
-        class="icon-weibo"></i></a>
-    
-    <a class="qq" target="_blank" href="#" title="qq"><i
-        class="icon-qq"></i></a>
-    
-    <a class="weixin" target="_blank" href="#" title="weixin"><i
-        class="icon-weixin"></i></a>
-    
+					<a class="github" target="_blank" href="https://github.com/zwbcc" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="qq" target="_blank" href="#" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -180,10 +175,213 @@
         <hr>
 <a id="more"></a>
 <h1 id="redis、日志"><a href="#redis、日志" class="headerlink" title="redis、日志"></a>redis、日志</h1><h3 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h3><p>redis是一款内存高速缓存数据库,一个高性能的key-value数据库，Redis把数据存在内存中，Redis交换数据快，在服务器中常用来存储一些需要”频繁调取”的数据，节省内存开销，也极大的提升了速度。<br>Redis一共支持五种数据类型：String（字符串）、hash（哈希）、list（列表）、set（集合）和zset（sorted  set有序集合）<br>1,String（字符串）：Redis最基本的数据类型，一个键对应一个值，一个键值最大存储512MB<br>2,Hash（哈希）：hash是一个键值对的集合，是一个String类型的field和value的映射表，适合用于存储对象<br>3,List（列表）：是redis的简单的字符串列表，按插入顺序排序<br>4,Set（集合）：是String字符串类型的无序集合，也不可重复<br>5,ZSet（sorted  set  有序集合）是String类型的有序集合，也不可重复。有序集合中的每个元素都需要指定一个分数，根据分数对元素进行升序排序。<br>redis下载安装：<a href="https://www.runoob.com/redis/redis-install.html" target="_blank" rel="noopener">https://www.runoob.com/redis/redis-install.html</a><br>安装下载完成后进入redis安装目录输入 redis-server.exe redis.windows.conf 启动命令，添加系统环境变量更方便启动,redis.windows.conf是redis相关配置文件,不设置默认启动redis默认配置</p>
-<p>nodejs中使用redis，在本地安装好redis启动前提下，nodejs下载redis npm install redis<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">const redis = require(<span class="string">'redis'</span>)</span><br><span class="line">const REDIS_CONF = &#123;</span><br><span class="line">    port: 6379,</span><br><span class="line">    host: <span class="string">'127.0.0.1'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 创建客户端</span><br><span class="line">const redisClient = redis.createClient(REDIS_CONF.port, REDIS_CONF.host)</span><br><span class="line">redisClient.on(<span class="string">'error'</span>, err =&gt; &#123;</span><br><span class="line">    console.error(err)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">keys * 得到所有key</span><br><span class="line"></span><br><span class="line">// 字符串</span><br><span class="line"><span class="built_in">set</span> key value 设置key的value</span><br><span class="line">get key 得到key的value</span><br><span class="line">incr key key如果是整型自增1</span><br><span class="line">redisClient.set(<span class="string">'name'</span>, <span class="string">'zyc'</span>,  (err, res) =&gt; &#123; // todo.. &#125;);</span><br><span class="line">redisClient.get(<span class="string">'name'</span>, (err, res) =&gt; &#123; // todo... &#125;);</span><br><span class="line"></span><br><span class="line">//哈希</span><br><span class="line">hset key filed value 设置key对象的field属性的value</span><br><span class="line">hget key filed 得到key对象的field属性的value</span><br><span class="line">hgetall key 得到key对象的所有的属性和值</span><br><span class="line">hdel key field 删除</span><br><span class="line">hexists key field 判断对象是否存在这个field</span><br><span class="line">redisClient.hset(<span class="string">"hosts"</span>, <span class="string">"mjr"</span>, <span class="string">"1"</span>, <span class="string">"another"</span>, <span class="string">"23"</span>, <span class="string">"home"</span>, <span class="string">"1234"</span>);</span><br><span class="line">redisClient.hgetall(<span class="string">"hosts"</span>,  (err, obj)=&gt; &#123;//todo&#125;);</span><br><span class="line">redisClient.hset(key2, &#123;</span><br><span class="line">    <span class="string">"0123456789"</span>: <span class="string">"abcdefghij"</span>, // NOTE: key and value will be coerced to strings </span><br><span class="line">    <span class="string">"some manner of key"</span>: <span class="string">"a type of value"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//列表</span><br><span class="line">lpush key value [value ...] 向链表key左边添加元素</span><br><span class="line">rpush key value [value...] 向链表key右边添加元素</span><br><span class="line">lpop key 移除key链表左边第一个元素</span><br><span class="line">rpop key 移除key链表右边第一元素</span><br><span class="line">lrange key start stop 获取链表中某一段，包含最大值，-1表示最后一个元素</span><br><span class="line">redisClient.rpush(<span class="string">'arr'</span>,3,4,(err,obj)=&gt;&#123; // todo.. &#125;)  //[3,4]</span><br><span class="line">redisClient.lpush(<span class="string">'arr'</span>,2,1,(err,obj)=&gt;&#123; // todo.. &#125;)   //[1,2,3,4]</span><br><span class="line">redisClient.rpop(<span class="string">'arr'</span>,(err,obj)=&gt;&#123; // todo.. &#125;)   //[1,2,3]</span><br><span class="line">redisClient.lrange(<span class="string">'arr'</span>,0,-1,(err,obj)=&gt;&#123; // todo.. &#125;)   //[1,2,3]</span><br><span class="line"></span><br><span class="line">//集合</span><br><span class="line">sadd key member [member ...] 向集合key中添加元素，如果元素已经存在则忽略</span><br><span class="line">srem key member [member ...] 从集合key中删除元素</span><br><span class="line">smembers key 返回集合key中所有的元素</span><br><span class="line">sinter key [key ...] 多个集合执行交集运算</span><br><span class="line">sdiff key [key ...] 多个集合执行差集运算</span><br><span class="line">sunion key [key ...] 多个集合执行并集运算</span><br><span class="line">sismember key member 是否在集合内</span><br><span class="line">redisClient.sadd(<span class="string">'muster'</span>,1,2,(err,obj)=&gt;&#123; // todo.. &#125;)  //[1，2]</span><br><span class="line">redisClient.smembers(<span class="string">'muster'</span>,(err,obj)=&gt;&#123; // todo.. &#125;)   //[1，2]</span><br><span class="line">redisClient.srem(<span class="string">'muster'</span>,1,(err,obj)=&gt;&#123; // todo.. &#125;)   // 2</span><br><span class="line">redisClient.sismember(<span class="string">'muster'</span>,2,(err,obj)=&gt;&#123; // todo...&#125;) 返回1或0，在或不在</span><br><span class="line"></span><br><span class="line">//有序集合</span><br><span class="line">zadd key score member [score member ...] 向有序集合key中加入一个或多个元素和分数，如果元素已经存在，则替换分数</span><br><span class="line">zrem key member [member ...] 删除集合中一个或多个元素</span><br><span class="line">zrange key start stop [withscores] 按元素分数从小到大顺序返回元素，如需获得对应元素的分数，在尾部加上withscores</span><br><span class="line">zrevrange key start stop [withscores] 按元素分数从大到小顺序返回元素</span><br></pre></td></tr></table></figure></p>
-<h3 id="express中简单使用redis配合session"><a href="#express中简单使用redis配合session" class="headerlink" title="express中简单使用redis配合session"></a>express中简单使用redis配合session</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">const redis = require(<span class="string">'redis'</span>)</span><br><span class="line">const session = require(<span class="string">'express-session'</span>)</span><br><span class="line">const RedisStore = require(<span class="string">'connect-redis'</span>)(session)</span><br><span class="line">const REDIS_CONF = &#123;</span><br><span class="line">    port: 6379,</span><br><span class="line">    host: <span class="string">'127.0.0.1'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 创建客户端</span><br><span class="line">const redisClient = redis.createClient(REDIS_CONF.port, REDIS_CONF.host)</span><br><span class="line">redisClient.on(<span class="string">'error'</span>, err =&gt; &#123;</span><br><span class="line">    console.error(err)</span><br><span class="line">&#125;)</span><br><span class="line">const sessionStore = new RedisStore(&#123;</span><br><span class="line">  client: redisClient</span><br><span class="line">&#125;)</span><br><span class="line">app.use(session(&#123;</span><br><span class="line">  secret: <span class="string">'xxxxxx'</span>,</span><br><span class="line">  cookie: &#123;</span><br><span class="line">    maxAge: 24 * 60 * 60 * 1000</span><br><span class="line">  &#125;,</span><br><span class="line">  store: sessionStore</span><br><span class="line">&#125;))</span><br><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>(key, val) &#123;</span><br><span class="line">    <span class="keyword">if</span> (typeof val === <span class="string">'object'</span>) &#123;</span><br><span class="line">        val = JSON.stringify(val)</span><br><span class="line">    &#125;</span><br><span class="line">    redisClient.set(key, val, redis.print)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> get(key) &#123;</span><br><span class="line">    const promise = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        redisClient.get(key, (err, val) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                reject(err)</span><br><span class="line">                <span class="built_in">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (val == null) &#123;</span><br><span class="line">                resolve(null)</span><br><span class="line">                <span class="built_in">return</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            try &#123;</span><br><span class="line">                resolve(</span><br><span class="line">                    JSON.parse(val)</span><br><span class="line">                )</span><br><span class="line">            &#125; catch (ex) &#123;</span><br><span class="line">                resolve(val)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">return</span> promise</span><br><span class="line">&#125;</span><br><span class="line">// 设置 session</span><br><span class="line">req.session.username = data.username</span><br><span class="line">req.session.realname = data.realname</span><br><span class="line">// 同步到 redis</span><br><span class="line"><span class="built_in">set</span>(req.sessionId, req.session)</span><br></pre></td></tr></table></figure>
-<h3 id="node使用文件留读写日志"><a href="#node使用文件留读写日志" class="headerlink" title="node使用文件留读写日志"></a>node使用文件留读写日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(<span class="string">'fs'</span>)</span><br><span class="line">const path = require(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line">// 写日志</span><br><span class="line"><span class="keyword">function</span> writeLog(writeStream, <span class="built_in">log</span>) &#123;</span><br><span class="line">    writeStream.write(<span class="built_in">log</span> + <span class="string">'\n'</span>)  // 关键代码</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 生成 write Stream</span><br><span class="line"><span class="keyword">function</span> createWriteStream(fileName) &#123;</span><br><span class="line">    const fullFileName = path.join(__dirname, <span class="string">'../'</span>, <span class="string">'../'</span>, <span class="string">'logs'</span>, fileName)</span><br><span class="line">    const writeStream = fs.createWriteStream(fullFileName, &#123;</span><br><span class="line">        flags: <span class="string">'a'</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">return</span> writeStream</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 写访问日志</span><br><span class="line">const accessWriteStream = createWriteStream(<span class="string">'access.log'</span>)</span><br><span class="line"><span class="keyword">function</span> access(<span class="built_in">log</span>) &#123;</span><br><span class="line">    writeLog(accessWriteStream, <span class="built_in">log</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">在 app.js 中 使用httpServer使用 access方法</span><br><span class="line"> access(`<span class="variable">$&#123;req.method&#125;</span> -- <span class="variable">$&#123;req.url&#125;</span> -- <span class="variable">$&#123;req.headers['user-agent']&#125;</span> -- <span class="variable">$&#123;Date.now()&#125;</span>`)</span><br></pre></td></tr></table></figure>
-<h3 id="使用log4js读写日志"><a href="#使用log4js读写日志" class="headerlink" title="使用log4js读写日志"></a>使用log4js读写日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">const log4js = require(<span class="string">'log4js'</span>)</span><br><span class="line">// log4js的输出级别6个: trace, debug, info, warn, error, fatal</span><br><span class="line"></span><br><span class="line">log4js.configure(&#123;</span><br><span class="line">    //输出位置的基本信息设置</span><br><span class="line">    appenders: &#123;</span><br><span class="line">        //设置控制台输出 （默认日志级别是关闭的（即不会输出日志））</span><br><span class="line">        out: &#123; <span class="built_in">type</span>: <span class="string">'console'</span> &#125;,</span><br><span class="line">        //设置每天：以日期为单位,数据文件类型，dataFiel   注意设置pattern，alwaysIncludePattern属性</span><br><span class="line">        //allLog: &#123; <span class="built_in">type</span>: <span class="string">'dateFile'</span>, filename: <span class="string">'./log/all'</span>, pattern: <span class="string">'-yyyy-MM-dd.log'</span>, alwaysIncludePattern: <span class="literal">true</span> &#125;,</span><br><span class="line"></span><br><span class="line">        //所有日志记录，文件类型file   文件最大值maxLogSize 单位byte (B-&gt;KB-&gt;M) backups:备份的文件个数最大值,最新数据覆盖旧数据</span><br><span class="line">        allLog: &#123; <span class="built_in">type</span>: <span class="string">'file'</span>, filename: <span class="string">'./log/all.log'</span>, keepFileExt: <span class="literal">true</span>, maxLogSize: 10485760, backups: 3 &#125;,</span><br><span class="line"></span><br><span class="line">        //http请求日志  http请求日志需要app.use引用一下， 这样才会自动记录每次的请求信息 </span><br><span class="line">        httpLog: &#123; <span class="built_in">type</span>: <span class="string">"dateFile"</span>, filename: <span class="string">"log/httpAccess.log"</span>, pattern: <span class="string">".yyyy-MM-dd"</span>, keepFileExt: <span class="literal">true</span> &#125;,</span><br><span class="line"></span><br><span class="line">        //错误日志 <span class="built_in">type</span>:过滤类型logLevelFilter,将过滤error日志写进指定文件</span><br><span class="line">        errorLog: &#123; <span class="built_in">type</span>: <span class="string">'file'</span>, filename: <span class="string">'./log/error.log'</span> &#125;,</span><br><span class="line">        error: &#123; <span class="built_in">type</span>: <span class="string">"logLevelFilter"</span>, level: <span class="string">"error"</span>, appender: <span class="string">'errorLog'</span> &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    //不同等级的日志追加到不同的输出位置：appenders: [<span class="string">'out'</span>, <span class="string">'allLog'</span>]  categories 作为getLogger方法的键名对应</span><br><span class="line">    categories: &#123;</span><br><span class="line">        //appenders:采用的appender,取上面appenders项,level:设置级别</span><br><span class="line">        http: &#123; appenders: [<span class="string">'out'</span>, <span class="string">'httpLog'</span>], level: <span class="string">"debug"</span> &#125;,</span><br><span class="line">        default: &#123; appenders: [<span class="string">'out'</span>, <span class="string">'allLog'</span>, <span class="string">'error'</span>], level: <span class="string">'debug'</span> &#125;, //error写入时是经过筛选后留下的</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//getLogger参数取categories项,为空或者其他值取default默认项</span><br><span class="line">// exports.getLogger = <span class="keyword">function</span> (name) &#123;</span><br><span class="line">//     <span class="built_in">return</span> log4js.getLogger(name || <span class="string">'default'</span>)</span><br><span class="line">// &#125;</span><br><span class="line">const logger = log4js.getLogger(<span class="string">"liveMeeting"</span>);</span><br><span class="line"></span><br><span class="line">const httpLog = log4js.getLogger(<span class="string">'http'</span>);</span><br><span class="line">const httpLogger = log4js.connectLogger(httpLog, &#123; level: <span class="string">'WARN'</span> &#125;);</span><br><span class="line"></span><br><span class="line">exports = module.exports = &#123; logger, httpLogger &#125;;</span><br><span class="line"></span><br><span class="line">// http请求日志</span><br><span class="line">global.logger = require(<span class="string">'./config/log4js'</span>).logger;</span><br><span class="line">httpLogger = require(<span class="string">'./config/log4js'</span>).httpLogger;</span><br><span class="line"></span><br><span class="line">//这样会自动记录每次请求信息，放在其他use上面</span><br><span class="line">app.use(httpLogger);</span><br><span class="line"></span><br><span class="line">// 手写日志</span><br><span class="line">logger.info(<span class="string">'test info'</span>);</span><br><span class="line">logger.error(<span class="string">'test error info '</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">参考地址:https://blog.csdn.net/xiaoyangerbani/article/details/82319876</span><br></pre></td></tr></table></figure>
+<p>nodejs中使用redis，在本地安装好redis启动前提下，nodejs下载redis npm install redis</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> redis <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'redis'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> REDIS_CONF <span class="token operator">=</span> <span class="token punctuation">{</span>
+    port<span class="token punctuation">:</span> <span class="token number">6379</span><span class="token punctuation">,</span>
+    host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 创建客户端</span>
+<span class="token keyword">const</span> redisClient <span class="token operator">=</span> redis<span class="token punctuation">.</span><span class="token function">createClient</span><span class="token punctuation">(</span>REDIS_CONF<span class="token punctuation">.</span>port<span class="token punctuation">,</span> REDIS_CONF<span class="token punctuation">.</span>host<span class="token punctuation">)</span>
+redisClient<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> err <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+keys <span class="token operator">*</span> 得到所有key
+
+<span class="token comment" spellcheck="true">// 字符串</span>
+<span class="token keyword">set</span> key value 设置key的value
+<span class="token keyword">get</span> key 得到key的value
+incr key key如果是整型自增<span class="token number">1</span>
+redisClient<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'zyc'</span><span class="token punctuation">,</span>  <span class="token punctuation">(</span>err<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// todo.. });</span>
+redisClient<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// todo... });</span>
+
+<span class="token comment" spellcheck="true">//哈希</span>
+hset key filed value 设置key对象的field属性的value
+hget key filed 得到key对象的field属性的value
+hgetall key 得到key对象的所有的属性和值
+hdel key field 删除
+hexists key field 判断对象是否存在这个field
+redisClient<span class="token punctuation">.</span><span class="token function">hset</span><span class="token punctuation">(</span><span class="token string">"hosts"</span><span class="token punctuation">,</span> <span class="token string">"mjr"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token string">"another"</span><span class="token punctuation">,</span> <span class="token string">"23"</span><span class="token punctuation">,</span> <span class="token string">"home"</span><span class="token punctuation">,</span> <span class="token string">"1234"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+redisClient<span class="token punctuation">.</span><span class="token function">hgetall</span><span class="token punctuation">(</span><span class="token string">"hosts"</span><span class="token punctuation">,</span>  <span class="token punctuation">(</span>err<span class="token punctuation">,</span> obj<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//todo});</span>
+redisClient<span class="token punctuation">.</span><span class="token function">hset</span><span class="token punctuation">(</span>key2<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token string">"0123456789"</span><span class="token punctuation">:</span> <span class="token string">"abcdefghij"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// NOTE: key and value will be coerced to strings </span>
+    <span class="token string">"some manner of key"</span><span class="token punctuation">:</span> <span class="token string">"a type of value"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//列表</span>
+lpush key value <span class="token punctuation">[</span>value <span class="token operator">...</span><span class="token punctuation">]</span> 向链表key左边添加元素
+rpush key value <span class="token punctuation">[</span>value<span class="token operator">...</span><span class="token punctuation">]</span> 向链表key右边添加元素
+lpop key 移除key链表左边第一个元素
+rpop key 移除key链表右边第一元素
+lrange key start stop 获取链表中某一段，包含最大值，<span class="token operator">-</span><span class="token number">1</span>表示最后一个元素
+redisClient<span class="token punctuation">.</span><span class="token function">rpush</span><span class="token punctuation">(</span><span class="token string">'arr'</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// todo.. })  //[3,4]</span>
+redisClient<span class="token punctuation">.</span><span class="token function">lpush</span><span class="token punctuation">(</span><span class="token string">'arr'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// todo.. })   //[1,2,3,4]</span>
+redisClient<span class="token punctuation">.</span><span class="token function">rpop</span><span class="token punctuation">(</span><span class="token string">'arr'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// todo.. })   //[1,2,3]</span>
+redisClient<span class="token punctuation">.</span><span class="token function">lrange</span><span class="token punctuation">(</span><span class="token string">'arr'</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// todo.. })   //[1,2,3]</span>
+
+<span class="token comment" spellcheck="true">//集合</span>
+sadd key member <span class="token punctuation">[</span>member <span class="token operator">...</span><span class="token punctuation">]</span> 向集合key中添加元素，如果元素已经存在则忽略
+srem key member <span class="token punctuation">[</span>member <span class="token operator">...</span><span class="token punctuation">]</span> 从集合key中删除元素
+smembers key 返回集合key中所有的元素
+sinter key <span class="token punctuation">[</span>key <span class="token operator">...</span><span class="token punctuation">]</span> 多个集合执行交集运算
+sdiff key <span class="token punctuation">[</span>key <span class="token operator">...</span><span class="token punctuation">]</span> 多个集合执行差集运算
+sunion key <span class="token punctuation">[</span>key <span class="token operator">...</span><span class="token punctuation">]</span> 多个集合执行并集运算
+sismember key member 是否在集合内
+redisClient<span class="token punctuation">.</span><span class="token function">sadd</span><span class="token punctuation">(</span><span class="token string">'muster'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// todo.. })  //[1，2]</span>
+redisClient<span class="token punctuation">.</span><span class="token function">smembers</span><span class="token punctuation">(</span><span class="token string">'muster'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// todo.. })   //[1，2]</span>
+redisClient<span class="token punctuation">.</span><span class="token function">srem</span><span class="token punctuation">(</span><span class="token string">'muster'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// todo.. })   // 2</span>
+redisClient<span class="token punctuation">.</span><span class="token function">sismember</span><span class="token punctuation">(</span><span class="token string">'muster'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// todo...}) 返回1或0，在或不在</span>
+
+<span class="token comment" spellcheck="true">//有序集合</span>
+zadd key score member <span class="token punctuation">[</span>score member <span class="token operator">...</span><span class="token punctuation">]</span> 向有序集合key中加入一个或多个元素和分数，如果元素已经存在，则替换分数
+zrem key member <span class="token punctuation">[</span>member <span class="token operator">...</span><span class="token punctuation">]</span> 删除集合中一个或多个元素
+zrange key start stop <span class="token punctuation">[</span>withscores<span class="token punctuation">]</span> 按元素分数从小到大顺序返回元素，如需获得对应元素的分数，在尾部加上withscores
+zrevrange key start stop <span class="token punctuation">[</span>withscores<span class="token punctuation">]</span> 按元素分数从大到小顺序返回元素
+
+</code></pre>
+<h3 id="express中简单使用redis配合session"><a href="#express中简单使用redis配合session" class="headerlink" title="express中简单使用redis配合session"></a>express中简单使用redis配合session</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> redis <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'redis'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> session <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express-session'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> RedisStore <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'connect-redis'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>session<span class="token punctuation">)</span>
+<span class="token keyword">const</span> REDIS_CONF <span class="token operator">=</span> <span class="token punctuation">{</span>
+    port<span class="token punctuation">:</span> <span class="token number">6379</span><span class="token punctuation">,</span>
+    host<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 创建客户端</span>
+<span class="token keyword">const</span> redisClient <span class="token operator">=</span> redis<span class="token punctuation">.</span><span class="token function">createClient</span><span class="token punctuation">(</span>REDIS_CONF<span class="token punctuation">.</span>port<span class="token punctuation">,</span> REDIS_CONF<span class="token punctuation">.</span>host<span class="token punctuation">)</span>
+redisClient<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> err <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> sessionStore <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RedisStore</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  client<span class="token punctuation">:</span> redisClient
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">session</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  secret<span class="token punctuation">:</span> <span class="token string">'xxxxxx'</span><span class="token punctuation">,</span>
+  cookie<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    maxAge<span class="token punctuation">:</span> <span class="token number">24</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">1000</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  store<span class="token punctuation">:</span> sessionStore
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token keyword">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> val <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        val <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    redisClient<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> val<span class="token punctuation">,</span> redis<span class="token punctuation">.</span>print<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token keyword">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        redisClient<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+                <span class="token keyword">return</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token function">resolve</span><span class="token punctuation">(</span>
+                    JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+                <span class="token punctuation">)</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ex</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">resolve</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> promise
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 设置 session</span>
+req<span class="token punctuation">.</span>session<span class="token punctuation">.</span>username <span class="token operator">=</span> data<span class="token punctuation">.</span>username
+req<span class="token punctuation">.</span>session<span class="token punctuation">.</span>realname <span class="token operator">=</span> data<span class="token punctuation">.</span>realname
+<span class="token comment" spellcheck="true">// 同步到 redis</span>
+<span class="token keyword">set</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>sessionId<span class="token punctuation">,</span> req<span class="token punctuation">.</span>session<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="node使用文件留读写日志"><a href="#node使用文件留读写日志" class="headerlink" title="node使用文件留读写日志"></a>node使用文件留读写日志</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 写日志</span>
+<span class="token keyword">function</span> <span class="token function">writeLog</span><span class="token punctuation">(</span>writeStream<span class="token punctuation">,</span> log<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    writeStream<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>log <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 关键代码</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 生成 write Stream</span>
+<span class="token keyword">function</span> <span class="token function">createWriteStream</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> fullFileName <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../'</span><span class="token punctuation">,</span> <span class="token string">'../'</span><span class="token punctuation">,</span> <span class="token string">'logs'</span><span class="token punctuation">,</span> fileName<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> writeStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span>fullFileName<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        flags<span class="token punctuation">:</span> <span class="token string">'a'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> writeStream
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 写访问日志</span>
+<span class="token keyword">const</span> accessWriteStream <span class="token operator">=</span> <span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'access.log'</span><span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token function">access</span><span class="token punctuation">(</span>log<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">writeLog</span><span class="token punctuation">(</span>accessWriteStream<span class="token punctuation">,</span> log<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+在 app<span class="token punctuation">.</span>js 中 使用httpServer使用 access方法
+ <span class="token function">access</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>req<span class="token punctuation">.</span>method<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> -- </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>req<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> -- </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>req<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'user-agent'</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> -- </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="使用log4js读写日志"><a href="#使用log4js读写日志" class="headerlink" title="使用log4js读写日志"></a>使用log4js读写日志</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> log4js <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'log4js'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// log4js的输出级别6个: trace, debug, info, warn, error, fatal</span>
+
+log4js<span class="token punctuation">.</span><span class="token function">configure</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//输出位置的基本信息设置</span>
+    appenders<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//设置控制台输出 （默认日志级别是关闭的（即不会输出日志））</span>
+        out<span class="token punctuation">:</span> <span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">'console'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">//设置每天：以日期为单位,数据文件类型，dataFiel   注意设置pattern，alwaysIncludePattern属性</span>
+        <span class="token comment" spellcheck="true">//allLog: { type: 'dateFile', filename: './log/all', pattern: '-yyyy-MM-dd.log', alwaysIncludePattern: true },</span>
+
+        <span class="token comment" spellcheck="true">//所有日志记录，文件类型file   文件最大值maxLogSize 单位byte (B->KB->M) backups:备份的文件个数最大值,最新数据覆盖旧数据</span>
+        allLog<span class="token punctuation">:</span> <span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">'file'</span><span class="token punctuation">,</span> filename<span class="token punctuation">:</span> <span class="token string">'./log/all.log'</span><span class="token punctuation">,</span> keepFileExt<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> maxLogSize<span class="token punctuation">:</span> <span class="token number">10485760</span><span class="token punctuation">,</span> backups<span class="token punctuation">:</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment" spellcheck="true">//http请求日志  http请求日志需要app.use引用一下， 这样才会自动记录每次的请求信息 </span>
+        httpLog<span class="token punctuation">:</span> <span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">"dateFile"</span><span class="token punctuation">,</span> filename<span class="token punctuation">:</span> <span class="token string">"log/httpAccess.log"</span><span class="token punctuation">,</span> pattern<span class="token punctuation">:</span> <span class="token string">".yyyy-MM-dd"</span><span class="token punctuation">,</span> keepFileExt<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment" spellcheck="true">//错误日志 type:过滤类型logLevelFilter,将过滤error日志写进指定文件</span>
+        errorLog<span class="token punctuation">:</span> <span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">'file'</span><span class="token punctuation">,</span> filename<span class="token punctuation">:</span> <span class="token string">'./log/error.log'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        error<span class="token punctuation">:</span> <span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">"logLevelFilter"</span><span class="token punctuation">,</span> level<span class="token punctuation">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span> appender<span class="token punctuation">:</span> <span class="token string">'errorLog'</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">//不同等级的日志追加到不同的输出位置：appenders: ['out', 'allLog']  categories 作为getLogger方法的键名对应</span>
+    categories<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//appenders:采用的appender,取上面appenders项,level:设置级别</span>
+        http<span class="token punctuation">:</span> <span class="token punctuation">{</span> appenders<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'out'</span><span class="token punctuation">,</span> <span class="token string">'httpLog'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> level<span class="token punctuation">:</span> <span class="token string">"debug"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> appenders<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'out'</span><span class="token punctuation">,</span> <span class="token string">'allLog'</span><span class="token punctuation">,</span> <span class="token string">'error'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> level<span class="token punctuation">:</span> <span class="token string">'debug'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//error写入时是经过筛选后留下的</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//getLogger参数取categories项,为空或者其他值取default默认项</span>
+<span class="token comment" spellcheck="true">// exports.getLogger = function (name) {</span>
+<span class="token comment" spellcheck="true">//     return log4js.getLogger(name || 'default')</span>
+<span class="token comment" spellcheck="true">// }</span>
+<span class="token keyword">const</span> logger <span class="token operator">=</span> log4js<span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token string">"liveMeeting"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> httpLog <span class="token operator">=</span> log4js<span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> httpLogger <span class="token operator">=</span> log4js<span class="token punctuation">.</span><span class="token function">connectLogger</span><span class="token punctuation">(</span>httpLog<span class="token punctuation">,</span> <span class="token punctuation">{</span> level<span class="token punctuation">:</span> <span class="token string">'WARN'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+exports <span class="token operator">=</span> module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> logger<span class="token punctuation">,</span> httpLogger <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// http请求日志</span>
+global<span class="token punctuation">.</span>logger <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./config/log4js'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>logger<span class="token punctuation">;</span>
+httpLogger <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./config/log4js'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>httpLogger<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//这样会自动记录每次请求信息，放在其他use上面</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>httpLogger<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 手写日志</span>
+logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">'test info'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+logger<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'test error info '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+
+参考地址<span class="token punctuation">:</span>https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>blog<span class="token punctuation">.</span>csdn<span class="token punctuation">.</span>net<span class="token operator">/</span>xiaoyangerbani<span class="token operator">/</span>article<span class="token operator">/</span>details<span class="token operator">/</span><span class="token number">82319876</span>
+</code></pre>
 
       
 
